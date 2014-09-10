@@ -39,7 +39,7 @@ a:hover, a:active {
     color: #618db5;
 }
 body {
-    background-image: url('image/body_bg.jpg');
+    background-image: url('body_bg.jpg');
     background-position: center top;
     background-repeat: repeat-x;
     font-family: arial;
@@ -52,7 +52,7 @@ h1 {
 }
 hr {
     height: 4px;
-    background-image: url('image/hr_bg.gif');
+    background-image: url('hr_bg.gif');
     border-width: 0;
     margin-top: 12px;
 }
@@ -105,6 +105,18 @@ p.signature {
     text-align: right;
     color: #505050;
 }
+
+.work-icon {
+  list-style-image: url('work.gif');
+}
+
+.mobile-icon {
+  list-style-image: url('mobile.gif');
+}
+
+.fax-icon {
+  list-style-image: url('fax.gif');
+}
 /***************************************************************************
 		Header.
 	***************************************************************************/
@@ -128,7 +140,7 @@ div.header div.location {
  ul.navigation {
     width: 748px;
     height: 49px;
-    background-image: url('image/navigation_bg.gif');
+    background-image: url('navigation_bg.gif');
     padding: 0 6px 0 6px;
     margin: 12px auto 0 auto;
     overflow: auto;
@@ -153,7 +165,7 @@ ul.navigation li a:hover {
 	***************************************************************************/
  div.promotion {
     width: 786px;
-    background-image: url('image/content_bg_full.png');
+    background-image: url('content_bg_full.png');
     background-repeat: no-repeat;
     padding-top: 12px;
     margin: auto;
@@ -188,7 +200,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 }
 div.content div.content {
     width: 350px;
-    background-image: url('image/content_bg.png');
+    background-image: url('content_bg.png');
     background-repeat: no-repeat;
     padding: 12px 24px 12px 24px;
     margin-left: -12px;
@@ -200,7 +212,7 @@ div.content div.content {
 	***************************************************************************/
  div.contentFull {
     width: 736px;
-    background-image: url('image/content_bg_full.png');
+    background-image: url('content_bg_full.png');
     background-repeat: no-repeat;
     padding: 12px 24px 12px 24px;
     margin: 0 auto 0 auto;
@@ -231,7 +243,7 @@ div.info div, div.error div {
 
 /******************************* Footer. *************************************/
  div.footer {
-    background-image: url('image/hr_bg.gif');
+    background-image: url('hr_bg.gif');
     background-repeat: repeat-x;
     background-color: black;
     margin-top: 12px;

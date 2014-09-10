@@ -48,7 +48,10 @@ class User < ActiveRecord::Base
     inverse_of: :user
   )
   
-
+  def name
+    first_name + last_name
+  end
+  
   ### Auth Methods ###
   
   def send_password_reset
@@ -59,8 +62,6 @@ class User < ActiveRecord::Base
     UserMailer.password_reset_email(self).deliver    
   end
   
-  # UNTESTED
-  # Sets active attribute to true
   def activate!
     self.update_attribute(:active, true)
   end
