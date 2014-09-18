@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'paperclip', "~> 4.1"
 gem 'aws-sdk'
-
+gem 'rails-gallery'
+gem 'figaro'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -39,7 +40,7 @@ end
 
 group :development do
   gem "binding_of_caller"
-  gem "better_errors"
+  gem "better_errors", "~> 1.1"
   gem "annotate"
   gem "pry-rails"
   gem "letter_opener"

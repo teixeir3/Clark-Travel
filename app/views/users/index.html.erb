@@ -1,32 +1,17 @@
-<div class="content">
-  <form action="<%= users_url %>" method="post">
-  	<%= auth_token %>
-  	<h1>New Agent</h1>
-  	<p>To create a new profile, enter a unique user name for the new agent to
-  		login with, such as "thiggins".</p>
-  	<p><label for="newUser">User</label><br> 
-  		<input id="newUser" type="text" name="user[:username]"></p>
-  	<p><label for="name">Name</label><br> 
-  		<input id="name" type="text" name="user[:name]"></p>
-  	<p style="float: right"><input type="submit"></p>
-  </form>
-</div>
+<%= render "form", user: @user %>
 <% @users.each do |user| %>
   <div class="content">
-  	<a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
+    <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
+    <%= link_to "Delete", user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
   	<h1><%= user.name %></h1>
   	<p style="float: left"><a href="agent.php?id=2">
     <%= image_tag user.avatar.url(:small), class: "photo" %>
     </a></p>
   	<p style="margin-left: 12px; float: left"><label for="position_2">Position</label><br> 
   		<select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
-  			<option selected="selected">1</option>
-  			<option>2</option>
-  			<option>3</option>
-  			<option>4</option>
-  			<option>5</option>
-  			<option>6</option>
-  			<option>7</option>
+        <% @users.length.times do |i| %>
+  			  <option <%= "selected" if user.position == i%>><%=i%></option>
+        <% end %>
   		</select></p> 
   	<ul style="margin-left: 12px; float: left">
   		<li>President</li>
@@ -37,27 +22,4 @@
   	<p style="margin-left: 12px; float: left"><input type="button" value="Contact Me" onclick="window.location='agent.php?id=2'"></p>
   </div>
 <% end %>
-<div class="content">
-	<a href="?action=delete&amp;id=2" onclick="return confirm('Are you sure you want to delete this agent?')">
-		<img class="delete" style="float: right" src="image/delete.png" alt="Delete" onmouseover="this.src='image/delete_s.png'" onmouseout="this.src='image/delete.png'"></a>
-	<h1>Lucille Pucciarelli</h1>
-	<p style="float: left"><a href="agent.php?id=2">
-		<img class="photo" src="agent/photo.php?id=2&amp;size=thumb" alt="Lucille Pucciarelli"></a></p>
-	<p style="margin-left: 12px; float: left"><label for="position_2">Position</label><br> 
-		<select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
-			<option selected="selected">1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-		</select></p> 
-	<ul style="margin-left: 12px; float: left">
-		<li>President</li>
-		<li style="list-style-image: url('icon/work.gif')">(908) 595-0400</li>
-		<li style="list-style-image: url('icon/mobile.gif')">(908) 400-6224</li>
-		<li style="list-style-image: url('icon/fax.gif')">(908) 595-0410</li>
-	</ul>
-	<p style="margin-left: 12px; float: left"><input type="button" value="Contact Me" onclick="window.location='agent.php?id=2'"></p>
-</div>
+

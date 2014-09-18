@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clark T.pngravel</title>
+  <title>Clark Travel</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
 
@@ -20,9 +21,10 @@
     <div class="location">
     <% if current_user %>
     		Welcome Ulrike Ocasio<br>
-    		<a href="profile.php">My Profile</a><br>
-    		<a href="login.php?action=switch">Switch User</a><br>
-    		<a href="logout.php">Logout</a>
+    		<a href="<%= edit_user_url(current_user) %>">My Profile</a><br>
+    		<a href="#">Switch User</a><br>
+    		<%= link_to_destroy("Logout", session_url, session_url) %>
+        <%= link_to "Logout", session_url, method: :delete, class: "delete-button" %>
     <% else %>
       <a href="<%= new_session_url %>">Agent Login</a>
     <% end %>
@@ -30,13 +32,13 @@
   </div>
   <ul class="navigation">
   	<li><a href="/">Home</a></li>
-  	<li><a href="testimonials.php">Testimonials</a></li>
-  	<li><a href="resources.php">Travel Resources</a></li>
-  	<li><a href="disney.php">Disney</a></li>
-  	<li><a href="about.php">About Us</a></li>
-  	<li><a href="german_cruise.php">2014 German Cruise</a></li>
-  	<li><a href="search.php"><img src="assets/navigation_book_now.png" alt="BOOK"></a></li>
-  	<li style="float: right"><a href="contact.php">Contact Us</a></li>
+  	<li><a href="#">Testimonials</a></li>
+  	<li><a href="#">Travel Resources</a></li>
+  	<li><a href="#">Disney</a></li>
+  	<li><a href="#">About Us</a></li>
+  	<li><a href="#">2014 German Cruise</a></li>
+  	<li><a href="#"><img src="/assets/navigation_book_now.png" alt="BOOK"></a></li>
+  	<li style="float: right"><a href="#">Contact Us</a></li>
   </ul>
   <!-- End header. *********************************************************** -->
 
@@ -48,14 +50,17 @@
 
   <!-- Begin footer. ********************************************************* -->
   <div class="footer">
-  	<img src="assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!">
+  	<img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!">
   	<p>3461 Route 22 East (Corner of County Line Rd.)<br>
   	Branchburg NJ 08876<br>
   	(908) 595-0400<br>
   	Fax (908) 595-0410<br>
   	<a href="<%= new_session_url %>">Agent Login</a></p>
   	<a href="http://www.AyosInformatics.com/">
-  		<img src="assets/ayos_informatics.gif" alt="Ayos Informatics"></a>
+  		<img src="/assets/ayos_final_100x50.gif" alt="Ayos Informatics"></a>
+    <div class="copyright">
+      <small>© Ayos Informatics, LLC 2014</small>
+    </div>
   </div>
   <!-- End footer. *********************************************************** -->
 

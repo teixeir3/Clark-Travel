@@ -10,6 +10,11 @@
  *
  *= require_self
  *= require_tree .
+ *= require gallery/responsive/elastislide
+ *= require gallery/responsive
+ *= require gallery/slideshow
+ *= require gallery/galleria/classic
+ *= require gallery/touch_touch
  */
 
 
@@ -25,8 +30,8 @@
 		Override.
 	***************************************************************************/
  @font-face {
-    font-family:'Quicksand';
-    src: url('res/Quicksand_Book.otf') format('opentype');
+    font-family:  inherit;
+/*    src: url('res/Quicksand_Book.otf') format('opentype');*/
 }
 * {
     padding: 0;
@@ -38,17 +43,35 @@ a:link, a:visited {
 a:hover, a:active {
     color: #618db5;
 }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea {
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  width: auto;
+}
+
 body {
     background-image: url('body_bg.jpg');
     background-position: center top;
     background-repeat: repeat-x;
-    font-family: arial;
+    font-family: sans-serif;
     font-size: 13px;
 }
 h1 {
     font-family:'Quicksand', arial;
     font-size: 27px;
     padding-top: 12px;
+    font-weight: normal;
 }
 hr {
     height: 4px;
@@ -96,7 +119,7 @@ ul {
     cursor: pointer;
 }
 .photo {
-    background-color: white;
+    background-color: #9ea3d9;
     padding: 6px;
     border: 1px solid #eeeeee;
 }
@@ -193,7 +216,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 		Standard half size content.
 	***************************************************************************/
  div.content {
-    width: 772px;
+    width: 784px;
     padding-left: 12px;
     margin: auto;
     overflow: auto;
@@ -217,6 +240,78 @@ div.content div.content {
     padding: 12px 24px 12px 24px;
     margin: 0 auto 0 auto;
     overflow: auto;
+}
+
+
+/***************************************************************************
+		Forms.
+	***************************************************************************/
+
+.form {
+/*  margin: 100px;*/
+  margin: auto;
+  width: auto;
+  border-radius: 10px;
+  float: left;
+}
+.long-submit > input {
+  width: 250px;
+}
+
+form > .submit > input {
+  position: relative;
+  background: #9ea3d9;
+/*  color: #515254;*/
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  border: 0;
+/*  width: 250px;*/
+  box-shadow: 0 3px #626a99;
+}
+
+.submit > input:hover {
+  background: #9198c4;
+/*  background: #1A8554;*/
+}
+
+.submit > input:active {
+  top: 3px;
+  box-shadow: none;
+}
+.input {
+  margin: 20px 0;
+}
+
+.input > input, textarea {
+  border: 2px solid #000;
+  padding: 5px 10px;
+  width: 250px;
+  border-radius: 4px;
+}
+
+.input > select {
+  border-radius: 4px;
+  border: 2px solid #000;
+  background: transparent;
+  height: 30px;
+  font-size: 15px;
+  padding: 5px;
+  background: #fff;
+}
+
+.input > select:select {
+  border-radius: 4px;
+  border: 2px solid #000;
+  border-color: #4BE19D;
+}
+
+.input > label {
+  display: block;
+  /*width: 250px;*/
+  font-weight: bold;
+  padding: 0 0 5px 0;
 }
 
 /******************************* Notice and Error messages. *************************************/
@@ -243,12 +338,12 @@ div.info div, div.error div {
 
 /******************************* Footer. *************************************/
  div.footer {
-    background-image: url('hr_bg.gif');
+    background-image: url('hr_bg.png');
     background-repeat: repeat-x;
     background-color: black;
-    margin-top: 12px;
+/*    margin-top: 12px;*/
     padding-bottom: 12px;
-    border-bottom: 6px solid #fffe7e;
+    border-bottom: 6px solid black;
     overflow: auto;
 }
 div.footer img {
@@ -257,4 +352,11 @@ div.footer img {
 div.footer p {
     text-align: center;
     color: white;
+}
+
+.copyright {
+  float: left;
+  font-size: 12px;
+  color: gray;
+  padding: 10px;
 }

@@ -1,33 +1,24 @@
-<main class="group">
-  <div class="side-content">
-    <div class="title">
-      <h3>Sign In</h3>
+<div class="contentFull">
+  <form class="form" action="<%= session_url %>" method="post">
+    <%= auth_token %>
+
+    <h1>Welcome Agent</h1>
+    <div class="input">
+      <label for="email">Email:</label>
+      <input type="text" name="user[email]" value="" id="email">
     </div>
-  </div>
 
-  <div class="sub-content">
-    <form class="form" action="<%= session_url %>" method="post">
-      <%= auth_token %>
+    <div class="input">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="user[password]" value="">
+    </div>
 
-      <h3>Welcome</h3>
-      <div class="input">
-        <label for="email">Email:</label>
-        <input type="text" name="user[email]" value="" id="email">
-      </div>
-
-      <div class="input">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="user[password]" value="">
-      </div>
-
-      <div class="submit long-submit">
-        <input type="submit" value="Sign In">
-      </div>
-      
-      <div class="google-signin">
-        <a class="group" href="/auth/google_oauth2"></a>
-      </div>
-    </form>
-   
-  </div>
-</main>
+    <div class="submit long-submit">
+      <input type="submit" value="Sign In">
+    </div>
+    
+    <div class="google-signin">
+      <a class="group" href="/auth/google_oauth2"></a>
+    </div>
+  </form>   
+</div>

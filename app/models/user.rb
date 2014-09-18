@@ -23,6 +23,13 @@
 #  uid                    :string(255)
 #  access_token           :string(255)
 #  provider               :string(255)
+#  position               :integer
+#  title                  :string(255)
+#  bio                    :text
+#  work_phone             :string(255)
+#  home_phone             :string(255)
+#  mobile_phone           :string(255)
+#  fax                    :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -34,7 +41,7 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
   validates :uid, uniqueness: {scope: :provider, if: :check_uid_by_provider}
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :small => "160x200", :medium => "360x450>", :thumb => "100x100>" }, :default_url => ":style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   before_validation :ensure_session_token

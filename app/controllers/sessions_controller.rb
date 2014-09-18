@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def new
     respond_to do |format|
       format.html{ render :new }
-      format.js { render :new }
+      # format.js { render :new }
     end
   end
   
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out
+    sign_out!
     redirect_to new_session_url
   end
 end
