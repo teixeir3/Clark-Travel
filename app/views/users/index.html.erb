@@ -7,17 +7,19 @@
   	<p style="float: left"><a href="agent.php?id=2">
     <%= image_tag user.avatar.url(:small), class: "photo" %>
     </a></p>
-  	<p style="margin-left: 12px; float: left"><label for="position_2">Position</label><br> 
+  	<ul style="margin-left: 12px; float: left">
+      <% if current_user.is_admin? %>
+        <li><label for="position_2">Position</label>
   		<select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
         <% @users.length.times do |i| %>
   			  <option <%= "selected" if user.position == i%>><%=i%></option>
         <% end %>
-  		</select></p> 
-  	<ul style="margin-left: 12px; float: left">
-  		<li>President</li>
-  		<li class="work-icon">(908) 595-0400</li>
-  		<li class="mobile-icon">(908) 400-6224</li>
-  		<li class="fax-icon">(908) 595-0410</li>
+  		</select></li>
+      <% end %>
+  		<li><%= user.title %></li>
+  		<li class="work-icon"><%= user.work_phone %></li>
+  		<li class="mobile-icon"><%= user.mobile_phone %></li>
+  		<li class="fax-icon"><%= user.fax %></li>
   	</ul>
   	<p style="margin-left: 12px; float: left"><input type="button" value="Contact Me" onclick="window.location='agent.php?id=2'"></p>
   </div>

@@ -20,10 +20,10 @@
   	</div>
     <div class="location">
     <% if current_user %>
-    		Welcome Ulrike Ocasio<br>
+    		Welcome <%= current_user.name %><br>
     		<a href="<%= edit_user_url(current_user) %>">My Profile</a><br>
     		<a href="#">Switch User</a><br>
-    		<%= link_to_destroy("Logout", session_url, session_url) %>
+        <!-- <%= link_to_destroy("Logout", session_url, session_url) %> -->
         <%= link_to "Logout", session_url, method: :delete, class: "delete-button" %>
     <% else %>
       <a href="<%= new_session_url %>">Agent Login</a>

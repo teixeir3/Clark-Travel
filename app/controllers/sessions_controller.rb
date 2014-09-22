@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   before_filter :require_signed_in!, :only => [:destroy]
   
   def new
+    session[:return_url] = request.referrer
     respond_to do |format|
       format.html{ render :new }
       # format.js { render :new }
@@ -27,7 +28,8 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to root_url
+      session[:return_url] = request.referrer unless session[:return_url]
+      redirect_to session[:return_url]
     else
       flash.now[:errors] = ["Incorrect credentials"]
       render :new
@@ -36,6 +38,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out!
-    redirect_to new_session_url
+    redirect_to request.referrer
   end
 end

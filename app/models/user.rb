@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
   
   ### Auth Methods ###
   
+  def is_admin?
+    is_admin
+  end
+  
   def send_password_reset
     self.password_reset_token = self.class.generate_unique_token_for_field(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
