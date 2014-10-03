@@ -4,11 +4,16 @@
   	<h1>New Agent</h1>
   	<p>To create a new profile, enter the email address for the new agent to
   		login with, such as "example@gmail.com.</p>
-  	<p><label for="newUser">Email</label><br> 
-  		<input id="newUser" type="text" name="user[:email]" value="<%= user.email if user %>"></p>
-  	<p><label for="name">Name</label><br> 
-      
-  		<input id="name" type="text" name="user[:name]"></p> 
-  	<p style="float: right"><div style="float: right" class="submit"><input class="long-submit" type="submit"></div></p>
+  	<div class="input">
+      <label for="newUser">Email</label>
+  		<input id="newUser" type="text" name="user[:email]" value="<%= user.email if user %>">
+    </div>
+    <div class="input">
+      <label for="name">Name</label>
+  		<input id="name" type="text" name="user[:name]">
+    </div>
+  	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
   </form>
 </div>

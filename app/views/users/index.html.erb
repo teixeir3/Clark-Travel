@@ -4,10 +4,10 @@
     <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
     <%= link_to "Delete", user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
   	<h1><%= user.name %></h1>
-  	<p style="float: left"><a href="agent.php?id=2">
+  	<div class="clearfix small-avatar"><a href="<%= user_url(user) %>">
     <%= image_tag user.avatar.url(:small), class: "photo" %>
-    </a></p>
-  	<ul style="margin-left: 12px; float: left">
+    </a></div>
+  	<ul class="contact-info">
       <% if current_user.is_admin? %>
         <li><label for="position_2">Position</label>
   		<select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">

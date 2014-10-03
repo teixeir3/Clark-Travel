@@ -114,6 +114,13 @@ ul {
     margin: 12px 0 0 12px;
 }
 /* Shared. */
+
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
  img.delete {
     margin-top: 12px;
     float: right;
@@ -141,6 +148,22 @@ p.signature {
 .fax-icon {
   list-style-image: url('fax.gif');
 }
+
+/***************************************************************************
+    User index: Contact
+	***************************************************************************/
+
+.contact-info {
+  background-color: blue;
+  margin-left: 12px;
+  float: left;
+}
+
+.small-avatar {
+  float: left;
+}
+
+
 /***************************************************************************
 		Header.
 	***************************************************************************/
@@ -259,7 +282,7 @@ div.content div.content {
   width: 250px;
 }
 
-form > .submit > input {
+form .submit > input {
   position: relative;
   background: #9ea3d9;
 /*  color: #515254;*/
@@ -275,6 +298,10 @@ form > .submit > input {
 .submit > input:hover {
   background: #9198c4;
 /*  background: #1A8554;*/
+}
+
+.submit {
+  float: right;
 }
 
 .submit > input:active {
