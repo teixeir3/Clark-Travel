@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  helper_method :current_user
+  helper_method :current_user, :permitted_params
   
   private
 
@@ -38,4 +38,7 @@ class ApplicationController < ActionController::Base
     params[:password] != params[:user][:password]
   end
   
+  def permitted_params
+    @permitted_params ||= PermittedParams.new(params, current_user)
+  end
 end

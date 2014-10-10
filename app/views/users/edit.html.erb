@@ -4,7 +4,7 @@
 	<%= auth_token %>
   
 	<div class="content">
-		<h1>My Photo</h1>
+		<h1><%= @user.name %></h1>
 		<p><%= image_tag @user.avatar.url(:small), class: "photo" %></p>
       
     <div class="input">
@@ -18,7 +18,7 @@
 	</div>
   
 	<div class="content">
-		<h1>My Contacts</h1>
+		<h1>Contact Info</h1>
     
     <div class="input">
       <label for="work">Work Phone</label>
@@ -47,7 +47,7 @@
     
     <div class="input">
       <label for="email">Confirm Email</label>
-      <input id="email" type="text" name="user[email_confirm]" value="<%= %>">
+      <input id="email" type="text" name="email_confirmation" value="<%= %>">
     </div>
     
   	<div class="submit">
@@ -56,10 +56,12 @@
 	</div>
   
 	<div class="content">
-		<h1>My Biography</h1>
+		<h1>Biography</h1>
     
-		<p><label for="biography">Biography</label><br/> 
-			<textarea id="biography" name="biography" rows="10" cols="33"><%= @user.bio %></textarea></p>
+		<div class="input">
+      <label for="biography">Biography</label> 
+			<textarea id="biography" name="biography" rows="10" cols="33"><%= @user.bio %></textarea>
+    </div>
       
   	<div class="submit">
       <input class="long-submit" type="submit">
@@ -67,7 +69,7 @@
 	</div>
   
 	<div class="content">
-		<h1>My Profile</h1>
+		<h1>Profile</h1>
     
     <div class="input">
       <label for="first-name">First Name</label>
@@ -86,7 +88,12 @@
     
 		<div class="input">
   		<label for="newPass">Password</label>
-  		<input id="newPass" type="password" name="newPass">
+  		<input id="newPass" type="password" name="user[password]">
+    </div>
+    
+		<div class="input">
+  		<label for="password-confirmation">Confirm Password</label>
+  		<input id="password-confirmation" type="password" name="user[password_confirmation]">
     </div>
       
   	<div class="submit">

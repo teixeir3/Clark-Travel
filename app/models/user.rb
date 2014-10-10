@@ -33,18 +33,27 @@
 #
 
 class User < ActiveRecord::Base
+  extend ActiveModel::Callbacks
+  
   attr_reader :password
   
+  validates_confirmation_of :password
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :session_token, presence: true, uniqueness: true
   validates :uid, uniqueness: {scope: :provider, if: :check_uid_by_provider}
+  validates_format_of :work_phone, :mobile_phone, :home_phone, :fax, with: /\d/, allow_blank: true
   
-  has_attached_file :avatar, :styles => { :small => "160x200", :medium => "360x450>", :thumb => "100x100>" }, :default_url => ":style/missing.png"
+  has_attached_file :avatar,
+                    :styles => { :small => "160x200", :medium => "360x450>", :thumb => "100x100>" },
+                    :default_url => ":style/missing.png",
+                    :bucket => ENV["AWS_BUCKET"]
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  
+
+  define_model_callbacks :create
   before_validation :ensure_session_token
+  before_validation :set_temporary_password, on: :create
   before_create :set_activation_token
   
   has_many(
@@ -55,8 +64,9 @@ class User < ActiveRecord::Base
     inverse_of: :user
   )
   
+  
   def name
-    first_name + last_name
+    "#{first_name} #{last_name}"
   end
   
   ### Auth Methods ###
@@ -79,6 +89,10 @@ class User < ActiveRecord::Base
   
   def set_activation_token
     self.activation_token = self.class.generate_unique_token_for_field(:activation_token)
+  end
+  
+  def set_temporary_password
+    self.password = self.class.generate_unique_token_for_field(:password_digest) unless self.password_digest
   end
   
   def self.find_by_credentials(email, password)

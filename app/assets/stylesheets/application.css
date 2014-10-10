@@ -74,6 +74,11 @@ h1 {
     padding-top: 12px;
     font-weight: normal;
 }
+
+.content h1 {
+  margin-bottom: 10px;
+}
+
 hr {
     height: 4px;
     background-image: url('hr_bg.gif');
@@ -126,6 +131,11 @@ ul {
     float: right;
     cursor: pointer;
 }
+
+.delete-button {
+  float: right;
+}
+
 .photo {
     background-color: #9ea3d9;
     padding: 6px;
@@ -154,8 +164,9 @@ p.signature {
 	***************************************************************************/
 
 .contact-info {
-  background-color: blue;
+/*  background-color: blue;*/
   margin-left: 12px;
+  width: 164px;
   float: left;
 }
 
@@ -241,7 +252,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 	***************************************************************************/
  div.content {
     width: 784px;
-    padding-left: 12px;
+    padding-left: 24px;
     margin: auto;
     overflow: auto;
 }
@@ -249,7 +260,7 @@ div.content div.content {
     width: 350px;
     background-image: url('content_bg.png');
     background-repeat: no-repeat;
-    padding: 12px 24px 12px 24px;
+    padding: 24px 24px 24px 24px;
     margin-left: -12px;
     float: left;
     overflow: auto;

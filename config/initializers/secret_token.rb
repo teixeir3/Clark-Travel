@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ClarkTravel::Application.config.secret_key_base = 'f42e2e9fc8b920e9ea9920b2332cfbdaad885c38eba2e94ea6b21f057289ce78db761a2512b22e1b34b4740b159b108faec79e29388f3bda59650bb53816c5cd'
+ClarkTravel::Application.config.secret_key_base = ENV['APP_SECRET_TOKEN']
