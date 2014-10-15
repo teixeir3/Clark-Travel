@@ -18,19 +18,25 @@
 #
 
 class Promotion < ActiveRecord::Base
-  
+  validates :start_date, presence: true
+  validates :expiration_date, presence: true, date: { after: lambda { |e| e.start_date}, message: "Must proceed the start date." }
+  validates :title, :user, presence: true
   
   has_attached_file :picture,
                     :styles => { :small => "160x200", :medium => "360x450>", :thumb => "100x100>" },
                     :default_url => ":style/missing.png",
                     :bucket => ENV["AWS_BUCKET"]
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   
   belongs_to(
     :user,
     class_name: "User",
     foreign_key: :user_id,
     primary_key: :id,
-    inverse_of: :user
+    inverse_of: :promotions
   )
+  
+  def self.all_active
+    self.where("current_date between start_date and expiration_date")
+  end
 end
