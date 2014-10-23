@@ -126,6 +126,14 @@ ul {
   clear: both;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
  img.delete {
     margin-top: 12px;
     float: right;
@@ -198,7 +206,7 @@ div.header div.location {
  ul.navigation {
     width: 748px;
     height: 49px;
-    background-image: url('navigation_bg.gif');
+/*    background-image: url('navigation_bg.gif');*/
     padding: 0 6px 0 6px;
     margin: 12px auto 0 auto;
     overflow: auto;
@@ -217,6 +225,7 @@ ul.navigation li a {
 }
 ul.navigation li a:hover {
     background-color: #618db5;
+    border-radius: 4px;
 }
 /***************************************************************************
 		Promotion
@@ -320,14 +329,18 @@ form .submit > input {
   box-shadow: none;
 }
 .input {
-  margin: 20px 0;
+  margin: 20px 0 20px 15px;
 }
 
 .input > input, textarea {
   border: 2px solid #000;
   padding: 5px 10px;
-  width: 250px;
+  width: 300px;
   border-radius: 4px;
+}
+
+.half-size > input, .half-size > textarea {
+  width: 130px;
 }
 
 .input > select {

@@ -1,7 +1,7 @@
 <%= render "form", user: @user %>
 <% @users.each do |user| %>
   <div class="content clearfix">
-    <% if current_user.is_admin? %>
+    <% if current_user_is_admin? %>
       <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
       <%= link_to "Delete", user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
     <% end %>
@@ -10,7 +10,7 @@
     <%= image_tag user.avatar.url(:small), class: "photo" %>
     </a></div>
   	<ul class="contact-info">
-      <% if current_user.is_admin? %>
+      <% if current_user_is_admin? %>
         <li>
           <label for="position_2">Position:</label>
   		    <select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">

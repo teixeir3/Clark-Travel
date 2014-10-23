@@ -1,0 +1,63 @@
+<form action="<%= promotions_url %>" enctype="multipart/form-data" method="post">
+	<%= auth_token %>
+  <% if promotion.persisted? %>
+    <input type="hidden" name="_method" value="put"/>
+  <% end %>
+  <div class="content">  
+  	<h1>Promotion Content</h1>
+      
+  	<div class="input">
+      <label for="title">Title</label>
+  		<input id="title" type="text" name="promotion[title]" value="<%= promotion.title if promotion.present? %>">
+    </div>
+    
+    <div class="input">
+      <label for="highlight">Highlight</label>
+  		<textarea id="highlight" type="text" name="promotion[highlight]">
+        <%= promotion.highlight if promotion.present? %>
+      </textarea>
+    </div>
+    
+    <div class="input">
+      <label for="body">Body</label>
+  		<textarea id="body" type="text" name="promotion[last_name]">
+        <%= promotion.body if promotion.present? %>
+      </textarea>
+    </div>
+    
+  	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
+  
+  </div>
+  <div class="content">
+  	<h1>Promotion Photo</h1>
+  	<p><%= image_tag promotion.picture.url(:small), class: "photo" %></p>
+    
+    <div class="input">
+      <label for="photo">JPEG Photo (Minimum 760x360):</label>
+      <input id="photo" type="file" name="promotion[photo]" value="">
+    </div>
+  
+  	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
+  </div>
+  <div class="content">
+  	<h1>Promotion Timeline</h1>
+    
+    <div class="input">
+      <label for="start-date">Start:</label>
+      <input id="start-date" type="date" name="promotion[start_date]" value="<%= promotion.start_date || Date.today %>">
+    </div>
+    
+    <div class="input">
+      <label for="expiration-date">Expiration:</label>
+      <input id="expiration-date" type="date" name="promotion[expiration_date]" value="<%= promotion.expiration_date || Date.today.advance(years: 1) %>">
+    </div>
+  
+  	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
+  </div>
+</form>

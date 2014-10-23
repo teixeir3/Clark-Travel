@@ -6,18 +6,18 @@
   		login with, such as "example@gmail.com.</p>
       
   	<div class="input">
-      <label for="newUser">Email</label>
-  		<input id="newUser" type="text" name="user[email]" value="<%= user.email if user %>">
+      <label for="email">Email</label>
+  		<input id="email" type="text" name="user[email]" value="<%= user.email if user.present? %>">
     </div>
     
-    <div class="input">
+    <div class="input half-size left">
       <label for="first-name">First Name</label>
-  		<input id="first-name" type="text" name="user[first_name]" value="<%= user.first_name if user %>">
+  		<input id="first-name" type="text" name="user[first_name]" value="<%= user.first_name if user.present? %>">
     </div>
     
-    <div class="input">
+    <div class="input half-size left">
       <label for="last-name">Last Name</label>
-  		<input id="last-name" type="text" name="user[last_name]" value="<%= user.last_name if user %>">
+  		<input id="last-name" type="text" name="user[last_name]" value="<%= user.last_name if user.present? %>">
     </div>
     
   	<div class="submit">
