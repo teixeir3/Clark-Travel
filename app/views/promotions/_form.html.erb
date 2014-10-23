@@ -3,6 +3,19 @@
   <% if promotion.persisted? %>
     <input type="hidden" name="_method" value="put"/>
   <% end %>
+  <div class="contentFull">
+  	<h1>Promotion Photo</h1>
+  	<p><%= image_tag promotion.picture.url(:medium), class: "photo" %></p>
+    
+    <div class="input">
+      <label for="photo">JPEG Photo (Minimum 760x360):</label>
+      <input id="photo" type="file" name="promotion[photo]" value="">
+    </div>
+  
+  	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
+  </div>
   <div class="content">  
   	<h1>Promotion Content</h1>
       
@@ -29,19 +42,6 @@
       <input class="long-submit" type="submit">
     </div>
   
-  </div>
-  <div class="content">
-  	<h1>Promotion Photo</h1>
-  	<p><%= image_tag promotion.picture.url(:small), class: "photo" %></p>
-    
-    <div class="input">
-      <label for="photo">JPEG Photo (Minimum 760x360):</label>
-      <input id="photo" type="file" name="promotion[photo]" value="">
-    </div>
-  
-  	<div class="submit">
-      <input class="long-submit" type="submit">
-    </div>
   </div>
   <div class="content">
   	<h1>Promotion Timeline</h1>

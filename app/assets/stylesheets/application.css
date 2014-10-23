@@ -61,7 +61,7 @@ textarea {
 }
 
 body {
-    background-image: url('body_bg.jpg');
+    background-image: url('body_bg.png');
     background-position: center top;
     background-repeat: repeat-x;
     background-color:#e3e3e3;
@@ -134,6 +134,10 @@ ul {
   float: right;
 }
 
+li.right {
+  float: right;
+}
+
  img.delete {
     margin-top: 12px;
     float: right;
@@ -148,6 +152,11 @@ ul {
     background-color: #9ea3d9;
     padding: 6px;
     border: 1px solid #eeeeee;
+}
+
+.map {
+  margin: auto;
+  margin-top: 12px;
 }
 p.signature {
     font-family: cursive;
@@ -187,31 +196,52 @@ p.signature {
 		Header.
 	***************************************************************************/
  div.header {
-    width: 760px;
+    width: 1260px;
     margin: 12px auto 0 auto;
     overflow: auto;
 }
-div.header img {
+/*div.header img {
     float: left;
-}
+}*/
 div.header div.location {
     font-size: 11.5px;
     color: black;
     margin-left: 12px;
     float: right;
 }
+
+.logins {
+  float: right;
+}
+
+.logout {
+  display: none;
+}
+
+.logout:hover {
+  display: block
+}
 /***************************************************************************
 		Navigation.
 	***************************************************************************/
  ul.navigation {
     width: 748px;
-    height: 49px;
-/*    background-image: url('navigation_bg.gif');*/
     padding: 0 6px 0 6px;
-    margin: 12px auto 0 auto;
+    margin: 0px auto 15px auto;
     overflow: auto;
 }
-ul.navigation li {
+
+.logo {
+  text-indent: 9999px;
+  width: 216px;
+  height: 60px;
+  display: block;
+  background: url("clark_travel_logo.png") no-repeat 0 0;
+  overflow: hidden;
+  float: left;
+}
+
+.nav-li {
     list-style-type: none;
     float: left;
 }

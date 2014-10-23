@@ -1,0 +1,6 @@
+<div class="contentFull">
+  <a href="<%= "https://www.google.com/maps/dir//#{CGI.escape(ENV["ADDRESS"])}"%>">
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{CGI.escape(ENV["ADDRESS"])}&zoom=14&size=700x332&key=#{ENV["GOOGLE_API_KEY"]}&markers=size:mid%7Ccolor:blue%7Clabel:C%7C#{CGI.escape(ENV["ADDRESS"])}", class: "map photo" %>
+  </a>
+</div>
+

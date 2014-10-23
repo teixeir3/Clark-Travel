@@ -30,9 +30,9 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (4.0.2)
-    aws-sdk (1.55.0)
-      aws-sdk-v1 (= 1.55.0)
-    aws-sdk-v1 (1.55.0)
+    aws-sdk (1.56.0)
+      aws-sdk-v1 (= 1.56.0)
+    aws-sdk-v1 (1.56.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
@@ -58,10 +58,11 @@ GEM
     coffee-script-source (1.8.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
-    execjs (2.2.1)
+    execjs (2.2.2)
     figaro (1.0.0)
       thor (~> 0.14)
     hashie (3.3.1)
+    high_voltage (2.2.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (1.5.3)
@@ -163,6 +164,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   figaro
+  high_voltage
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener
