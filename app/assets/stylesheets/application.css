@@ -158,6 +158,40 @@ li.right {
   margin: auto;
   margin-top: 12px;
 }
+
+.map-address {
+  margin: auto;
+  margin-top: 12px;
+  width: 654px;
+  padding: 14px;
+}
+
+a.hovertext {
+  position: relative;
+  width: 500px;
+  text-decoration: none !important;
+  text-align: center;
+}
+a.hovertext:after {
+  content: attr(title);
+  position: absolute;
+  left: 48px;
+  bottom: 6px;
+  padding: 0.5em 20px;
+  width: 600px;
+  background: rgba(0,0,0,0.8);
+  text-decoration: none !important;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+}
+a.hovertext:hover:after, a.hovertext:focus:after {
+  opacity: 1.0;
+}
+
 p.signature {
     font-family: cursive;
     text-align: right;
@@ -214,12 +248,30 @@ div.header div.location {
   float: right;
 }
 
-.logout {
+.hidden {
+  visibility: hidden;
+}
+
+/*.logins:hover {
+  display:;
+}
+
+.logins .logout {
   display: none;
 }
 
-.logout:hover {
-  display: block
+*/
+
+.logout {
+  display: inherit;
+  visibility: inherit;
+}
+
+.logins > .hidden {
+  visibility: hidden;
+}
+.logins > .logout:hover {
+  visibility: visible;
 }
 /***************************************************************************
 		Navigation.
@@ -314,6 +366,15 @@ div.content div.content {
     padding: 12px 24px 12px 24px;
     margin: 0 auto 0 auto;
     overflow: auto;
+}
+
+div.no-image {
+  background-image: none;
+  width: 700px;
+  background-repeat: no-repeat;
+  padding: 12px 24px 12px 24px;
+  margin: 0 auto 0 auto;
+  overflow: auto;
 }
 
 

@@ -19,7 +19,7 @@
     <% if current_user %>
     		Welcome: <%= link_to current_user.name, edit_user_url(current_user) %><br>
         <!-- <%= link_to_destroy("Logout", session_url, session_url) %> -->
-        <%= link_to "Logout", session_url, method: :delete, class: "logout" %>
+        <%= link_to "Logout", session_url, method: :delete, class: "logout hidden" %>
     <% else %>
       <a href="<%= new_session_url %>">Agent Login</a>
     <% end %>

@@ -24,10 +24,26 @@
 //= require_tree .
 
 
+$(document).on('page:change', function() {
+ console.log("page:change trigger.");
+ 
+  $('.logins').on('mouseenter', function() {
+    console.log(".logins: hover triggered");
+    $('.logout').removeClass("hidden");
+  });
+  
+  $('.logins').on('mouseleave', function() {
+    console.log(".logins: hover triggered");
+    $('.logout').addClass("hidden");
+  });
+});
+
 //Define variables.
 var _holdPromotion=false;
 var _promotion=0;
 var _promotions=new Array();
+
+
 
 /***************************************************************************
 	Track mouse movement over the active promotion.
