@@ -1,3 +1,12 @@
+<div class="no-image owl-carousel">
+  <% @promotions.each do |promotion| %>
+    <div class="item">
+      <a class="hovertext" target="_blank" title="<%= promotion.highlight %>" href="<%= promotion_url(promotion) %>">
+        <%= image_tag promotion.picture.url(:large), class: "photo" %>
+      </a>
+    </div>
+  <% end %>
+</div>
 <div class="content" style="height: 200px; overflow: hidden">
 	<p style="float: right">
 	<object class="photo" type="text/html" width="180" height="150" data="http://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel">

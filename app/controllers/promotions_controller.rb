@@ -1,7 +1,7 @@
 class PromotionsController < ApplicationController
-  before_filter :require_signed_in!,
-    only: [:new, :create, :edit, :update, :destroy]
-
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_promotion, only: [:show, :edit, :update, :destroy]
+  
   def index
     @promotions = Promotion.all_active
   end
@@ -23,18 +23,30 @@ class PromotionsController < ApplicationController
   end
 
   def show
-    @promotion = Promotion.find(params[:id])
+
   end
 
   def edit
-    @promotion = Promotion.find(params[:id])
+
   end
 
   def update
-    @promotion = Promotion.find(params[:id])
+    if @promotion.update_attributes(permitted_params.promotion)
+      flash.now[:notices] = ["Promotion Updated."]
+    else
+      flash.now[:errors] = @promotion.errors.full_messages
+    end
+    
+    render :edit
   end
 
   def destroy
+
+  end
+  
+  private
+  
+  def set_promotion
     @promotion = Promotion.find(params[:id])
   end
 

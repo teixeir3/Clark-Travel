@@ -22,10 +22,18 @@
 //= require jquery/jquery.elastislide
 //= require jquery/jquery.tmpl.min
 //= require_tree .
+//= require jquery-ui
 
 
 $(document).on('page:change', function() {
  console.log("page:change trigger.");
+ 
+
+  $('#users').sortable({
+    update: function(event, ui) {
+      $.post($(this).data('update-url'), $(this).sortable('serialize'));
+    }
+  });
  
   $('.logins').on('mouseenter', function() {
     console.log(".logins: hover triggered");

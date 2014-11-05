@@ -19,7 +19,7 @@
 
 class Promotion < ActiveRecord::Base
   validates :start_date, presence: true
-  validates :expiration_date, presence: true, date: { after: lambda { |e| e.start_date}, message: "Must proceed the start date." }
+  # validates :expiration_date, presence: true, date: { after: lambda { |e| e.start_date}, message: "Must proceed the start date." }
   validates :title, :user, presence: true
   
   has_attached_file :picture,

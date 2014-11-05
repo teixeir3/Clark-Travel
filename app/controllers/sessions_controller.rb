@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_filter :require_signed_out!, :only => [:new, :create]
   before_filter :require_signed_in!, :only => [:destroy]
-  
+
   def new
     session[:return_url] = request.referrer
     respond_to do |format|
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # format.js { render :new }
     end
   end
-  
+
   def create
     google_data = request.env["omniauth.auth"]
 
@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
+      flash[:notices] = ["Welcome #{@user.name}"]
       session[:return_url] = request.referrer unless session[:return_url]
       redirect_to session[:return_url]
     else

@@ -1,0 +1,25 @@
+<div class="contentFull">
+  <%= link_to "Edit Promotion", edit_promotion_url(@promotion), class: "right" if current_user_is_admin? %>
+  
+	<h1><%= @promotion.title %></h1>
+  
+	<p><%= image_tag @promotion.picture.url(:medium), class: "photo" %></p>
+</div>
+<div class="contentFull">  
+	<h1><%= @promotion.highlight if @promotion.present? %></h1>
+  
+	<p id="body"><%= @promotion.body if @promotion.present? %></p>
+</div>
+<div class="contentFull">
+	<h1>Promotion Timeline</h1>
+  
+  <div class="input">
+    <label for="start-date">Start:</label>
+    <p id="start-date"><%= @promotion.start_date %></p>
+  </div>
+  
+  <div class="input">
+    <label for="expiration-date">Expiration:</label>
+    <p id="expiration-date"><%= @promotion.expiration_date %></p>
+  </div>
+</div>

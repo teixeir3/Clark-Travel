@@ -24,4 +24,12 @@ class PermittedParams < Struct.new(:params, :current_user)
     
     @user_attributes
   end
+  
+  def promotion
+    @promotion_params ||= params.require(:promotion).permit(promotion_attributes)
+  end
+  
+  def promotion_attributes
+    @promotion_attributes ||= [:title, :highlight, :body, :start_date, :expiration_date, :picture]
+  end
 end

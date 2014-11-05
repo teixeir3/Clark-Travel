@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    @users = User.all
+    @users = User.all(order: "position")
   end
   
   def new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @promotion = @user.promotions.find(params[:inquiry_id]) if params[:inquiry_id]
   end
   
   def create
@@ -21,7 +22,6 @@ class UsersController < ApplicationController
       flash[:notices] = ["User created!"]
       redirect_to users_url
     else
-      fail
       flash.now[:errors] = @user.errors.full_messages
       render :index
     end
@@ -50,20 +50,28 @@ class UsersController < ApplicationController
     redirect_to :index
   end
   
+  def sort
+    params[:user].each_with_index do |id, index|
+      User.update_all({position: index+1}, {id: id})
+    end
+    
+    render nothing: true
+  end
+  
+  
   private
   
   def set_user
     @user = User.find(params[:id])
   end
-  
-  def user_params
-    
-    @user_params || params[:user].each do |key, value|
-      if key =~ /(.+)_phone$/ || key == "fax"
-        params[:user][key] = value.gsub(/\D/, '')
-      end
-    end
-    
-    @user_params ||= params.require(:user).permit(:avatar, :first_name, :last_name, :email, :home_phone, :work_phone, :mobile_phone, :fax, :bio, :position, :title)
-  end
+ 
+  # def user_params
+  #   @user_params || params[:user].each do |key, value|
+  #     if key =~ /(.+)_phone$/ || key == "fax"
+  #       params[:user][key] = value.gsub(/\D/, '')
+  #     end
+  #   end
+  #
+  #   @user_params ||= params.require(:user).permit(:avatar, :first_name, :last_name, :email, :home_phone, :work_phone, :mobile_phone, :fax, :bio, :position, :title)
+  # end
 end

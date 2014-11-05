@@ -1,15 +1,16 @@
-<form action="<%= promotions_url %>" enctype="multipart/form-data" method="post">
+<form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
 	<%= auth_token %>
   <% if promotion.persisted? %>
     <input type="hidden" name="_method" value="put"/>
   <% end %>
   <div class="contentFull">
+    <%= link_to "back", request.referrer, class: "right" %>
   	<h1>Promotion Photo</h1>
   	<p><%= image_tag promotion.picture.url(:medium), class: "photo" %></p>
     
     <div class="input">
       <label for="photo">JPEG Photo (Minimum 760x360):</label>
-      <input id="photo" type="file" name="promotion[photo]" value="">
+      <input id="photo" type="file" name="promotion[picture]" value="<%= promotion.picture.url(:medium) if promotion.persisted? %>">
     </div>
   
   	<div class="submit">
@@ -33,7 +34,7 @@
     
     <div class="input">
       <label for="body">Body</label>
-  		<textarea id="body" type="text" name="promotion[last_name]">
+  		<textarea id="body" type="text" name="promotion[body]">
         <%= promotion.body if promotion.present? %>
       </textarea>
     </div>

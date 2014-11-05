@@ -1,1 +1,58 @@
-SHOW PAGE
+<div class="content">
+  <%= image_tag @user.avatar.url(:medium), class: "photo" %>
+</div>
+
+<div class="content">
+  <form action="<%= user_url(@user) %>" enctype="multipart/form-data" method="post">
+	
+  	<input type="hidden" name="_method" value="put"/>
+  	<%= auth_token %>
+    
+		<h1>Contact <%= @user.name %></h1>
+    
+		<div class="input">
+      <label for="name">Your Name</label>
+			<input id="name" type="text" name="email[name]" value="">
+    </div> 
+      
+		<div class="input"><label for="phone">Your Phone Number</label>
+			<input id="phone" type="text" name="email[phone]" value="">
+    </div> 
+  
+		<div class="input">
+      <label for="email">Your Email</label>
+			<input id="email" type="text" name="email[email]" value="">
+    </div>
+      
+		<div class="input">
+      <label for="inquiry">Your Inquiry</label> 
+			<textarea id="inquiry" name="inquiry" rows="10" cols="33"><%= "I would like to learn more about the \"#{@promotion.title}\" promotion." if @promotion.present? %></textarea>
+    </div>
+      
+		<div class="submit long-submit">
+      <input type="submit" value="Send Message">
+    </div>
+	</form>
+</div>
+
+<div class="content">
+  <h1><%= @user.name %></h1>
+	<h1>Contact Info</h1>
+  
+  <div class="input">
+    <strong>Work: <%= @user.fax %></strong>
+  </div>
+  
+  <div class="input">
+    <strong>Fax: <%= @user.fax %></strong>
+  </div>
+</div>
+  
+<div class="content">
+	<h1>About Me</h1>
+  
+	<div class="input">
+		<p id="biography" rows="10" cols="33"><%= @user.bio %></p>
+  </div>
+</div>
+
