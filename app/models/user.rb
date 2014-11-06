@@ -64,6 +64,13 @@ class User < ActiveRecord::Base
     inverse_of: :user
   )
   
+  has_many(
+    :testimonials,
+    class_name: "Testimonial",
+    foreign_key: :user_id,
+    primary_key: :id,
+    inverse_of: :user
+  )
   
   def name
     "#{first_name} #{last_name}"
