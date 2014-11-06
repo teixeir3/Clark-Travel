@@ -41,7 +41,9 @@ class PromotionsController < ApplicationController
   end
 
   def destroy
-
+    @promotion.destroy
+    flash[:notice] = ["Promotion \"#{@promotion.title}\" deleted!"]
+    redirect_to :root
   end
   
   private

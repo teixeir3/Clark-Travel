@@ -23,12 +23,27 @@
 //= require jquery/jquery.tmpl.min
 //= require_tree .
 //= require jquery-ui
+//= require owl.carousel
 
 
 $(document).on('page:change', function() {
  console.log("page:change trigger.");
  
-
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+     items : 1, 
+     itemsDesktop : false,
+     itemsDesktopSmall : false,
+     itemsTablet: false,
+     itemsMobile : false,
+     loop: true,
+     margin: 0,
+     autoplay: true,
+     autoplaySpeed: true,
+     autoplayHoverPause: false
+  });
+  owl.trigger('owl.play',5000);
+  
   $('#users').sortable({
     update: function(event, ui) {
       $.post($(this).data('update-url'), $(this).sortable('serialize'));

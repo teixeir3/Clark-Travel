@@ -23,7 +23,7 @@ class Promotion < ActiveRecord::Base
   validates :title, :user, presence: true
   
   has_attached_file :picture,
-                    :styles => { :small => "160x200", :medium => "700x332>", :large => "760x360", :thumb => "100x100>" },
+                    :styles => { :small => "160x200", :medium => "700x332>", :large => "748x348", :thumb => "100x100>" },
                     :default_url => ":style/promotion_missing.png",
                     :bucket => ENV["AWS_BUCKET"]
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/

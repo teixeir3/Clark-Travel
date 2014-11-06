@@ -16,6 +16,8 @@
  *= require gallery/galleria/classic
  *= require gallery/touch_touch
  *= require jquery-ui
+ *= require owl.carousel
+ *= require owl.theme
  */
 
 
@@ -145,23 +147,27 @@ ul {
 
 .right {
   float: right;
+  margin-right: 20px;
 }
 
 a.center {
   margin: auto;
   display: block;
   text-align: center;
-  margin-top: 60px;
+/*  margin: 30px 0 30px 0;*/
+  height: 104px;
+  line-height: 104px;
+  width: 100%;
 }
 
 li.right {
   float: right;
 }
 
- img.delete {
-    margin-top: 12px;
-    float: right;
-    cursor: pointer;
+img.delete {
+  margin-top: 12px;
+  float: right;
+  cursor: pointer;
 }
 
 .delete-button {
@@ -169,9 +175,15 @@ li.right {
 }
 
 .photo {
-    background-color: #728FCE;
-    padding: 6px;
-    margin: auto;
+  background-color: #728FCE;
+  padding: 6px;
+  margin: auto;
+  max-width: 700px;
+}
+
+.owl-carousel .owl-item{
+    height:360px;
+    width:100%;
 }
 
 .map {
@@ -350,6 +362,18 @@ ul.navigation li a:hover {
     color: #383884;
     font-weight: bold;
 }
+
+.back-button {
+  float: left;
+  position: relative;
+  top: -30px;
+  height: 50px;
+  width: 50px;
+}
+
+.dimmed {
+  opacity: 0.3;
+}
 /***************************************************************************
 		Promotion
 	***************************************************************************/
@@ -392,7 +416,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 		Standard half size content.
 	***************************************************************************/
  .content {
-    width: 784px;
+    width: 805px;
     padding: 128px 0 0 2px;
     margin: auto;
     overflow: auto;
@@ -402,7 +426,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     background-image: url('content_bg.png');
     background-repeat: no-repeat;
     padding: 24px 24px 24px 24px;
-    margin-left: -6px;
+    margin-left: 0px;
     float: left;
     overflow: auto;
 }
@@ -410,12 +434,15 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 		Large content.
 	***************************************************************************/
  .contentFull {
-    width: 736px;
-    background-image: url('content_bg_full.png');
+    width: 756px;
     background-repeat: no-repeat;
     padding: 12px 24px 12px 24px;
-    margin: 0 auto 0 -6px;
+    margin: 0 auto 48px -6px;
     overflow: auto;
+}
+
+.contentFull:hover {
+    background-image: url('content_bg_full.png');
 }
 
 div.no-image {
@@ -441,11 +468,17 @@ div.no-image {
 }
 .long-submit > input {
   width: 294px;
+  display: block;
+  margin: auto;
   
 }
 
+.spacer {
+  margin-top: 56px;
+}
+
 form .submit > input {
-/*  position: relative;*/
+  position: relative;
   background: #728FCE;
 /*  color: #515254;*/
   padding: 10px 15px;
@@ -462,9 +495,9 @@ form .submit > input {
 /*  background: #1A8554;*/
 }
 
-.submit {
+/*.submit {
   float: right;
-}
+}*/
 
 .submit > input:active {
   top: 3px;

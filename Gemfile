@@ -34,6 +34,7 @@ gem 'aws-sdk'
 gem 'rails-gallery'
 gem 'figaro'
 gem 'acts_as_list'
+gem 'owlcarousel-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
