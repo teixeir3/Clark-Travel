@@ -1,11 +1,15 @@
-<form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
-	<%= auth_token %>
-  <% if promotion.persisted? %>
-    <input type="hidden" name="_method" value="put"/>
-  <% end %>
-  <div class="contentFull">
+<div class="contentFull">
+  <form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
+  	<%= auth_token %>
+    
     <%= link_to "back", request.referrer, class: "right" %>
-    <%= link_to "Delete Promotion", promotion_url(@promotion), method: :delete, confirm: "Really delete Promotion \"#{@promotion.title}\"?", class: "right" if current_user_is_admin? %>
+    
+    <% if promotion.persisted? %>
+      <input type="hidden" name="_method" value="put"/>
+      
+      <%= link_to "Delete Promotion", promotion_url(@promotion), method: :delete, confirm: "Really delete Promotion \"#{@promotion.title}\"?", class: "right" if current_user_is_admin? %>
+    <% end %>
+    
   	<h1>Promotion Photo</h1>
   	<p><%= image_tag promotion.picture.url(:medium), class: "photo" %></p>
     
@@ -47,7 +51,7 @@
     </div>
   
   	<div class="submit long-submit spacer">
-      <input class="long-submit" type="submit">
+      <input class="long-submit" type="submit" value="<%= promotion.persisted? ? "Update" : "Create" %>">
     </div>
   </div>
 </form>

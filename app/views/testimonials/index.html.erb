@@ -1,0 +1,5 @@
+<%= render "form", testimonial: @testimonial if current_user_is_admin? %>
+
+<% @testimonials.each do |testimonial| %>
+<%= render "show", testimonial: testimonial %>
+<% end %>

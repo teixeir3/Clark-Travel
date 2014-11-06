@@ -1,0 +1,32 @@
+<div class="contentFull">
+    <form action="<%= testimonial.persisted? ? testimonial_url(testimonial) : testimonials_url %>" enctype="multipart/form-data" method="post">
+  	<%= auth_token %>
+    <%= link_to "back", request.referrer, class: "right" %>
+    <% if testimonial.persisted? %>
+      <input type="hidden" name="_method" value="put"/>
+    
+      <%= link_to "Delete Testimonial", testimonial_url(testimonial), method: :delete, confirm: "Really delete Testimonial \"#{testimonial.highlight}\"?", class: "right" if current_user_is_admin? %>
+    <% end %>
+  
+  	<h1><%= testimonial.persisted? ? "Edit": "New" %> Testimonial</h1>
+  
+  	<div class="input">
+      <label for="highlight">Highlight</label>
+  		<input id="highlight" type="text" name="testimonial[highlight]" value="<%= testimonial.highlight %>">
+    </div>
+  
+  	<div class="input long-input">
+      <label for="body">Body</label>
+  		<textarea id="body" name="testimonial[body]"><%= testimonial.body %></textarea>
+    </div> 
+  
+  	<div class="input">
+      <label for="signature">Signature</label>
+  		<input id="signature" type="text" name="testimonial[signature]" value="<%= testimonial.signature %>">
+    </div> 
+	
+    <div class="submit long-submit left">
+      <input type="submit" value="Create">
+    </div>
+  </form>
+</div>

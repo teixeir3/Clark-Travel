@@ -15,7 +15,7 @@
 
 class Testimonial < ActiveRecord::Base
   
-  validates :body, :signature, :user, :position, presence: true
+  validates :body, :signature, :user, presence: true
   
   belongs_to(
     :user,

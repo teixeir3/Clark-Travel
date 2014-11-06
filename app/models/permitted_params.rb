@@ -32,4 +32,12 @@ class PermittedParams < Struct.new(:params, :current_user)
   def promotion_attributes
     @promotion_attributes ||= [:title, :highlight, :body, :start_date, :expiration_date, :picture]
   end
+  
+  def testimonial
+    @testimonial_params ||= params.require(:testimonial).permit(testimonial_attributes)
+  end
+  
+  def testimonial_attributes
+    @testimonial_attributes ||= [:signature, :body, :highlight, :display, :position]
+  end
 end

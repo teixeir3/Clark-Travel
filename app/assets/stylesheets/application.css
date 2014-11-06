@@ -33,7 +33,7 @@
 		Override.
 	***************************************************************************/
  @font-face {
-    font-family:  inherit;
+    font-family:  'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 /*    src: url('res/Quicksand_Book.otf') format('opentype');*/
 }
 * {
@@ -80,7 +80,7 @@ body {
     background-position: center top;
     background-repeat: repeat-x;
     background-color: white;
-    font-family: sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial;
     font-size: 13px;
 }
 h1 {
@@ -96,9 +96,11 @@ h1 {
 
 hr {
     height: 4px;
-    background-image: url('hr_bg.gif');
+    background-image: url('hr_bg-2.png');
     border-width: 0;
     margin-top: 12px;
+    width: 738px;
+    margin-left: 20px;
 }
 img {
     border-width: 0;
@@ -110,6 +112,7 @@ input {
 p {
     line-height: 19px;
     padding-top: 12px;
+    margin-right: 16px;
 }
 table {
     width: 100%;
@@ -143,6 +146,7 @@ ul {
 
 .left {
   float: left;
+  margin-left: 16px;
 }
 
 .right {
@@ -170,8 +174,18 @@ img.delete {
   cursor: pointer;
 }
 
-.delete-button {
+a.delete-button {
   float: right;
+  color: #7E0000;
+  background: #D8DBDF;
+  margin: 6px 16px 0 0;
+  border-radius: 10px;
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+a.delete-button:hover {
+  opacity: 0.5;
 }
 
 .photo {
@@ -514,6 +528,14 @@ form .submit > input {
   border-radius: 4px;
 }
 
+.long-input > input, textarea {
+  width: 600px;
+}
+
+.center {
+  margin: auto;
+  width: 324px;
+}
 .half-size > input, .half-size > textarea {
   width: 130px;
 }

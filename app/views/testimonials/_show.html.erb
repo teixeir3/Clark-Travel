@@ -1,0 +1,8 @@
+<div class="contentFull">
+	<%= link_to "&#10006".html_safe, testimonial_url(testimonial), method: :delete, class: "delete-button" if current_user_is_admin? %>
+
+	<h1><%= current_user_is_admin? ? link_to(testimonial.highlight, edit_testimonial_url(testimonial)) : testimonial.highlight %></h1>
+	<p><%= testimonial.body %></p>
+	<p class="signature"><%= testimonial.signature %></p>
+  <hr>
+</div>
