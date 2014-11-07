@@ -96,7 +96,7 @@ h1 {
 
 hr {
     height: 4px;
-    background-image: url('hr_bg-2.png');
+    background-image: black;
     border-width: 0;
     margin-top: 12px;
     width: 738px;
@@ -144,6 +144,10 @@ ul {
   clear: both;
 }
 
+.nudge-left {
+  margin-left: -10px;
+}
+
 .left {
   float: left;
   margin-left: 16px;
@@ -180,7 +184,7 @@ a.delete-button {
   background: #D8DBDF;
   margin: 6px 16px 0 0;
   border-radius: 10px;
-  padding: 2px 4px;
+  padding: 2px 4px 2px 5px;
   font-size: 12px;
   font-weight: bold;
 }
@@ -196,7 +200,7 @@ a.delete-button:hover {
 }
 
 .owl-carousel .owl-item{
-    height:360px;
+/*    height:360px;*/
     width:100%;
 }
 
@@ -212,6 +216,13 @@ a.delete-button:hover {
   padding: 14px;
 }
 
+.paragraph {
+  width: 178px;
+  display: block;
+  position: relative;
+  float: left;
+}
+
 a.hovertext {
   position: relative;
   width: 500px;
@@ -221,10 +232,10 @@ a.hovertext {
 a.hovertext:after {
   content: attr(title);
   position: absolute;
-  left: 48px;
+  left: 45px;
   bottom: 6px;
   padding: 0.5em 20px;
-  width: 600px;
+  width: 646px;
   background: rgba(0,0,0,0.8);
   text-decoration: none !important;
   color: #fff;
@@ -521,14 +532,14 @@ form .submit > input {
   margin: 20px 0 20px 15px;
 }
 
-.input > input, textarea {
+.input > input, .input > textarea {
   border: 2px solid #000;
   padding: 5px 10px;
   width: 300px;
   border-radius: 4px;
 }
 
-.long-input > input, textarea {
+.long-input > input, .long-input > textarea {
   width: 600px;
 }
 

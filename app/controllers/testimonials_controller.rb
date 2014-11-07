@@ -3,7 +3,6 @@ class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   
   def index
-    @testimonials = Testimonial.all_display
     @testimonial = current_user.testimonials.new if current_user_is_admin?
   end
 

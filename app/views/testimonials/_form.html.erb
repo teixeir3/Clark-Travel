@@ -1,13 +1,13 @@
 <div class="contentFull">
     <form action="<%= testimonial.persisted? ? testimonial_url(testimonial) : testimonials_url %>" enctype="multipart/form-data" method="post">
   	<%= auth_token %>
-    <%= link_to "back", request.referrer, class: "right" %>
     <% if testimonial.persisted? %>
       <input type="hidden" name="_method" value="put"/>
     
-      <%= link_to "Delete Testimonial", testimonial_url(testimonial), method: :delete, confirm: "Really delete Testimonial \"#{testimonial.highlight}\"?", class: "right" if current_user_is_admin? %>
+      <%= link_to "&#10006".html_safe, testimonial_url(testimonial), method: :delete, data: {confirm: "Really delete Testimonial \"#{testimonial.highlight}\"?"}, class: "right delete-button" if current_user_is_admin? %>
     <% end %>
-  
+    <%= link_to "back", request.referrer, class: "right" %>
+    
   	<h1><%= testimonial.persisted? ? "Edit": "New" %> Testimonial</h1>
   
   	<div class="input">
@@ -26,7 +26,7 @@
     </div> 
 	
     <div class="submit long-submit left">
-      <input type="submit" value="Create">
+      <input type="submit" value="<%= testimonial.persisted? ? "Update" : "Create" %>">
     </div>
   </form>
 </div>

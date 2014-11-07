@@ -30,6 +30,8 @@ $(document).on('page:change', function() {
  console.log("page:change trigger.");
  
   var owl = $('.owl-carousel');
+  var owl2 = $('.testimonials-carousel');
+  
   owl.owlCarousel({
      items : 1, 
      itemsDesktop : false,
@@ -40,9 +42,25 @@ $(document).on('page:change', function() {
      margin: 0,
      autoplay: true,
      autoplaySpeed: true,
-     autoplayHoverPause: false
+     autoplayHoverPause: true
   });
   owl.trigger('owl.play',5000);
+  
+  owl2.owlCarousel({
+    items : 1, 
+    itemsDesktop : false,
+    itemsDesktopSmall : false,
+    itemsTablet: false,
+    itemsMobile : false,
+    loop: true,
+    margin: 0,
+    autoplay: true,
+    autoplaySpeed: true,
+    autoplayHoverPause: true,
+    dots: false,
+    pagination: false
+  });
+  owl2.trigger('owl.play', 4000);
   
   $('#users').sortable({
     update: function(event, ui) {

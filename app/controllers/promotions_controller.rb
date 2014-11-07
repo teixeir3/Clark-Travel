@@ -2,8 +2,10 @@ class PromotionsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   
+  # Root URL
   def index
-    @promotions = Promotion.all_active
+    @active_promotions = Promotion.all_active
+    @promotions = Promotion.all
   end
 
   def new

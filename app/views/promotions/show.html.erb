@@ -1,6 +1,8 @@
 <div class="contentFull">
-  <%= link_to "Edit Promotion", edit_promotion_url(@promotion), class: "right" if current_user_is_admin? %>
-  <%= link_to "Delete Promotion", promotion_url(@promotion), method: :delete, confirm: "Really delete Promotion \"#{@promotion.title}\"?", class: "right" if current_user_is_admin? %>
+  <% if current_user_is_admin? %>  
+    <%= link_to "&#10006".html_safe, promotion_url(@promotion), method: :delete, confirm: "Really delete Promotion \"#{@promotion.title}\"?", class: "right delete-button" %>
+    <%= link_to "Edit", edit_promotion_url(@promotion), class: "right" %>
+  <% end %>
 	<h1><%= @promotion.title %></h1>
   
 	<p><%= image_tag @promotion.picture.url(:large), class: "photo" %></p>

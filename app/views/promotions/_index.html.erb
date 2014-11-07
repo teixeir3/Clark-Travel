@@ -1,0 +1,25 @@
+<div class="contentFull">
+	<table id="promotions-table" class="nudge-left promotions-table">
+		<tbody><tr>
+			<th>Title</th>
+			<th>Photo</th>
+			<th>Start</th>
+			<th>Expire</th>
+			<th>Days Remaining</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	
+    <% promotions.each do |promotion| %>
+  		<tr>
+      	<td><strong><%= link_to promotion.title, promotion_url(promotion) %></strong></td>
+  			<td><a href="<%= edit_promotion_url(promotion) %>" onclick="this.target='_blank'"><%= image_tag promotion.picture.url(:small), class: "photo" %></a>
+  			</td>
+        <td><%= promotion.start_date %></td>
+  			<td><%= promotion.start_date %></td>
+  			<td><span style="color: #ffcc00">4 Days</span></td><td><a href="promotion.php?id=16">Edit</a></td>
+  			<td><%= link_to "&#10006".html_safe, promotion_url(promotion), method: :delete, confirm: "Really delete Promotion \"#{promotion.title}\"?", class: "right" if current_user_is_admin? %>
+  		</tr>
+    <% end %>
+	</tbody></table>
+</div>

@@ -1,0 +1,29 @@
+<footer class="footer">
+	<!-- <img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!"> -->
+  <div class="no-image testimonials-carousel">
+    <% @testimonials.each do |testimonial| %>
+      <div class="item">
+        <a class="hovertext" target="_blank" title="<%= testimonial.highlight %>" href="<%= testimonials_url %>"> 
+          <%= render "testimonials/show", testimonial: testimonial %>    
+        </a>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="copyright">
+  	<a href="http://www.AyosInformatics.com/">
+  		<img src="/assets/ayos_final_100x50.gif" alt="Ayos Informatics">
+    </a>
+    <small>© Ayos Informatics, LLC 2014</small>
+  </div>
+  
+  <a class="address" href="<%= page_path("directions") %>">
+  	<ul>
+      <li>3461 Route 22 East</li>
+      <li>(Corner of County Line Rd.)</li>
+      <li>Branchburg NJ 08876</li>
+  	  <li>(908) 595-0400</li>
+    	<li>Fax (908) 595-0410</li>
+    </ul>
+  </a>
+</footer>

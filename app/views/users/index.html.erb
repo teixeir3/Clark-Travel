@@ -4,7 +4,7 @@
     <%= content_tag_for :li, user, class: "content" do %>
       <% if current_user_is_admin? %>
         <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
-        <%= link_to "X", user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
+        <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
       <% end %>
   	  <h1><%= user.name %></h1>
   	  <div class="small-avatar">

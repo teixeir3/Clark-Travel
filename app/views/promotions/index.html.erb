@@ -1,5 +1,5 @@
 <div class="no-image owl-carousel">
-  <% @promotions.each do |promotion| %>
+  <% @active_promotions.each do |promotion| %>
     <div class="item">
       <a class="hovertext" target="_blank" title="<%= promotion.highlight %>" href="<%= promotion_url(promotion) %>">
         <%= image_tag promotion.picture.url(:large), class: "photo" %>
@@ -24,13 +24,18 @@
   </p></div>
 <% end %>
 
-<% @promotions.each do |promotion| %>
+<% @active_promotions.each do |promotion| %>
   <div class="content" style="height: 200px; overflow: hidden">
     <% if current_user_is_admin? %>
-      <%= link_to "Delete", promotion, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} %>
+      <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} %>
     <% end %>
   	<h1><%= promotion.title %></h1>
-  	<p><%= promotion.highlight %></p>
-  	<p><a href="<%= promotion_url(promotion) %>">Learn More</a></p>
+    <div class="paragraph">
+    	<p><%= promotion.highlight %></p>
+    	<p><a href="<%= promotion_url(promotion) %>">Learn More</a></p>
+    </div>
+    <%= image_tag promotion.picture.url(:small), class: "photo right" %>
   </div>
 <% end %>
+
+<%= render "index", promotions: @promotions %>

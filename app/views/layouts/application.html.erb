@@ -25,7 +25,7 @@
       <ul class="navigation">
       	<li class="nav-li"><a href="/">HOME</a></li>
       	<li class="nav-li"><a href="<%= testimonials_url %>">TESTIMONIALS</a></li>
-      	<li class="nav-li"><a href="#">RESOURCES</a></li>
+      	<li class="nav-li"><a href="<%= page_path("resources") %>">RESOURCES</a></li>
       	<li class="nav-li"><a href="#">DISNEY</a></li>
       	<li class="nav-li"><a href="#">ABOUT US</a></li>
       	<li class="nav-li"><a href="<%= page_path("german_cruising") %>">GERMAN CRUISES</a></li>
@@ -44,25 +44,7 @@
   <!-- End standard content. ************************************************* -->
 
   <!-- Begin footer. ********************************************************* -->
-  <footer class="footer">
-  	<!-- <img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!"> -->
-    <div class="copyright">
-    	<a href="http://www.AyosInformatics.com/">
-    		<img src="/assets/ayos_final_100x50.gif" alt="Ayos Informatics">
-      </a>
-      <small>© Ayos Informatics, LLC 2014</small>
-    </div>
-    
-    <a class="address" href="<%= page_path("directions") %>">
-    	<ul>
-        <li>3461 Route 22 East</li>
-        <li>(Corner of County Line Rd.)</li>
-        <li>Branchburg NJ 08876</li>
-    	  <li>(908) 595-0400</li>
-      	<li>Fax (908) 595-0410</li>
-      </ul>
-    </a>
-  </footer>
+  <%= render "layouts/footer" %>
   <!-- End footer. *********************************************************** -->
 
 </body>
