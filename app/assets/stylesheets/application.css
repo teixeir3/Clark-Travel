@@ -472,6 +472,20 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     overflow: auto;
 }
 
+.no-image {
+  background-image: none;
+  width: 350px;
+  background-repeat: no-repeat;
+  padding: 24px 24px 24px 24px;
+  margin-left: 0px;
+  float: left;
+  overflow: auto;
+}
+
+.no-image:hover {
+  background-image: url('content_bg.png');
+}
+
 .min-height {
   min-height: 375px;
 }
@@ -490,7 +504,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     background-image: url('content_bg_full.png');
 }
 
-div.no-image {
+div.no-imageFull {
   background-image: none;
   width: 774px;
   background-repeat: no-repeat;

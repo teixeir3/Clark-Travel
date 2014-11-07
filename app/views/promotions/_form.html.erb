@@ -1,5 +1,5 @@
-<div class="contentFull">
-  <form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
+<form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
+  <div class="contentFull">
   	<%= auth_token %>
     
     <% if promotion.persisted? %>
@@ -52,5 +52,5 @@
   	<div class="submit long-submit">
       <input class="long-submit" type="submit" value="<%= promotion.persisted? ? "Update" : "Create" %>">
     </div>
-  </form>
-</div>
+  </div>
+</form>
