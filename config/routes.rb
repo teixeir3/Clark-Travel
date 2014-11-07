@@ -4,7 +4,8 @@ ClarkTravel::Application.routes.draw do
   root to: "promotions#index"
   
   post "users/sort", to: "users#sort", as: "sort_users"
-  get 'auth/:provider/callback', to: 'sessions#create'
+  
+  get 'auth/:provider/callback', to: 'sessions#update_facebook_auth'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   

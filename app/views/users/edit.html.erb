@@ -62,6 +62,8 @@
   	<div class="submit long-submit">
       <input class="long-submit" type="submit">
     </div>
+    
+    <h1 class="padding"><%= link_to "Authorize Facebook", "/auth/facebook", id: "sign_in" if current_user_is_admin?%></h1>
 	</div>
   
 	<div class="content">

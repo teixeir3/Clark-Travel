@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController
-  before_filter :require_signed_out!, :only => [:new, :create]
+  before_filter :require_signed_out!, :only => [:new]
   before_filter :require_signed_in!, :only => [:destroy]
 
   def new
-    session[:return_url] = request.referrer
     respond_to do |format|
       format.html{ render :new }
       # format.js { render :new }
@@ -12,14 +11,13 @@ class SessionsController < ApplicationController
 
   def create
     google_data = request.env["omniauth.auth"]
-
+    
+    
     if google_data
       @user = User.where(provider: google_data["provider"], uid: google_data["uid"]).first
 
-      unless @user
-        @user = create_from_google_data(google_data)
-      end
-
+      
+      @user = create_from_google_data(google_data) unless @user
     else
       @user = User.find_by_credentials(
       params[:user][:email],
@@ -35,6 +33,16 @@ class SessionsController < ApplicationController
       flash.now[:errors] = ["Incorrect credentials"]
       render :new
     end
+  end
+  
+  def update_facebook_auth
+    current_user.update_omniauth!(env["omniauth.auth"])
+    if current_user.valid?
+      flash[:notices] = ["Facebook Credentials Added!"]
+    else
+      flash[:notices] = ["An Error Has Occurred!"]
+    end
+    redirect_to edit_user_url(current_user)
   end
 
   def destroy

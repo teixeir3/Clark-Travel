@@ -25,10 +25,26 @@
 //= require jquery-ui
 //= require owl.carousel
 
+var fadeOutElement = function($el, delay) {
+  window.setTimeout(function() {
+    $el.fadeOut();
+  }, delay);
+};
 
 $(document).on('page:change', function() {
- console.log("page:change trigger.");
+  console.log("page:change trigger.");
  
+  $('body').prepend('<div id="fb-root"></div>');
+
+  $.ajax({
+    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js",
+    dataType: 'script',
+    cache: true
+  });
+ 
+  fadeOutElement($('.errors'), 6000);
+  fadeOutElement($('.notices'), 6000);
+  
   var owl = $('.owl-carousel');
   var owl2 = $('.testimonials-carousel');
   

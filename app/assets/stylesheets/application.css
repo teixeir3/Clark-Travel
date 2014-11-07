@@ -148,6 +148,15 @@ ul {
   margin-left: -10px;
 }
 
+.padding {
+  padding: 40px;
+  padding-top: 20px;
+  display: block;
+  position: relative;
+/*  margin-top: 16px auto 0 auto;*/
+/*  width: 300px;*/
+}
+
 .left {
   float: left;
   margin-left: 16px;
@@ -192,11 +201,15 @@ a.delete-button:hover {
   opacity: 0.5;
 }
 
+.about {
+/*  width: 400px;*/
+}
 .photo {
   background-color: #728FCE;
   padding: 6px;
   margin: auto;
   max-width: 700px;
+  border-radius: 4px;
 }
 
 .owl-carousel .owl-item{
@@ -458,6 +471,10 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     float: left;
     overflow: auto;
 }
+
+.min-height {
+  min-height: 375px;
+}
 /***************************************************************************
 		Large content.
 	***************************************************************************/
@@ -578,18 +595,22 @@ form .submit > input {
 }
 
 /******************************* Notice and Error messages. *************************************/
- div.info {
-    background-color: #fffe7e;
-    margin: 12px auto 0 auto;
-}
-div.error {
+ 
+.errors {
     background-color: #edabab;
     margin: 12px auto 0 auto;
 }
-div.info div, div.error div {
-    width: 760px;
-    padding-bottom: 12px;
-    margin: auto;
+
+.notices {
+  background-color: #afdbbc;
+  color: #1b7d56;
+}
+.info {
+    width: 750px;
+    padding: 12px;
+    margin: 84px auto -121px auto;
+    position: relative;
+    right: 3px;
 }
 
 

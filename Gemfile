@@ -36,6 +36,7 @@ gem 'figaro'
 gem 'acts_as_list'
 gem 'owlcarousel-rails'
 gem 'omniauth-facebook'
+gem 'koala'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

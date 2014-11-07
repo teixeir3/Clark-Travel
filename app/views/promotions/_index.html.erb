@@ -19,7 +19,7 @@
     			</td>
           <td><%= promotion.start_date.strftime("%Y/%m/%d") %></td>
     			<td><%= promotion.start_date.strftime("%Y/%m/%d") %></td>
-    			<td><span style="color: #ffcc00">4 Days</span></td>
+    			<td><span style="color: #6599FF"><%= promotion.expiration_date %></span></td>
           <td><%= link_to "Edit", edit_promotion_url(promotion) %></td>
     			<td><%= link_to "&#10006".html_safe, promotion_url(promotion), method: :delete, confirm: "Really delete Promotion \"#{promotion.title}\"?", class: "right" if current_user_is_admin? %>
     		</tr>

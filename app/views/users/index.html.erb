@@ -1,7 +1,7 @@
 <%= render("form", user: @user) if signed_in? %>
 <ul id="users" data-update-url="<%= sort_users_url %>">
   <% @users.each do |user| %>
-    <%= content_tag_for :li, user, class: "content" do %>
+    <%= content_tag_for :li, user, class: "content min-height" do %>
       <% if current_user_is_admin? %>
         <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
         <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>

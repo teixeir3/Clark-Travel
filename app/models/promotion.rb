@@ -39,4 +39,36 @@ class Promotion < ActiveRecord::Base
   def self.all_active
     self.where("current_date between start_date and expiration_date")
   end
+  
+  def overdue_by_str
+    "#{self.overdue_by} #{@overdue_str}"
+  end
+
+  # returns the lowest denomination of how much it's overdue
+  def overdue_by
+    @overdue_str = "minutes"
+    
+    overdue = (((self.expiration_date.past?) ? (Time.zone.now - self.expiration_date.to_datetime) : (self.expiration_date.to_datetime - Time.zone.now)) / 60).to_i 
+
+    if overdue > 60
+      overdue /=  60
+      @overdue_str = "hours"
+      if overdue > 24
+        overdue /= 24
+        @overdue_str = "days"
+        if overdue > 7
+          overdue /= 7
+          @overdue_str = "weeks"
+          if overdue > 4
+            overdue /= 4
+            @overdue_str = "months"
+          end
+        end
+      end
+    end
+    
+    @overdue_str = @overdue_str[0..-2] if overdue == 1
+    
+    overdue
+  end
 end

@@ -78,15 +78,34 @@ class User < ActiveRecord::Base
   
   ### Oauth Methods ###
   
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+  def self.from_omniauth!(auth)
+    where(auth.slice(:provider, :uid)).first.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.info.name
+      full_name = auth.info.name.split(" ")
+      user.first_name = full_name[0]
+      user.last_name = full_name[-1]
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+  
+  def update_omniauth!(auth)
+    full_name = auth.info.name.split(" ")
+    self.update_attributes({provider: auth.provider, uid: auth.uid, first_name: full_name[0], last_name: full_name[-1], oauth_token: auth.credentials.token, oauth_expires_at: Time.at(auth.credentials.expires_at)})
+  end
+  
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil
+  end
+
+  def friends_count
+    facebook { |fb| fb.get_connection("me", "friends").size }
   end
   
   ### Auth Methods ###
