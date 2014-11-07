@@ -35,6 +35,7 @@ gem 'rails-gallery'
 gem 'figaro'
 gem 'acts_as_list'
 gem 'owlcarousel-rails'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

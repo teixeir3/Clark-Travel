@@ -49,10 +49,6 @@
       <label for="email">Confirm Email</label>
       <input id="email" type="text" name="email_confirmation" value="<%= %>">
     </div>
-    
-  	<div class="submit">
-      <input class="long-submit" type="submit">
-    </div>
 	</div>
   
 	<div class="content">
@@ -63,7 +59,7 @@
 			<textarea id="biography" name="biography" rows="10" cols="33"><%= @user.bio %></textarea>
     </div>
       
-  	<div class="submit">
+  	<div class="submit long-submit">
       <input class="long-submit" type="submit">
     </div>
 	</div>
@@ -96,8 +92,5 @@
   		<input id="password-confirmation" type="password" name="user[password_confirmation]">
     </div>
       
-  	<div class="submit">
-      <input class="long-submit" type="submit">
-    </div>
 	</div>
 </form>

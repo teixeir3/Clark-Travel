@@ -1,20 +1,20 @@
 <footer class="footer">
 	<!-- <img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!"> -->
-  <div class="no-image testimonials-carousel">
-    <% @testimonials.each do |testimonial| %>
-      <div class="item">
-        <a class="hovertext" target="_blank" title="<%= testimonial.highlight %>" href="<%= testimonials_url %>"> 
-          <%= render "testimonials/show", testimonial: testimonial %>    
-        </a>
-      </div>
-    <% end %>
-  </div>
+
   
   <div class="copyright">
   	<a href="http://www.AyosInformatics.com/">
   		<img src="/assets/ayos_final_100x50.gif" alt="Ayos Informatics">
     </a>
     <small>© Ayos Informatics, LLC 2014</small>
+  </div>
+  
+  <div class="no-image testimonials-carousel left">
+    <% @testimonials.each do |testimonial| %>
+      <div class="item">
+        <%= render "testimonials/show", testimonial: testimonial %>    
+      </div>
+    <% end %>
   </div>
   
   <a class="address" href="<%= page_path("directions") %>">

@@ -249,10 +249,12 @@ a.hovertext:hover:after, a.hovertext:focus:after {
   opacity: 1.0;
 }
 
-p.signature {
+h2.signature {
     font-family: cursive;
     text-align: right;
     color: #505050;
+    text-size: 20px;
+    margin-right: 16px;
 }
 
 .work-icon {
@@ -305,7 +307,8 @@ p.signature {
     font-size: 11.5px;
     color: black;
     margin-right: 12px;
-    float: right;
+    padding-top: 20px;
+    float: left;
 }
 
 .logins {
@@ -442,7 +445,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 	***************************************************************************/
  .content {
     width: 805px;
-    padding: 128px 0 0 2px;
+    padding: 118px 0 0 2px;
     margin: auto;
     overflow: auto;
 }
@@ -603,7 +606,7 @@ div.info div, div.error div {
     background-color: #666362;
     background: linear-gradient(to bottom, #616D7E, #728FCE);
 /*    margin-top: 12px;*/
-    padding: 72px 0 12px 0;
+    padding: 16px 0 12px 0;
     overflow: auto;
 }
 /*footer.footer img {
