@@ -37,7 +37,7 @@ class Promotion < ActiveRecord::Base
   )
   
   def self.all_active
-    self.where("current_date between start_date and expiration_date")
+    self.where("current_date between start_date and expiration_date").all(order: "position")
   end
   
   def overdue_by_str

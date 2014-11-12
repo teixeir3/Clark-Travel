@@ -30,6 +30,8 @@
 #  home_phone             :string(255)
 #  mobile_phone           :string(255)
 #  fax                    :string(255)
+#  oauth_token            :string(255)
+#  oauth_expires_at       :datetime
 #
 
 class User < ActiveRecord::Base

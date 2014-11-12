@@ -1,5 +1,5 @@
 class TestimonialsController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -47,6 +47,14 @@ class TestimonialsController < ApplicationController
     @testimonial.destroy
     flash[:notice] = ["Testimonial \"#{@testimonial.highlight}\" deleted!"]
     redirect_to testimonials_url
+  end
+  
+  def sort
+    params[:testimonial].each_with_index do |id, index|
+      Testimonial.update_all({position: index+1}, {id: id})
+    end
+    
+    render nothing: true
   end
   
   private

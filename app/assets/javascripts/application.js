@@ -30,6 +30,9 @@ var fadeOutElement = function($el, delay) {
     $el.fadeOut();
   }, delay);
 };
+var updateSortable = function(event, ui) {
+      $.post($(this).data('update-url'), $(this).sortable('serialize'));
+};
 
 $(document).on('page:change', function() {
   console.log("page:change trigger.");
@@ -78,20 +81,19 @@ $(document).on('page:change', function() {
   });
   owl2.trigger('owl.play', 4000);
   
-  $('#users').sortable({
-    update: function(event, ui) {
-      $.post($(this).data('update-url'), $(this).sortable('serialize'));
-    }
+  $('.sortable').sortable({
+    update: updateSortable
   });
  
+ 
   $('.logins').on('mouseenter', function() {
-    console.log(".logins: hover triggered");
-    $('.logout').removeClass("hidden");
+    console.log(".logins: mouseenter triggered");
+    $('.dropdown-menu').removeClass("hidden");
   });
   
   $('.logins').on('mouseleave', function() {
-    console.log(".logins: hover triggered");
-    $('.logout').addClass("hidden");
+    console.log(".logins: mouseleave triggered");
+    $('.dropdown-menu').addClass("hidden");
   });
 });
 

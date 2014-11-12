@@ -1,11 +1,11 @@
 class PromotionsController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
   
   # Root URL
   def index
     @active_promotions = Promotion.all_active
-    @promotions = Promotion.all
+    @promotions = Promotion.all(order: "expiration_date")
   end
 
   def new
@@ -17,7 +17,7 @@ class PromotionsController < ApplicationController
 
     if @promotion.save
       flash.now[:notices] = ["Promotion created!"]
-      render :show
+      render :edit
     else
       flash.now[:errors] = @promotion.errors.full_messages
       render :new
@@ -48,8 +48,17 @@ class PromotionsController < ApplicationController
     redirect_to :root
   end
   
+  def sort
+    params[:promotion].each_with_index do |id, index|
+      Promotion.update_all({position: index+1}, {id: id})
+    end
+    
+    render nothing: true
+  end
+  
   private
   
+ 
   def set_promotion
     @promotion = Promotion.find(params[:id])
   end

@@ -10,37 +10,14 @@
 <body>
 
   <!-- Begin header. ********************************************************* -->
-  <header class="header">
-  	<a class="logo hide-text" href="/">Clark Travel</a>
-    <div class="group">
-      <ul class="logins">
-      <% if current_user %>
-      		Welcome: <%= link_to current_user.name, edit_user_url(current_user) %><br>
-          <!-- <%= link_to_destroy("Logout", session_url, session_url) %> -->
-          <%= link_to "Logout", session_url, method: :delete, class: "logout hidden" %>
-      <% else %>
-        <a href="<%= new_session_url %>">Agent Login</a>
-      <% end %>
-      </ul>
-      <ul class="navigation">
-      	<li class="nav-li"><a href="/">HOME</a></li>
-      	<li class="nav-li"><a href="<%= testimonials_url %>">TESTIMONIALS</a></li>
-      	<li class="nav-li"><a href="<%= page_path("resources") %>">RESOURCES</a></li>
-      	<li class="nav-li"><a href="<%= page_path("disney") %>">DISNEY</a></li>
-      	<li class="nav-li"><a href="<%= page_path("about") %>">ABOUT US</a></li>
-      	<li class="nav-li"><a href="<%= page_path("german_cruising") %>">GERMAN CRUISES</a></li>
-      	<li class="nav-li"><a href="<%= page_path("book") %>">BOOK</a></li>
-      	<li class="nav-li right"><a href="<%= users_url %>">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
+    <%= render "layouts/header" %>
 
   <!-- End header. *********************************************************** -->
   
   <!-- Begin Notification Area. *********************************************** -->
   
-  <%= render "layouts/messages", messages_arr: flash[:notices], class_name: "notices" if flash[:notices] %>
-  <%= render "layouts/messages", messages_arr: flash[:errors], class_name: "errors" if flash[:errors] %>
+    <%= render "layouts/messages", messages_arr: flash[:notices], class_name: "notices" if flash[:notices] %>
+    <%= render "layouts/messages", messages_arr: flash[:errors], class_name: "errors" if flash[:errors] %>
   
   <!-- End Notification Area. ************************************************* -->
   
@@ -52,7 +29,7 @@
   <!-- End standard content. ************************************************* -->
 
   <!-- Begin footer. ********************************************************* -->
-  <%= render "layouts/footer" %>
+    <%= render "layouts/footer" %>
   <!-- End footer. *********************************************************** -->
 
 </body>

@@ -1,5 +1,5 @@
 <%= render("form", user: @user) if signed_in? %>
-<ul id="users" data-update-url="<%= sort_users_url %>">
+<ul id="users" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_users_url %>">
   <% @users.each do |user| %>
     <%= content_tag_for :li, user, class: "content min-height" do %>
       <% if current_user_is_admin? %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_signed_in!, only: [:edit, :update]
+  before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def index
