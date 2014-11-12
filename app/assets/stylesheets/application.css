@@ -407,7 +407,7 @@ h2.signature {
   background: url("clark_travel_logo.png") no-repeat 0 0;
 /*  overflow: hidden;*/
   float: left;
-  margin: 12px;
+  margin: 3px 12px;
 }
 
 .hide-text {
@@ -488,7 +488,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 	***************************************************************************/
  .content {
     width: 805px;
-    padding: 118px 0 0 2px;
+    padding: 118px 0 6px 2px;
     margin: auto;
     overflow: auto;
 }
