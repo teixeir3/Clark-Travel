@@ -28,12 +28,14 @@
   <% @active_promotions.each do |promotion| %>
     <%= content_tag_for :li, promotion, class: "content" do %>
         <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
-      	<h1><%= promotion.title %></h1>
+      	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
         <div class="paragraph">
         	<p><%= promotion.highlight %></p>
         	<p><a href="<%= promotion_url(promotion) %>">Learn More</a></p>
         </div>
-        <%= image_tag promotion.picture.url(:small), class: "photo right" %>
+        <%= link_to promotion_url(promotion) do %>
+          <%= image_tag promotion.picture.url(:small), class: "photo right" %>
+        <% end %>
     <% end %>
   <% end %>
 </ul>

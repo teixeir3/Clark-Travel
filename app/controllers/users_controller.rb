@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy]
+  before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy ]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @promotion = @user.promotions.find(params[:inquiry_id]) if params[:inquiry_id]
+    @promotion = (@user.promotions.find(params[:inquiry_id]) if params[:inquiry_id]) || @user.promotions.build(title: params[:inquiry])
   end
   
   def create
