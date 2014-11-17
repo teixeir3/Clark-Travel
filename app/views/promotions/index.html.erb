@@ -13,7 +13,7 @@
 		<param name="src" value="https://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel"></object></p>
 	<h1>Just In!</h1>
 	<p>Be sure to check out these new offers.</p>
-	<p><a href="agent.php?id=2">Learn More</a></p>
+	<p><a href="<%= user_url(User.first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
 </div>
 <% if current_user_is_admin? %>
   <div class="content" style="height: 200px">
