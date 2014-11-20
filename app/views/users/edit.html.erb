@@ -63,7 +63,13 @@
       <input class="long-submit" type="submit">
     </div>
     
-    <h1 class="padding"><%= link_to "Authorize Facebook", "/auth/facebook", id: "sign_in" if current_user_is_admin?%></h1>
+    <h1 class="padding">
+      <% if current_user.valid_facebook? %>
+         Facebook Authorized
+      <% elsif current_user_is_admin? %>
+         <%= link_to "Authorize Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </h1>
 	</div>
   
 	<div class="content">

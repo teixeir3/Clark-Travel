@@ -110,6 +110,10 @@ class User < ActiveRecord::Base
     facebook { |fb| fb.get_connection("me", "friends").size }
   end
   
+  def valid_facebook?
+    uid && provider == "facebook"
+  end
+  
   ### Auth Methods ###
   
   def is_admin?
