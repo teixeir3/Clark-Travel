@@ -329,7 +329,10 @@ h2.signature {
     color: black;
     margin-right: 12px;
     padding-top: 20px;
+    padding-left: 4px;
     float: left;
+    font-weight: bold;
+    text-align: center;
 }
 
 .logins {
@@ -381,10 +384,10 @@ h2.signature {
 .dropdown-menu {
   position: relative;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
-  float: left;
-  min-width: 160px;
+  float: right;
+  width: 100%;
   padding: 5px 5px;
   margin: 2px 0 0;
   list-style: none;
