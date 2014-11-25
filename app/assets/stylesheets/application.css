@@ -333,7 +333,6 @@ h2.signature {
     float: left;
     font-weight: bold;
     text-align: center;
-    min-width: 1108px;
 }
 
 .logins {
@@ -712,6 +711,7 @@ form .submit > input {
 /*    margin-top: 12px;*/
     padding: 16px 0 12px 0;
     overflow: auto;
+    min-width: 1108px;
 }
 /*footer.footer img {
     margin: 12px auto 0 auto;
