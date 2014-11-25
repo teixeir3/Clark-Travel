@@ -5,7 +5,73 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(first_name: "Douglas", last_name: "Teixeira", email: "teixeir3@gmail.com", password: ENV["ADMIN_PASSWORD"])
+User.create(first_name: "Douglas", last_name: "Teixeira", email: "teixeir3@gmail.com", password: ENV["DEVELOPER_PASSWORD"], position: 999, title: "Software Engineer", work_phone: "(908) 872-0937", home_phone: "", mobile_phone: "(908) 872-0937", fax: "", bio: "Douglas lives in NJ and is the web developer and webmaster of clark-travel.com.", is_admin: true)
+
+User.create(first_name: "Lucille", last_name: "Pucciarelli", email: "teixeir3@clark-travel.com", password: ENV["ADMIN_PASSWORD"], position: 0, title: "President", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "(908) 400-6224", fax: "(908) 595-0410", bio: "I’ve been in the travel business for 30+ years. I hold degrees in many areas, including CLIA Master Cruise Counsellor, Certified Sandals/Beaches Specialist, Destination Specialist Caribbean, Hawaii, Mexico, and College of Disney Knowledge, just to name a few. I’ve traveled extensively in Europe, and am fluent in several languages that allow me to connect directly with hotels and suppliers abroad. 
+
+Your vacation time is precious and I can help you maximize the use of your time and budget, whether you’re planning a honeymoon, destination wedding, romantic getaway or time with your immediate or extended family and friends (groups).
+
+After getting to know you a bit, we’ll determine what you’re looking for in a vacation and I’ll recommend a trip that is sure to please. I can customize your trip to your exact specifications by adding elements, such as activities, dining, etc. that will create a personalized itinerary, just for you! 
+I’m waiting to hear from you…call me so we can create your dream trip together!", is_admin: true)
+
+user = User.create(first_name: "Ulrike", last_name: "Ocasio", email: "ulrike@clark-travel.com", password: ENV["ADMIN_PASSWORD"], position: 0, title: "President", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "(908) 892-7001", fax: "(908) 595-0410", bio: "My name is Ulrike Ocasio and I tell everyone my first name is pronounced just like the vacuum cleaner. For many years I wanted to work in the travel industry. In April 2005 I had the chance to join Clark Travel after 27 years in the insurance industry. For years Lucy planned my trips – now I have the opportunity to arrange trips for other individuals.
+
+My passion for travel has been a great tool in assisting my clients in planning their vacation whether it is a honeymoon, family vacation, or cruise. I have traveled/cruised many times with both family and friends and have created lasting memories and friendships. I would like to create those wonderful memories for you. 
+
+Below is a list of sampling of some of my accomplishments that I am proud of:
+
+Princess/Cunard Cruise Line Commodore, Celebrity Five star Agent, Sandals Certified, graduate of the Disney College of Knowledge, Globus family of brands Specialist, 
+Marriott Hotels Sales Specialist, Amresorts Master Agent, Alaska Certified Expert, Hawaii Destination Specialist and many others. ", is_admin: true)
+
+user.promotions.create({title: "Website Disclaimer", highlight: "Agreement for Users and Travelers", body: "When you use this website, you agree to the following terms, and you agree to convey the contents of this Agreement to your traveling family members or companions:
+
+1.  Responsibility: Clark Travel Agency Inc. (\"We\") act as an agent for the airlines, tour operators, cruise lines lodging providers, car-rental companies, ground operators, and any other suppliers of travel services shown on your itinerary .We are not responsible for the acts or omissions of such suppliers or their subcontractors or their failure to provide services, adhere to their own schedules, or honor their contracts.
+
+2.  Hazards: We have no special knowledge regarding foreign entry requirements, unsafe conditions: health hazards, weather hazards, supplier bankruptcies, or the suitabi1ity for disabled persons of any portion of any tour. For foreign entry requirements, go to http://travel.state.gov/travel_warnings.html. For State Department travel advisories, go to http://travel.state.gov/travel_warnings.html. For foreign health requirements and dangers, go to http://www.cdc.gov/travel/index.htm. You hereby release us from any claims resulting in whole or in part from any problem covered in this paragraph and any other causes not within our control, and to submit all other claims against us within 30 days after the return of your trip.
+
+3.  Limitation of Refunds: All airlines impose cancellation and change penalties up to 100% for many discount rickets. All tour operators, cruise lines, and some resort hotels impose cancellation and change penalties, too. Please view the applicable rules before you make your reservation.
+
+4.  Delays: Flight delays are very common today. If your flight is delayed for any reason, the airlines are not required by law to pay for your en route expenses, such as meals, hotels, taxis and phone calls.
+
+5.  Check Your Itinerary: As soon as you receive your booked itinerary, check it thoroughly to make sure it is correct as to dates, rimes, fares, and rates. 
+
+6.  Reconfirmation: Schedule changes are quite common today. We urge you to re-check exact flight times prior to departure and prior to your return. 
+
+7.  Package Trips: If you book a trip, we must collect the tour operator's or cruise line’s deposit when reservations are made. The amount of the deposit, the refund allowed, and the times for canceling vary according to the tour operator or cruise line. We do not endorse or recommend any particular tour operator or cruise line; our role is strictly limited to facilitating the booking. After you finish your booking, we will send you any agreement required by the travel services supplier, along with a request that you sign that agreement and return it to us. In the event of any inconsistency between that agreement and this agreement, the latter shall govern.
+
+8.   Charter Trips: If your package trip involves a charter flight or if your vacation involves an air-on1y charter night, federal regulations require that you also sign the charter operator's participant agreement, which will be mailed to you. It is extremely important that you realize that, for charters:
+ 
+a. Departure times (both going and returning) can change at the last minute. These delays legally can be as much as 48 hours (approximately two days late). 
+b. Your flight may be advertised as non-stop; however, the operator may legally change the routing and make intermediate stops at the last minute.
+c. The charter operator may 1egally-substitute types of aircraft and even airline at the last minute. Charter aircraft are generally not as comfortable as the scheduled aircraft.
+d. The charter operator generally takes no responsibility for baggage it is not unusual to have luggage misplaced.
+e. Charter trips have very stiff cancellation penalties. No one plans a trip with the idea of canceling; however, sometimes that becomes necessary and you must understand what to expect or not to expect in the way of refunds.
+f. Usually, no frequent flier miles are accrued.
+g. Advance seat assignments are frequently not available.
+
+9.  Final Payment: For all vacation trips, you must have made full payment before we release the tickets or documents.
+
+10.  Non-Use of Coupons: In the event that you purchase a ticket or tickets containing flight coupons that you may or may not use, we do not guarantee that the airline will honor the ticket or tickets, and you agree to indemnify us against airline claims for the difference between the full fare for your actual itinerary and the value of the ticket that you purchased. 
+
+11. Foreign Currency: Currency rates quoted on this website are based on various publicly available sources. Rates are not verified as accurate, and actual rates may vary.
+
+12. Information on Website: You agree not to use or authorize the use of this information for any purpose other than personal use, and not to engage or authorize anyone to engage in the resale, redistribution, and use of the information on this website for commercial purposes. Third-party links and pointers are included solely for your convenience, and do not constitute any endorsement by us and/or our suppliers. Any software that is on this website including HTML codes and software made available to download from this website (\"Software\") is our copyrighted work or the copyrighted work of our suppliers or 1icensors.  Clark Travel Agency are our trademarks. Other product and company names mentioned herein may be the trademarks of their respective owners.
+
+13.  Power of Attorney: As our client, you hereby appoint the us to be your attorneys-in-fact for the purpose of signing all documents necessary to purchase and issue airline tickets, tours, cruises, and hotel guarantees for late aniva1. You authorize any of the attorneys-in-fact to sign credit card authorizations for said purchases whenever any of them receives an Internet booking request reasonably believed to be from you or someone acting on your behalf, requesting those tickets be charged to this credit card account. Your agree that you will pay for all such purchases and will not hold us responsible for any of our actions pursuant to this power of attorney. 
+
+14.  Exclusive Jurisdiction: All suits in connection with, or incident to, this Agreement shall be litigated, if at all, in the courts of the Country of the United States,  State of  New Jersey, Somerset County, to the exclusion other courts of any other state.
+
+15.  No warranties:  The content, code, access and other features of this site are provided “As Is” and without warranties of any kind either express or implied, including but not limited to, Warranties of accuracy, reliability, merchant ability, fitness for a particular purpose, and non-infringement.   We do not warrant that any such features will operate uninterrupted or in an error-free fashion,, that defects will be corrected, or that this site or the server are free of viruses of other harmful components.   Applicable law may not allow exclusion of implied warranties, so the above exclusion may not apply to you.
+
+16.  No consequential damages:  in no event will we be liable for any direct, indirect, incidental or consequential damages, including without limitation lost profits and cost of procurement of substitute products, arising out of your use or inability to use any content or features, or your failure to access or click-thru access any content or features, even if we have been advised of the possibility of such damages.   Some states do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation and exclusions may not apply to you.", start_date: DateTime.parse("10 Feb 2012"), expiration_date: DateTime.parse("31 Dec 2020")})
+
+user.promotions.create({title: "The Value of a Travel Agent", highlight: "Have you asked yourself this question?", body: "With so many travel options out there, it can be overwhelming.  I work as your \"value interpreter\".  Using my expertise, I find amazing experiences that exceed your every desire, but not your budget.  With my services, you can be confident that your vacation will be perfectly planned, hassle-free, and filled with moments you'll never forget.", start_date: DateTime.parse("09 Sept 2011"), expiration_date: DateTime.parse("31 Dec 2050")})
+
+user.promotions.create({title: "31 Dec 2020", highlight: "Clark Travel has been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on its strong support in selling Disney Vacations.", body: "We have been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on our strong support in selling Disney Vacations.
+
+Clark Travel has been in business in Branchburg, NJ for   35+ years and has gained specialized knowledge on vacations to the Disneyland® Resort, Walt Disney® World Resort, Disney Cruise Line®, and Adventures by Disney vacations.
+
+Many travel counselors at Clark Travel have received extensive training on Disney Destinations theme parks, resorts, cruises, vacation packages and more, and can provide the utmost in professional assistance in planning customized Disney vacations.  In fact, one reason the agency attained the “Authorized Disney Vacation Planner” status is that at least 50 percent of the frontline leisure travel are College of Disney Knowledge graduates.  The College of Disney Knowledge is an in-depth comprehensive course that allows agents to develop their expertise regarding the Disney Destinations – knowledge that consumers can take advantage of when planning a Disney vacation.", start_date: DateTime.parse("08 Feb 2012"), expiration_date: DateTime.parse("31 Dec 2050")})
 
 # user.testimonials.create(highlight: "", body: "", signature: "", display: true, position: 17)
 user.testimonials.create({highlight: "Thank You", body: "Words cannot express how grateful we are for all your hard work during our wedding planning. Your professionalism dealing with our frequent questions always put us at ease in a stressful time. You made things simple & easy to understand for us and our guests. Our only wish was that you could have joined us at this beautiful resort. Thank you again for helping to create memories that will last a lifetime.", signature: "Nate and Trish", display: true, position: 0})

@@ -15,11 +15,15 @@
 #  picture_content_type :string(255)
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
+#  position             :integer
+#  display              :boolean          default(TRUE), not null
+#  facebook_publish     :boolean          default(FALSE), not null
 #
 
 class Promotion < ActiveRecord::Base
   # validates :expiration_date, presence: true, date: { after: lambda { |e| e.start_date}, message: "Must proceed the start date." }
-  validates :title, :user, :start_date, :facebook_publish, presence: true
+  validates :title, :user, :start_date, presence: true
+  # validates :facebook_publish, inclusion: { in: [true, false] }
   
   has_attached_file :picture,
                     :styles => { :small => "160x200", :medium => "700x332>", :large => "748x348", :thumb => "100x100>" },

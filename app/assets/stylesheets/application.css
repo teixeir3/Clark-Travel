@@ -340,8 +340,9 @@ h2.signature {
   margin-right: 12px;
 }
 
-.logins > li {
-  float: left;
+.logins li {
+  float: right;
+/*  width: 100%;*/
 }
 
 .hidden {
