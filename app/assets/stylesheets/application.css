@@ -685,8 +685,8 @@ form .submit > input {
 }
 .info {
     width: 750px;
-    padding: 12px;
-    margin: 84px auto -121px auto;
+    padding: 20px;
+    margin: 112px auto -121px auto;
     position: relative;
     right: 3px;
 }
