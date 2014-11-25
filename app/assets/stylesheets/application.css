@@ -333,6 +333,7 @@ h2.signature {
     float: left;
     font-weight: bold;
     text-align: center;
+    min-width: 1108px;
 }
 
 .logins {
