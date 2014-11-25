@@ -26,7 +26,7 @@ class Promotion < ActiveRecord::Base
   # validates :facebook_publish, inclusion: { in: [true, false] }
   
   has_attached_file :picture,
-                    :styles => { :small => "160x200", :medium => "700x332>", :large => "748x348", :thumb => "100x100>" },
+                    :styles => { :small => "160x86", :medium => "700x332>", :large => "748x348", :thumb => "100x100>" },
                     :default_url => ":style/promotion_missing.png",
                     :bucket => ENV["AWS_BUCKET"]
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/

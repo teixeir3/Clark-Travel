@@ -5,6 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+Promotion.delete_all
+Testimonial.delete_all
+
 User.create(first_name: "Douglas", last_name: "Teixeira", email: "teixeir3@gmail.com", password: ENV["DEVELOPER_PASSWORD"], position: 999, title: "Software Engineer", work_phone: "(908) 872-0937", home_phone: "", mobile_phone: "(908) 872-0937", fax: "", bio: "Douglas lives in NJ and is the web developer and webmaster of clark-travel.com.", is_admin: true)
 
 User.create(first_name: "Lucille", last_name: "Pucciarelli", email: "teixeir3@clark-travel.com", password: ENV["ADMIN_PASSWORD"], position: 0, title: "President", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "(908) 400-6224", fax: "(908) 595-0410", bio: "I’ve been in the travel business for 30+ years. I hold degrees in many areas, including CLIA Master Cruise Counsellor, Certified Sandals/Beaches Specialist, Destination Specialist Caribbean, Hawaii, Mexico, and College of Disney Knowledge, just to name a few. I’ve traveled extensively in Europe, and am fluent in several languages that allow me to connect directly with hotels and suppliers abroad. 
@@ -67,7 +71,7 @@ g. Advance seat assignments are frequently not available.
 
 user.promotions.create({title: "The Value of a Travel Agent", highlight: "Have you asked yourself this question?", body: "With so many travel options out there, it can be overwhelming.  I work as your \"value interpreter\".  Using my expertise, I find amazing experiences that exceed your every desire, but not your budget.  With my services, you can be confident that your vacation will be perfectly planned, hassle-free, and filled with moments you'll never forget.", start_date: DateTime.parse("09 Sept 2011"), expiration_date: DateTime.parse("31 Dec 2050")})
 
-user.promotions.create({title: "31 Dec 2020", highlight: "Clark Travel has been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on its strong support in selling Disney Vacations.", body: "We have been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on our strong support in selling Disney Vacations.
+user.promotions.create({title: "Designated Authorized Disney Vacation Planner", highlight: "Clark Travel has been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on its strong support in selling Disney Vacations.", body: "We have been designated by Disney Destinations as an “Authorized Disney Vacation Planner” based on our strong support in selling Disney Vacations.
 
 Clark Travel has been in business in Branchburg, NJ for   35+ years and has gained specialized knowledge on vacations to the Disneyland® Resort, Walt Disney® World Resort, Disney Cruise Line®, and Adventures by Disney vacations.
 
