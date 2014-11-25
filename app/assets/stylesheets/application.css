@@ -217,6 +217,14 @@ a.delete-button:hover {
     width: 94%;
 }
 
+.facebook-auth > h1 {
+  padding: 30px;
+}
+
+.facebook-auth > p {
+  width: 320px;
+}
+
 .map {
   margin: auto;
   margin-top: 12px;
@@ -555,7 +563,7 @@ div.no-imageFull {
   border-radius: 10px;
   float: left;
 }
-.long-submit > input {
+form .long-submit > input {
   width: 294px;
   display: block;
   margin: auto;
@@ -564,6 +572,32 @@ div.no-imageFull {
 
 .spacer {
   margin-top: 56px;
+}
+
+.checkbox-group {
+  display: block;
+  float: left;
+  width: inherit;
+  padding-bottom: 20px;
+}
+
+.checkbox-input {
+  display: block;
+  float: left;
+  margin: 4px;
+}
+
+.checkbox-input > label {
+  display: block;
+  padding: 0 0 5px 0;
+  float: left;
+}
+
+.checkbox-input > input {
+  border: 2px solid #000;
+  padding: 5px 10px;
+/*  width: 250px;*/
+  border-radius: 4px;
 }
 
 form .submit > input {
@@ -680,6 +714,19 @@ form .submit > input {
 footer.footer p {
     text-align: center;
     color: black;
+}
+
+.post {
+  display: block;
+  height: 150px;
+  width: 350px;
+  
+}
+
+.post > p {
+  width: 150px;
+  overflow: hidden;
+  height: 150px;
 }
 
 .copyright {

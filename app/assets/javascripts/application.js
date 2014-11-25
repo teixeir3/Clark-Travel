@@ -50,6 +50,7 @@ $(document).on('page:change', function() {
   
   var owl = $('.owl-carousel');
   var owl2 = $('.testimonials-carousel');
+  var owl3 = $('.feed-carousel');
   
   owl.owlCarousel({
      items : 1, 
@@ -80,6 +81,22 @@ $(document).on('page:change', function() {
     pagination: false
   });
   owl2.trigger('owl.play', 4000);
+  
+  owl3.owlCarousel({
+    items : 3, 
+    itemsDesktop : false,
+    itemsDesktopSmall : false,
+    itemsTablet: false,
+    itemsMobile : false,
+    loop: true,
+    margin: 0,
+    autoplay: false,
+    autoplaySpeed: true,
+    autoplayHoverPause: true,
+    dots: false,
+    pagination: false
+  });
+  owl3.trigger('owl.play', 4000);
   
   $('.sortable').sortable({
     update: updateSortable

@@ -1,0 +1,13 @@
+<div class="contentFull facebook-auth">
+  <h1 class="left">
+    <% if current_user.valid_facebook? %>
+       <%= link_to "Facebook Authorized", "/auth/facebook", id: "sign_in" %>
+    <% elsif current_user_is_admin? %>
+       <%= link_to "Authorize Facebook", "/auth/facebook", id: "sign_in" %>
+    <% else %>
+      Authorize Facebook to enable page wall updates.
+    <% end %>
+  </h1>
+ <p class="left"><%= image_tag(current_user.fb_image_url, class: "photo") if current_user.fb_image_url %></p> 
+  <p class="left">Admin only feature that enables you to post to the <%= link_to "Clark Travel", "https://www.facebook.com/ClarkTravelAgency" %> facebook business page from within the website. This also enables wall posts to display on the home screen.</p>
+</div>

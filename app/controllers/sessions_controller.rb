@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_filter :require_signed_out!, :only => [:new]
-  before_filter :require_signed_in!, :only => [:destroy]
+  before_filter :require_signed_in!, :only => [:update_facebook_auth, :destroy]
 
   def new
     respond_to do |format|
@@ -37,11 +37,13 @@ class SessionsController < ApplicationController
   
   def update_facebook_auth
     current_user.update_omniauth!(env["omniauth.auth"])
+    
     if current_user.valid?
       flash[:notices] = ["Facebook Credentials Added!"]
     else
-      flash[:notices] = ["An Error Has Occurred!"]
+      flash[:errors] = ["An Error Has Occurred!"] + current_user.errors.full_messages
     end
+    
     redirect_to edit_user_url(current_user)
   end
 

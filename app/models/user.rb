@@ -89,13 +89,14 @@ class User < ActiveRecord::Base
       user.last_name = full_name[-1]
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.fb_image_url = auth.info.image
       user.save!
     end
   end
   
   def update_omniauth!(auth)
     full_name = auth.info.name.split(" ")
-    self.update_attributes({provider: auth.provider, uid: auth.uid, first_name: full_name[0], last_name: full_name[-1], oauth_token: auth.credentials.token, oauth_expires_at: Time.at(auth.credentials.expires_at)})
+    self.update_attributes({provider: auth.provider, uid: auth.uid, first_name: full_name[0], last_name: full_name[-1], oauth_token: auth.credentials.token, oauth_expires_at: Time.at(auth.credentials.expires_at), fb_image_url: fb_picture_url})
   end
   
   def facebook
@@ -114,6 +115,9 @@ class User < ActiveRecord::Base
     uid && provider == "facebook"
   end
   
+  def fb_picture_url
+    facebook.get_picture("me")
+  end
   ### Auth Methods ###
   
   def is_admin?

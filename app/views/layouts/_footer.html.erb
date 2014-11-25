@@ -1,6 +1,12 @@
 <footer class="footer">
 	<!-- <img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!"> -->
 
+  <div class="feed-carousel left">
+    <% @feed.each do |post| %>
+      <% next unless post["message"] %>
+      <%= render "layouts/post", post: post %>    
+    <% end %>
+  </div>
   
   <div class="copyright">
   	<a href="http://www.AyosInformatics.com/">

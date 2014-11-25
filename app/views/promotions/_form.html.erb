@@ -48,8 +48,17 @@
       <label for="expiration-date">Expiration:</label>
       <input id="expiration-date" type="date" name="promotion[expiration_date]" value="<%= promotion.expiration_date || Date.today.advance(years: 1) %>">
     </div>
+ 
+    <div class="checkbox-group">
+      <h4>Publish to Social Media:</h4>
+      <div class="checkbox-input">
+        <label for="facebook-publish">Facebook:</label>
+        <input type="checkbox" name="promotion[facebook_publish]" id="facebook-publish" <%= "selected" if promotion.facebook_publish %> value="<%= true %>">
+      </div>
+
+      
   
-  	<div class="submit long-submit">
+  	<div class="spacer submit long-submit">
       <input class="long-submit" type="submit" value="<%= promotion.persisted? ? "Update" : "Create" %>">
     </div>
   </div>

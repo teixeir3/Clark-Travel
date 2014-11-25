@@ -1,3 +1,5 @@
+<%= render "facebook_auth" %>
+
 <form action="<%= user_url(@user) %>" enctype="multipart/form-data" method="post">
 	
 	<input type="hidden" name="_method" value="put"/>
@@ -63,13 +65,6 @@
       <input class="long-submit" type="submit">
     </div>
     
-    <h1 class="padding">
-      <% if current_user.valid_facebook? %>
-         Facebook Authorized
-      <% elsif current_user_is_admin? %>
-         <%= link_to "Authorize Facebook", "/auth/facebook", id: "sign_in" %>
-      <% end %>
-    </h1>
 	</div>
   
 	<div class="content">

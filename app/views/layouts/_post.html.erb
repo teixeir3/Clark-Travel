@@ -1,0 +1,5 @@
+<%= link_to (post["actions"] ? post["actions"].first["link"] : "https://facebook.com/clarktravelagency" ), class: "item post" do %>
+  <p class="left"><%= post["message"] %></p>
+  <%= image_tag post["picture"], class: "photo left" if post["picture"]%>
+  <small class="left">Posted: <%= Time.parse(post["updated_time"]).strftime("%b %d @ %I:%M")  %></small>
+<% end %>

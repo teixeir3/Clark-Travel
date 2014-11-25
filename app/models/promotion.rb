@@ -18,9 +18,8 @@
 #
 
 class Promotion < ActiveRecord::Base
-  validates :start_date, presence: true
   # validates :expiration_date, presence: true, date: { after: lambda { |e| e.start_date}, message: "Must proceed the start date." }
-  validates :title, :user, presence: true
+  validates :title, :user, :start_date, :facebook_publish, presence: true
   
   has_attached_file :picture,
                     :styles => { :small => "160x200", :medium => "700x332>", :large => "748x348", :thumb => "100x100>" },
