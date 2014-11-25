@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   def set_facebook_feed
     user = User.find_by_last_name("Ocasio")
-    @feed ||= user.facebook.get_connection("clarktravelagency", "feed", {limit: 15}) if user
+    @feed ||= user.facebook.get_connection("clarktravelagency", "feed", {limit: 15}) if user && user.valid_facebook?
   end
   
   def set_testimonials
