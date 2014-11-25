@@ -2,18 +2,18 @@
 	<a class="logo hide-text" href="/">Clark Travel</a>
   <div class="group">
     <div class="dropdown logins">
-    <% if current_user %>
-  	  <%= link_to edit_user_url(current_user) do %>
-        <%= "#{current_user.name} " %><span class="caret"></span>
-      <% end %>
+      <% if current_user %>
+    	  <%= link_to edit_user_url(current_user) do %>
+          <%= "#{current_user.name} " %><span class="caret"></span>
+        <% end %>
         
-      <ul class="dropdown-menu hidden" aria-labelledby="">
-        <li><%= link_to("Logout", session_url(), class: "logout",  method: :delete)%></li>
-      </ul>
+        <ul class="dropdown-menu hidden" aria-labelledby="">
+          <li><%= link_to("Logout", session_url(), class: "logout",  method: :delete)%></li>
+        </ul>
                       
-    <% else %>
-      <a href="<%= new_session_url %>">Agent Login</a>
-    <% end %>
+      <% else %>
+        <a href="<%= new_session_url %>">Agent Login</a>
+      <% end %>
     </div>
     <ul class="navigation">
     	<li class="nav-li"><a href="/">HOME</a></li>
