@@ -460,6 +460,11 @@ ul.navigation li a:hover {
 /***************************************************************************
 		Promotion
 	***************************************************************************/
+
+.promotion {
+  min-height: 250px;
+}
+
  div.promotion {
     width: 786px;
     background-image: url('content_bg_full.png');

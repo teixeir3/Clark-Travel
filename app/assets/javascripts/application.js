@@ -80,7 +80,8 @@ $(document).on('page:change', function() {
     dots: false,
     pagination: false
   });
-  owl2.trigger('owl.play', 4000);
+  
+  owl2.trigger('owl.play', 6000);
   
   owl3.owlCarousel({
     items : 3, 
