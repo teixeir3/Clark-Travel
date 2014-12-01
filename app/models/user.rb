@@ -33,6 +33,7 @@
 #  oauth_token            :string(255)
 #  oauth_expires_at       :datetime
 #  fb_image_url           :string(255)
+#  display                :boolean          default(TRUE), not null
 #
 
 class User < ActiveRecord::Base

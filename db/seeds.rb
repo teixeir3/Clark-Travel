@@ -12,6 +12,8 @@ Testimonial.delete_all
 
 User.create(first_name: "Douglas", last_name: "Teixeira", email: "teixeir3@gmail.com", password: "LOLpword6", position: 999, title: "Software Engineer", work_phone: "(908) 872-0937", home_phone: "", mobile_phone: "(908) 872-0937", fax: "", bio: "Douglas lives in NJ and is the web developer and webmaster of clark-travel.com.", is_admin: true)
 
+User.create(first_name: "Test", last_name: "User", email: "test_gilwcdm_user@tfbnw.net", password: "clark-travel-test", position: 999, title: "Facebook Test User", work_phone: "(999) 999-9999", home_phone: "", mobile_phone: "(999) 999-9999", fax: "(999) 999-9999", bio: "Test user for facebook approval.", is_admin: true, display: false)
+
 User.create(first_name: "Lucille", last_name: "Pucciarelli", email: "teixeir3@clark-travel.com", password: ENV["ADMIN_PASSWORD"], position: 1, title: "President", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "(908) 400-6224", fax: "(908) 595-0410", bio: "I’ve been in the travel business for 30+ years. I hold degrees in many areas, including CLIA Master Cruise Counsellor, Certified Sandals/Beaches Specialist, Destination Specialist Caribbean, Hawaii, Mexico, and College of Disney Knowledge, just to name a few. I’ve traveled extensively in Europe, and am fluent in several languages that allow me to connect directly with hotels and suppliers abroad. 
 
 Your vacation time is precious and I can help you maximize the use of your time and budget, whether you’re planning a honeymoon, destination wedding, romantic getaway or time with your immediate or extended family and friends (groups).
