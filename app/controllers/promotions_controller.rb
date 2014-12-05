@@ -17,6 +17,7 @@ class PromotionsController < ApplicationController
 
     if @promotion.save
       flash.now[:notices] = ["Promotion created!"]
+      @promotion.publish_to_facebook if @promotion.facebook_publish
       render :edit
     else
       flash.now[:errors] = @promotion.errors.full_messages

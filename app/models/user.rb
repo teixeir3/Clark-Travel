@@ -97,9 +97,10 @@ class User < ActiveRecord::Base
   end
   
   def update_omniauth!(auth)
+    return nil unless auth
     full_name = auth.info.name.split(" ")
     self.oauth_token = auth.credentials.token
-    self.update_attributes({provider: auth.provider, uid: auth.uid, first_name: full_name[0], last_name: full_name[-1], oauth_expires_at: Time.at(auth.credentials.expires_at), fb_image_url: fb_picture_url})
+    self.update_attributes({provider: auth.provider, uid: auth.uid, first_name: full_name[0], last_name: full_name[-1], oauth_expires_at: ((auth.credentials.expires_at) ? Time.at(auth.credentials.expires_at) : Time.now.advance(years: 9999)), fb_image_url: fb_picture_url})
   end
   
   def facebook

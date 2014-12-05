@@ -8,6 +8,7 @@ ClarkTravel::Application.routes.draw do
   post "promotions/sort", to: "promotions#sort", as: "sort_promotions"
   post "testimonials/sort", to: "testimonials#sort", as: "sort_testimonials"
   
+  get 'session', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#update_facebook_auth'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
