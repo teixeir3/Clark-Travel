@@ -5,7 +5,7 @@
       <% category.bookings.order(:position).each do |booking| %>
     		<li>
           <a href="<%= booking.url %>"><%= booking.title %></a>
-          <% if current_user && current_user_is_admin? %>
+          <% if false #current_user && current_user_is_admin? %>
             <a href="<%= edit_booking_url(booking) %>">
               <%= image_tag("edit-icon-32.png", class: " left") %>
             </a>
