@@ -18,6 +18,7 @@
 #  position             :integer
 #  display              :boolean          default(TRUE), not null
 #  facebook_publish     :boolean          default(FALSE), not null
+#  carousel_display     :boolean          default(FALSE), not null
 #
 
 class Promotion < ActiveRecord::Base

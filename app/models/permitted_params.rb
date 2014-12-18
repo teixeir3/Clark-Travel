@@ -30,7 +30,7 @@ class PermittedParams < Struct.new(:params, :current_user)
   end
   
   def promotion_attributes
-    @promotion_attributes ||= [:title, :highlight, :body, :start_date, :expiration_date, :picture, :position, :display, :facebook_publish]
+    @promotion_attributes ||= [:title, :highlight, :body, :start_date, :expiration_date, :picture, :position, :display, :carousel_display, :facebook_publish]
   end
   
   def testimonial
