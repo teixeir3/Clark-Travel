@@ -87,7 +87,11 @@ class User < ActiveRecord::Base
   has_many :bookings, through: :booking_categories, source: :bookings
   
   def name
-    "#{first_name} #{last_name}" if first_name || last_name
+    "#{first_name} #{last_name}"
+  end
+  
+  def full_name
+    name if first_name || last_name
   end
   
   ### Oauth Methods ###
@@ -152,11 +156,19 @@ class User < ActiveRecord::Base
   end
   
   def activate!
-    self.update_attribute(:active, true)
+    self.update_attribute(:is_active, true)
   end
   
   def set_activation_token
     self.activation_token = self.class.generate_unique_token_for_field(:activation_token)
+  end
+  
+  def set_activation_token!
+    @token = set_activation_token
+    
+    save
+    
+    @token
   end
   
   def set_temporary_password

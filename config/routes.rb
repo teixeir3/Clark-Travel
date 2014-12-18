@@ -1,6 +1,11 @@
 ClarkTravel::Application.routes.draw do
   resource :session, only: [:create, :destroy, :new]
-  resources :users, :promotions, :testimonials
+  resources :users do
+    get :activate, on: :collection
+    get :password_reset, on: :collection
+    put :password_update, on: :collection
+  end
+  resources :promotions, :testimonials
   resources :booking_categories do
     resources :bookings
   end

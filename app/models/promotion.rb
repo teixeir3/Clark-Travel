@@ -44,15 +44,23 @@ class Promotion < ActiveRecord::Base
   end
   
   def overdue_by_str
-    "#{self.overdue_by} #{@overdue_str}"
+    "#{self.overdue_by} #{@overdue_str} #{@overdue_or_left}"
   end
 
   # returns the lowest denomination of how much it's overdue
   def overdue_by
     @overdue_str = "minutes"
+    @overdue_or_left = "overdue"
     
-    overdue = (((self.expiration_date.past?) ? (Time.zone.now - self.expiration_date.to_datetime) : (self.expiration_date.to_datetime - Time.zone.now)) / 60).to_i 
-
+    overdue = (Time.zone.now - self.expiration_date.to_datetime)
+    
+    if (overdue < 0)
+      overdue *= -1
+      @overdue_or_left = "left"
+    end
+    
+    overdue /= 60
+    
     if overdue > 60
       overdue /=  60
       @overdue_str = "hours"
@@ -65,6 +73,10 @@ class Promotion < ActiveRecord::Base
           if overdue > 4
             overdue /= 4
             @overdue_str = "months"
+            if overdue > 12
+              overdue /= 12
+              @overdue_str = "yrs"
+            end
           end
         end
       end
@@ -72,6 +84,6 @@ class Promotion < ActiveRecord::Base
     
     @overdue_str = @overdue_str[0..-2] if overdue == 1
     
-    overdue
+    overdue.round
   end
 end

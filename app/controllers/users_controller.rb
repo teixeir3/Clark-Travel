@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.new(permitted_params.user)
     
-    fail
     if @user.save
+      UserMailer.activation_email(@user).deliver!
       flash[:notices] = ["User created!"]
       redirect_to users_url
     else
@@ -57,6 +57,19 @@ class UsersController < ApplicationController
     end
     
     render nothing: true
+  end
+  
+  def activate
+    @user = User.find_by_activation_token(params[:activation_token])
+    
+    if params[:activation_token] && @user
+      @user.activate!
+      sign_in(@user)
+      flash[:notices] =  ["Successfully activated your account!"]
+      redirect_to @user
+    else
+      raise ActiveRecord::RecordNotFound.new()
+    end
   end
   
   

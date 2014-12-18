@@ -416,6 +416,13 @@ h2.signature {
   list-style: none;
   font-size: 14px;
   text-align: left;
+ 
+  
+}
+
+.dropdown-menu > li {
+  float: left;
+  width: 100px;
   background-color: #728FCE;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
