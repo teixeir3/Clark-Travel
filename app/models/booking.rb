@@ -33,8 +33,7 @@ class Booking < ActiveRecord::Base
     class_name: "BookingCategory",
     foreign_key: :category_id,
     primary_key: :id,
-    inverse_of: :bookings,
-    dependent: :destroy
+    inverse_of: :bookings
   )
   
   has_one(

@@ -65,7 +65,7 @@ $(document).on('page:change', function() {
      autoplaySpeed: true,
      autoplayHoverPause: true
   });
-  owlPromotions.trigger('owl.play',5000);
+  owlPromotions.trigger('owl.play',6000);
   
   owlTestimonials.owlCarousel({
     items : 1, 
@@ -82,7 +82,7 @@ $(document).on('page:change', function() {
     pagination: false
   });
   
-  owlTestimonials.trigger('owl.play', 6000);
+  owlTestimonials.trigger('owl.play', 7000);
   
   owlFeed.owlCarousel({
     items : 3, 
@@ -98,7 +98,7 @@ $(document).on('page:change', function() {
     dots: false,
     pagination: false
   });
-  owlFeed.trigger('owl.play', 4000);
+  owlFeed.trigger('owl.play', 7000);
   
   owlBookings.owlCarousel({
      items : 1, 

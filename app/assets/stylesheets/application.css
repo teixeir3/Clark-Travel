@@ -174,7 +174,7 @@ a.center {
 /*  margin: 30px 0 30px 0;*/
   height: 104px;
   line-height: 104px;
-  width: 100%;
+  width: 350px;
 }
 
 li.right {
@@ -367,6 +367,10 @@ h2.signature {
   visibility: hidden;
 }
 
+.hidden:hover {
+  visibility: visible;
+}
+
 /*.logins:hover {
   display:;
 }
@@ -412,7 +416,7 @@ h2.signature {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: #3a3f44;
+  background-color: #728FCE;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -437,7 +441,7 @@ h2.signature {
   background: url("clark_travel_logo.png") no-repeat 0 0;
 /*  overflow: hidden;*/
   float: left;
-  margin: 3px 12px;
+  margin: 3px 12px 5px 12px;
 }
 
 .hide-text {
@@ -605,6 +609,11 @@ form .long-submit > input {
 
 .spacer {
   margin-top: 56px;
+}
+
+a.spacer {
+  position: relative;
+  top: 56px;
 }
 
 .checkbox-group {

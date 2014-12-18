@@ -3,7 +3,7 @@
   	<h1><%= category.title %></h1>
   	<ul>
       <% category.bookings.order(:position).each do |booking| %>
-    		<li><a href="<%= booking.url %>"><%= booking.title %></a></li>
+    		<li><a href="<%= booking.url %>"><%= booking.title %></a><a href="<%= edit_booking_url(booking) %>"><%= image_tag("edit-icon-32.png", class: "hidden right") %></a></li>
       <% end %>
   	</ul>
   </div>

@@ -25,7 +25,7 @@
   
 	<h1>Just In!</h1>
 	<p>Be sure to check out these new offers.</p>
-	<p><a href="<%= user_url(User.first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
+	<p><a href="<%= user_url(User.where(last_name: "Ocasio", first_name: "Ulrike").first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
 </div>
 <% if current_user_is_admin? %>
   <div class="content" style="height: 200px">

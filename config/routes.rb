@@ -5,6 +5,8 @@ ClarkTravel::Application.routes.draw do
     resources :bookings
   end
   
+  resources :bookings
+  
   root to: "promotions#index"
   
   
