@@ -9,6 +9,8 @@
 User.delete_all
 Promotion.delete_all
 Testimonial.delete_all
+Booking.delete_all
+
 
 User.create(first_name: "Douglas", last_name: "Teixeira", email: "teixeir3@gmail.com", password: "LOLpword6", position: 999, title: "Software Engineer", work_phone: "(908) 872-0937", home_phone: "", mobile_phone: "(908) 872-0937", fax: "", bio: "Douglas lives in NJ and is the web developer and webmaster of clark-travel.com.", is_admin: true)
 
@@ -21,6 +23,9 @@ Your vacation time is precious and I can help you maximize the use of your time 
 After getting to know you a bit, we’ll determine what you’re looking for in a vacation and I’ll recommend a trip that is sure to please. I can customize your trip to your exact specifications by adding elements, such as activities, dining, etc. that will create a personalized itinerary, just for you! 
 I’m waiting to hear from you…call me so we can create your dream trip together!", is_admin: true)
 
+User.create(first_name: "James", last_name: "Plakey", email: "mrjtp@aol.com", password: "", position: 3, title: "Facebook Test User", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "", fax: "(908) 595-0410", bio: "Test user for facebook approval.", is_admin: true, display: false)
+
+
 user = User.create(first_name: "Ulrike", last_name: "Ocasio", email: "ulrike@clark-travel.com", password: ENV["ADMIN_PASSWORD"], position: 2, title: "President", work_phone: "(908) 595-0400", home_phone: "", mobile_phone: "(908) 892-7001", fax: "(908) 595-0410", bio: "My name is Ulrike Ocasio and I tell everyone my first name is pronounced just like the vacuum cleaner. For many years I wanted to work in the travel industry. In April 2005 I had the chance to join Clark Travel after 27 years in the insurance industry. For years Lucy planned my trips – now I have the opportunity to arrange trips for other individuals.
 
 My passion for travel has been a great tool in assisting my clients in planning their vacation whether it is a honeymoon, family vacation, or cruise. I have traveled/cruised many times with both family and friends and have created lasting memories and friendships. I would like to create those wonderful memories for you. 
@@ -29,6 +34,8 @@ Below is a list of sampling of some of my accomplishments that I am proud of:
 
 Princess/Cunard Cruise Line Commodore, Celebrity Five star Agent, Sandals Certified, graduate of the Disney College of Knowledge, Globus family of brands Specialist, 
 Marriott Hotels Sales Specialist, Amresorts Master Agent, Alaska Certified Expert, Hawaii Destination Specialist and many others. ", is_admin: true)
+
+################### Seed 3 Inital Promotions ####################
 
 user.promotions.create({title: "Website Disclaimer", highlight: "Agreement for Users and Travelers", body: "When you use this website, you agree to the following terms, and you agree to convey the contents of this Agreement to your traveling family members or companions:
 
@@ -102,3 +109,27 @@ user.testimonials.create(highlight: "Disney Cruise", body: "We returned this pas
 user.testimonials.create(highlight: "Beauty of Alaska", body: "Thank you so very much for your thoughtfulness as I prepared for my trip to Alaska. The experience was amazing: words cannot express the beauty, awesome and grandeur of this part of our country. Please know that your gift was used to make this time enjoyable for me and my family. I will always be gratefully for you thoughtfulness.", signature: "Fr. Len", display: true, position: 15)
 user.testimonials.create(highlight: "Trip to Prague", body: "Just wanted to thank you for putting together such a wonderful trip. Privatair was everything you promised and more - in fact, our return flight arrived in Newark an hour early. And John and I fell in love with Prague and its genteel old world charm. The weather was spectacular; hotel lovely, people gracious. We walked the entire time, never took a taxi or tram and chose the day trip rather than the chateau tour. In fact, the movie the Illusionist, which we watched on the flight home, was filmed there. Our time in Prague will be forever etched in our memory and we will continue to (and have been) singing its praises since our return.", signature: "Janet L.", display: true, position: 16)
 
+################## Seed 2 Inital Booking Categories ###################
+
+bc1 = user.booking_categories.create(title: "Cruising", position: 0)
+bc2 = user.booking_categories.create(title: "Travel Packages", position: 1)
+
+################## Seed 9 Inital Booking Links ####################
+
+bc1.bookings.create(title: "Caribbean Cruises", url: "http://clarktravel.caribbean.yourtrip.co/", position: 0, display: true, carousel_display: true)
+
+bc1.bookings.create(title: "European Cruises", url: "http://clarktravel.europe.yourtrip.co/", position: 1, display: true, carousel_display: true)
+
+bc1.bookings.create(title: "Worldwide Tours and River Cruises", url: "http://www.globustravelagent.com/Default.aspx?id=42045", position: 2, display: true, carousel_display: false)
+
+bc2.bookings.create(title: "Alaska", url: "http://clarktravel.alaska.yourtrip.co/", position: 0, display: true, carousel_display: true)
+
+bc2.bookings.create(title: "Caribbean and Mexico", url: "http://www.applevacations.com/?agentId=31731744", position: 1, display: true, carousel_display: false)
+
+bc2.bookings.create(title: "Europe", url: "http://clarktravel.europevacations.yourtrip.co/", position: 2, display: true, carousel_display: true)
+
+bc2.bookings.create(title: "Exotic Destinations", url: "http://clarktravel.exotic.yourtrip.co/", position: 3, display: true, carousel_display: true)
+
+bc2.bookings.create(title: "Independent Packages to Caribbean, Mexico, USA, and Central/South America", url: "http://crusader.travimp.com/TIDirect/TIDirectFrontServlet?request_type=search&TIConnectId=31731744", position: 4, display: true, carousel_display: false)
+
+bc2.bookings.create(title: "Luxury Vacations", url: "http://clarktravel.luxury.yourtrip.co/", position: 5, display: true, carousel_display: true)

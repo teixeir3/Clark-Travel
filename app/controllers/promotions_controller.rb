@@ -6,6 +6,7 @@ class PromotionsController < ApplicationController
   def index
     @active_promotions = Promotion.all_active
     @promotions = Promotion.all(order: "expiration_date")
+    @carousel_bookings = Booking.carousel_bookings
   end
 
   def new

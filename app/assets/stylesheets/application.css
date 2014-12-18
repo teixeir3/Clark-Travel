@@ -85,7 +85,7 @@ body {
 }
 h1 {
     font-family:'Quicksand', arial;
-    font-size: 27px;
+    font-size: 30px;
     padding-top: 12px;
     font-weight: normal;
 }
@@ -212,6 +212,12 @@ a.delete-button:hover {
   border-radius: 4px;
 }
 
+#bookings-carousel {
+  width: 192px;
+  float: right;
+  margin-left: 6px;
+}
+
 .owl-carousel .owl-item{
 /*    height:360px;*/
     width: 94%;
@@ -250,7 +256,15 @@ a.hovertext {
   text-decoration: none !important;
   text-align: center;
 }
-a.hovertext:after {
+
+a.hovertext-small{
+  position: relative;
+  width: 500px;
+  text-decoration: none !important;
+  text-align: center;
+}
+
+a.hovertext:after, a.hovertext-small:after {
   content: attr(title);
   position: absolute;
   left: 45px;
@@ -276,6 +290,10 @@ h2.signature {
     color: #505050;
     text-size: 20px;
     margin-right: 16px;
+}
+
+#contact-us {
+  width: 400px;
 }
 
 .work-icon {
@@ -517,6 +535,12 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     margin-left: 0px;
     float: left;
     overflow: auto;
+}
+
+
+
+.no-image a {
+  font-size: 14px;
 }
 
 .no-image {

@@ -76,8 +76,18 @@ class User < ActiveRecord::Base
     inverse_of: :user
   )
   
+  has_many(
+    :booking_categories,
+    class_name: "BookingCategory",
+    foreign_key: :user_id,
+    primary_key: :id,
+    inverse_of: :user
+  )
+  
+  has_many :bookings, through: :booking_categories, source: :bookings
+  
   def name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}" if first_name || last_name
   end
   
   ### Oauth Methods ###
@@ -121,6 +131,10 @@ class User < ActiveRecord::Base
   
   def fb_picture_url
     facebook.get_picture("me")
+  end
+  
+  def fb_permissions
+    facebook.get_connection("me", "persmissions")
   end
   
   ### Auth Methods ###

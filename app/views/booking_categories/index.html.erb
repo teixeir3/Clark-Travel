@@ -1,0 +1,10 @@
+<% @active_booking_categories.each do |category| %>
+  <div class="no-image">
+  	<h1><%= category.title %></h1>
+  	<ul>
+      <% category.bookings.order(:position).each do |booking| %>
+    		<li><a href="<%= booking.url %>"><%= booking.title %></a></li>
+      <% end %>
+  	</ul>
+  </div>
+<% end %>

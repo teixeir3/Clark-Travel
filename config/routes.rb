@@ -1,6 +1,10 @@
 ClarkTravel::Application.routes.draw do
   resource :session, only: [:create, :destroy, :new]
   resources :users, :promotions, :testimonials
+  resources :booking_categories do
+    resources :bookings
+  end
+  
   root to: "promotions#index"
   
   

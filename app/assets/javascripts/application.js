@@ -48,11 +48,12 @@ $(document).on('page:change', function() {
   fadeOutElement($('.errors'), 6000);
   fadeOutElement($('.notices'), 6000);
   
-  var owl = $('.owl-carousel');
-  var owl2 = $('.testimonials-carousel');
-  var owl3 = $('.feed-carousel');
+  var owlPromotions = $('.promotions-carousel');
+  var owlTestimonials = $('.testimonials-carousel');
+  var owlFeed = $('.feed-carousel');
+  var owlBookings = $('.bookings-carousel');
   
-  owl.owlCarousel({
+  owlPromotions.owlCarousel({
      items : 1, 
      itemsDesktop : false,
      itemsDesktopSmall : false,
@@ -64,9 +65,9 @@ $(document).on('page:change', function() {
      autoplaySpeed: true,
      autoplayHoverPause: true
   });
-  owl.trigger('owl.play',5000);
+  owlPromotions.trigger('owl.play',5000);
   
-  owl2.owlCarousel({
+  owlTestimonials.owlCarousel({
     items : 1, 
     itemsDesktop : false,
     itemsDesktopSmall : false,
@@ -81,9 +82,9 @@ $(document).on('page:change', function() {
     pagination: false
   });
   
-  owl2.trigger('owl.play', 6000);
+  owlTestimonials.trigger('owl.play', 6000);
   
-  owl3.owlCarousel({
+  owlFeed.owlCarousel({
     items : 3, 
     itemsDesktop : false,
     itemsDesktopSmall : false,
@@ -97,7 +98,23 @@ $(document).on('page:change', function() {
     dots: false,
     pagination: false
   });
-  owl3.trigger('owl.play', 4000);
+  owlFeed.trigger('owl.play', 4000);
+  
+  owlBookings.owlCarousel({
+     items : 1, 
+     itemsDesktop : false,
+     itemsDesktopSmall : false,
+     itemsTablet: false,
+     itemsMobile : false,
+     loop: true,
+     margin: 0,
+     autoplay: true,
+     autoplaySpeed: true,
+     autoplayHoverPause: true,
+     dots: false,
+     pagination: false
+  });
+  owlBookings.trigger('owl.play',5000);
   
   $('.sortable').sortable({
     update: updateSortable

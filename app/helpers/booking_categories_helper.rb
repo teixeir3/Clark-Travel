@@ -1,0 +1,2 @@
+module BookingCategoriesHelper
+end

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.new(permitted_params.user)
     
+    fail
     if @user.save
       flash[:notices] = ["User created!"]
       redirect_to users_url
