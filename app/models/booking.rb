@@ -4,7 +4,6 @@
 #
 #  id                   :integer          not null, primary key
 #  title                :string(255)      not null
-#  user_id              :integer          not null
 #  url                  :string(255)      not null
 #  position             :integer
 #  display              :boolean          default(TRUE), not null

@@ -9,6 +9,7 @@
 User.delete_all
 Promotion.delete_all
 Testimonial.delete_all
+BookingCategory.delete_all
 Booking.delete_all
 
 

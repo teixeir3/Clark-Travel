@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update_attributes(permitted_params.booking)
-      flash.now[:notices] = ["Promotion Updated."]
+      flash.now[:notices] = ["Booking Link Updated."]
     else
       flash.now[:errors] = @booking.errors.full_messages
     end

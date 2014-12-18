@@ -40,4 +40,12 @@ class PermittedParams < Struct.new(:params, :current_user)
   def testimonial_attributes
     @testimonial_attributes ||= [:signature, :body, :highlight, :display, :position]
   end
+  
+  def booking
+    @booking_params ||= params.require(:booking).permit(booking_attributes)
+  end
+  
+  def booking_attributes
+    @booking_attributes ||= [:title, :url, :display, :position, :carousel_display, :picture]
+  end
 end

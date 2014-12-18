@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216212819) do
+ActiveRecord::Schema.define(version: 20141218140400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(version: 20141216212819) do
     t.integer  "position"
     t.boolean  "display",              default: true,  null: false
     t.boolean  "facebook_publish",     default: false, null: false
+    t.boolean  "carousel_display",     default: false, null: false
   end
 
+  add_index "promotions", ["carousel_display"], name: "index_promotions_on_carousel_display", using: :btree
   add_index "promotions", ["display"], name: "index_promotions_on_display", using: :btree
   add_index "promotions", ["facebook_publish"], name: "index_promotions_on_facebook_publish", using: :btree
   add_index "promotions", ["user_id"], name: "index_promotions_on_user_id", using: :btree

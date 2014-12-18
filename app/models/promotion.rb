@@ -43,6 +43,10 @@ class Promotion < ActiveRecord::Base
     self.where("current_date between start_date and expiration_date").all(order: "position")
   end
   
+  def self.all_active_carousel
+    self.where(carousel_display: true).where("current_date between start_date and expiration_date").all(order: "position")
+  end
+  
   def overdue_by_str
     "#{self.overdue_by} #{@overdue_str} #{@overdue_or_left}"
   end
