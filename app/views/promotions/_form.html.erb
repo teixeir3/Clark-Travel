@@ -67,10 +67,10 @@
        <h4 for="carousel_display">Display in '<%= link_to "Home Page", root_url %>' carousel:</h4>
        
        <label for="carousel_display_on" class="left">Display on:</label>
-       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_on" <%= "checked" if promotion.carousel_display %> value="<%= true %>">
+       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_on" <%= "checked" if promotion.persisted? && promotion.carousel_display %> value="<%= true %>">
        
        <label for="carousel_display_off" class="left">Display off:</label>
-       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_off" <%= "checked" unless promotion.carousel_display %> value="<%= false %>">
+       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_off" <%= "checked" unless !promotion.persisted? && promotion.carousel_display %> value="<%= false %>">
      </div>
     </div>
      
