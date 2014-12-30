@@ -537,6 +537,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     padding: 118px 0 6px 2px;
     margin: auto;
     overflow: auto;
+    display: block;
 }
 .content .content {
     width: 350px;
