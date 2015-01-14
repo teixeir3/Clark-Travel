@@ -33,5 +33,11 @@
       </div>
     <% end %>
   </div>
-  
+  <div class="params group">
+    <%  if Rails.env.development? %>
+      <%= debug(params) %>
+      <pre>This page was loaded on <strong><%=l Time.now, format: "%k:%M:%S:%L" %></strong></pre>
+      <pre>return_url: <strong><%= session[:return_url] %></strong></pre>
+    <% end %>
+  </div>
 </footer>
