@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :set_testimonials, :set_facebook_feed
   
   helper_method :current_user, :current_user_is_admin? ,:permitted_params, :signed_in?
-
+  
+  include ApplicationHelper
+  
   private
   
   def set_facebook_feed

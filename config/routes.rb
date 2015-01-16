@@ -12,6 +12,8 @@ ClarkTravel::Application.routes.draw do
   
   resources :bookings
   
+  resources :downloads, only: [:index]
+  
   root to: "promotions#index"
   
   
