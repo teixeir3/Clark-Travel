@@ -6,7 +6,7 @@ class DownloadsController < ApplicationController
   def index
     
     if params[:filename]
-      send_data "assets/#{params[:filename]}",
+      send_file "app/assets/images/#{params[:filename]}",
                 filename: params[:filename],
                 type: params[:filename][/\.[^.]*$/],
                 disposition: 'attachment'
