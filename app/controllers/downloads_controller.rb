@@ -9,7 +9,8 @@ class DownloadsController < ApplicationController
       send_file "app/assets/images/#{params[:filename]}",
                 filename: params[:filename],
                 type: params[:filename][/\.[^.]*$/],
-                disposition: 'attachment'
+                disposition: 'attachment',
+                x_sendfile: true
     else
       render nothing: true, status: 400
     end
