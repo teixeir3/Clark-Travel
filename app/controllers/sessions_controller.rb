@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
     end
   end
   
+  # Should be moved to UserController, really deals with updating user attributes
   def update_facebook_auth
     current_user.update_omniauth!(env["omniauth.auth"])
     

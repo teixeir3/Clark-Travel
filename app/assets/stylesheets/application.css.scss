@@ -7,19 +7,19 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
  *= require gallery/responsive/elastislide
  *= require gallery/responsive
  *= require gallery/slideshow
  *= require gallery/galleria/classic
  *= require gallery/touch_touch
- *= require jquery-ui
- *= require owl.carousel
- *= require owl.theme
+
  */
 
+
+@import "jquery-ui";
+
+@import "owl.carousel";
+@import "owl.theme";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 /*******************************************************************************
@@ -404,7 +404,7 @@ h2.signature {
 .logins > .hidden {
   visibility: hidden;
 }
-.logins > .logout:hover {
+.logins:hover > .logout {
   visibility: visible;
 }
 

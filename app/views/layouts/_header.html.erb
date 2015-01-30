@@ -1,7 +1,7 @@
 <header class="header">
 	<a class="logo hide-text" href="/">Clark Travel</a>
   <div class="group">
-    <ul class="dropdown logins">
+    <ul class="logins">
       <% if current_user %>
     	  <%= link_to edit_user_url(current_user) do %>
           <%= "#{current_user.name} " %><span class="caret"></span>
@@ -16,6 +16,8 @@
         <li><%=  link_to "(908) 595-0400 || Directions | ", page_path("directions") %></li>
       <% end %>
     </div>
+    
+    
     <ul class="navigation">
     	<li class="nav-li"><a href="/">HOME</a></li>
     	<li class="nav-li"><a href="<%= testimonials_url %>">TESTIMONIALS</a></li>

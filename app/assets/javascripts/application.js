@@ -21,6 +21,8 @@
 //= require jquery/jquery.easing-1.3
 //= require jquery/jquery.elastislide
 //= require jquery/jquery.tmpl.min
+//= require bootstrap-sprockets
+//= require bootstrap
 //= require_tree .
 //= require jquery-ui
 //= require owl.carousel
