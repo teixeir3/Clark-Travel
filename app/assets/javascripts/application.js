@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap-sprockets
-//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -24,8 +22,11 @@
 //= require jquery/jquery.elastislide
 //= require jquery/jquery.tmpl.min
 //= require_tree .
+//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery-ui
 //= require owl.carousel
+//= require jquery
 
 var fadeOutElement = function($el, delay) {
   window.setTimeout(function() {
