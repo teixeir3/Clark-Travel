@@ -371,6 +371,7 @@ h2.signature {
 .logins {
   float: right;
   margin-right: 12px;
+  display: block;
 }
 
 .logins li {
@@ -404,6 +405,11 @@ h2.signature {
 .logins > .hidden {
   visibility: hidden;
 }
+
+.logins {
+  height: 55px;
+  width: 220px;
+}
 .logins:hover > .logout {
   visibility: visible;
 }
@@ -419,9 +425,9 @@ h2.signature {
   border-left: 4px solid transparent;
 }
 
-.dropdown-menu {
+.dropdown-menu-1 {
   position: relative;
-  top: 100%;
+  top: 0;
   right: 0;
   z-index: 1000;
   float: right;
@@ -435,7 +441,11 @@ h2.signature {
   
 }
 
-.dropdown-menu > li {
+.block {
+  display: block;
+}
+
+.dropdown-menu-1 > li {
   float: left;
   width: 100px;
   background-color: #728FCE;

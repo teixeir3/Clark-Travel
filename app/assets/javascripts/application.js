@@ -156,11 +156,13 @@ $(document).on('page:change', function() {
  
   $('.logins').on('mouseenter', function() {
     console.log(".logins: mouseenter triggered");
-    $('.dropdown-menu').removeClass("hidden");
+    $('.dropdown-menu-1').removeClass("hidden");
+    $('.dropdown-menu-1').addClass("block");
   });
   
   $('.logins').on('mouseleave', function() {
     console.log(".logins: mouseleave triggered");
-    $('.dropdown-menu').addClass("hidden");
+    $('.dropdown-menu-1').removeClass("block");
+    $('.dropdown-menu-1').addClass("hidden");
   });
 });
