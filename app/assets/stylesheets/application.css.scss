@@ -20,18 +20,18 @@
  *= require owl.theme
  */
 
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 /*******************************************************************************
 	AUTHOR:		Douglas Teixeira
 	CONTACT:	teixeira@AyosInformatics.com
   WEBSITE: www.AyosInformatics.com
 
-	Style applied to main site. Use 12 pixel margins.
-*******************************************************************************/
 
 /***************************************************************************
 		Override.
 	***************************************************************************/
+
  @font-face {
     font-family:  'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 /*    src: url('res/Quicksand_Book.otf') format('opentype');*/
@@ -88,6 +88,17 @@ h1 {
     font-size: 30px;
     padding-top: 12px;
     font-weight: normal;
+}
+
+a.h1-a {
+  font-family:'Quicksand', arial;
+  font-size: 30px;
+  padding-top: 12px;
+  font-weight: normal;
+}
+
+.edit-icon {
+  display: inline-block;
 }
 
 .content h1 {
@@ -306,6 +317,10 @@ h2.signature {
 
 .fax-icon {
   list-style-image: url('fax.gif');
+}
+
+.envelope-icon {
+  list-style-image: "\2709";
 }
 
 /***************************************************************************
@@ -540,7 +555,7 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
     display: block;
 }
 .content .content {
-    width: 350px;
+    width: 396px;
     background-image: url('content_bg.png');
     background-repeat: no-repeat;
     padding: 24px 24px 24px 24px;
@@ -551,13 +566,13 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 
 
 
-.no-image a {
+.no-image > a {
   font-size: 14px;
 }
 
 .no-image {
   background-image: none;
-  width: 350px;
+  width: 391px;
   background-repeat: no-repeat;
   padding: 24px 24px 24px 24px;
   margin-left: 0px;
@@ -570,13 +585,13 @@ div.promotion img.promotion, div.promotion img.previous, div.promotion img.next 
 }
 
 .min-height {
-  min-height: 375px;
+  min-height: 421px;
 }
 /***************************************************************************
 		Large content.
 	***************************************************************************/
  .contentFull {
-    width: 756px;
+    width: 782px;
     background-repeat: no-repeat;
     padding: 12px 24px 12px 24px;
     margin: 0 auto 48px -6px;

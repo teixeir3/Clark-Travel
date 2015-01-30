@@ -47,8 +47,17 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     
-    flash[:notices] = ["User #{@user.name} deleted!"]
-    redirect_to :index
+    
+    respond_to do |format|
+      format.html { 
+        flash[:notices] = ["User #{@user.name} deleted!"]
+        redirect_to users_url
+      }
+      format.json { head :no_content }
+      format.js {
+        flash.now[:notices] = ["User #{@user.name} deleted!"]
+      }
+    end
   end
   
   def sort

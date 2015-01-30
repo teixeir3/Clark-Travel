@@ -3,7 +3,7 @@
   <% @users.each do |user| %>
     <%= content_tag_for :li, user, class: "content min-height" do %>
       <% if current_user_is_admin? %>
-        <a href="?action=delete&amp;id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this agent?')"></a>
+        
         <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
       <% end %>
   	  <h1><%= user.name %></h1>
@@ -24,9 +24,10 @@
           </li>
         <% end %> -->
     		<li><%= user.title %></li>
-    		<li class="work-icon"><%= user.work_phone %></li>
-    		<li class="mobile-icon"><%= user.mobile_phone %></li>
-    		<li class="fax-icon"><%= user.fax %></li>
+    		<li class="work-icon"><%= user.phone_format(:work_phone) %></li>
+    		<li class="mobile-icon"><%= user.phone_format(:mobile_phone) %></li>
+    		<li class="fax-icon"><%= user.phone_format(:fax) %></li>
+        <li class="envelope-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= user.email %></li>
         <li><%= link_to "Contact Me", user_url(user), class: "button_to long-submit" %></li>
     	</ul>
     <% end %>

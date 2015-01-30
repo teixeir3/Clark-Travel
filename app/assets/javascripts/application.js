@@ -30,6 +30,29 @@ var fadeOutElement = function($el, delay) {
     $el.fadeOut();
   }, delay);
 };
+
+var rowFadeout = function() {
+  console.log("in rowFadeout Method!");
+  $(this).closest('tr').fadeOut();
+};
+
+var confirmDestroy = function(element, action) {
+  if (confirm("Are you sure?")) {
+    var f = document.createElement('form');
+    f.style.display = 'none';
+    element.parentNode.appendChild(f);
+    f.method = 'POST';
+    f.action = action;
+    var m = document.createElement('input');
+    m.setAttribute('type', 'hidden');
+    m.setAttribute('name', '_method');
+    m.setAttribute('value', 'delete');
+    f.appendChild(m);
+    f.submit();
+  }
+  return false;
+}
+
 var updateSortable = function(event, ui) {
       $.post($(this).data('update-url'), $(this).sortable('serialize'));
 };
@@ -44,6 +67,14 @@ $(document).on('page:change', function() {
     dataType: 'script',
     cache: true
   });
+ 
+  $('.delete-button').bind('ajax:success', function(evt, data, status, xhr){
+    console.log("Great SUCCESS!!");
+    console.log(evt);
+    console.log(data);
+    console.log(status);
+    console.log(xhr);
+  })
  
   fadeOutElement($('.errors'), 6000);
   fadeOutElement($('.notices'), 6000);
@@ -131,61 +162,3 @@ $(document).on('page:change', function() {
     $('.dropdown-menu').addClass("hidden");
   });
 });
-
-//Define variables.
-var _holdPromotion=false;
-var _promotion=0;
-var _promotions=new Array();
-
-
-
-/***************************************************************************
-	Track mouse movement over the active promotion.
-***************************************************************************/
-function holdPromotion(holdPromotion){
-	_holdPromotion=holdPromotion;
-}
-
-/***************************************************************************
-	Load the current promotion.
-***************************************************************************/
-function loadPromotion(){
-	if(_promotions.length==0)
-		return false;
-	
-	//Load the current promotion.
-	document.getElementById("promotion").src="promotion/photo.php?id="+_promotions[_promotion];
-	document.getElementById("promotion").onclick=function(){
-		window.location="promotion.php?id="+_promotions[_promotion];
-	};
-}
-
-/***************************************************************************
-	Advance to the next promotion.
-***************************************************************************/
-function nextPromotion(){
-	if(_promotion==_promotions.length-1)
-		_promotion=0;
-	else
-		_promotion++;
-	loadPromotion();
-}
-
-/***************************************************************************
-	Return to the previous promotion.
-***************************************************************************/
-function previousPromotion(){
-	if(_promotion==0)
-		_promotion=_promotions.length-1;
-	else
-		_promotion--;
-	loadPromotion();
-}
-
-/***************************************************************************
-	Move to the next promotion if the current promotion is not active.
-***************************************************************************/
-function rotatePromotions(){
-	if(!_holdPromotion)
-		nextPromotion();
-}

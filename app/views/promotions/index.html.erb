@@ -7,7 +7,7 @@
     </div>
   <% end %>
 </div>
-<div class="content" style="height: 200px; overflow: hidden">
+<div class="content">
 	<!-- <p style="float: right">
   <object class="photo" type="text/html" width="180" height="150" data="http://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel">
     <param name="src" value="https://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel"></object></p> -->
@@ -28,7 +28,7 @@
 	<p><a href="<%= user_url(User.where(last_name: "Ocasio", first_name: "Ulrike").first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
 </div>
 <% if current_user_is_admin? %>
-  <div class="content" style="height: 200px">
+  <div class="content">
   	<h1>New Promotion</h1>
   	<p>To create a new promotion, follow the link below. To manage expired
   		and current promotions, visit the table below.</p>

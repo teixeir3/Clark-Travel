@@ -94,6 +94,10 @@ class User < ActiveRecord::Base
     name if first_name || last_name
   end
   
+  def phone_format(attr = :phone, options = {area_code: true})
+    ActiveSupport::NumberHelper.number_to_phone(self.try(attr), options)
+  end
+  
   ### Oauth Methods ###
   
   def self.from_omniauth!(auth)

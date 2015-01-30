@@ -40,15 +40,15 @@
 	<h1>Contact Info</h1>
   
   <div class="input">
-    <strong>Work: <%= @user.work_phone %></strong>
+    <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
   </div>
   
   <div class="input">
-    <strong>Cell: <%= @user.mobile_phone %></strong>
+    <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
   </div>
   
   <div class="input">
-    <strong>Fax: <%= @user.fax %></strong>
+    <strong>Fax: <%= @user.phone_format(:fax) %></strong>
   </div>
 </div>
   

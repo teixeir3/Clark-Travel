@@ -1,5 +1,5 @@
 class BookingCategoriesController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
+    before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
     before_action :set_booking_category, only: [:show, :edit, :update, :destroy]
   
     def index
@@ -24,7 +24,7 @@ class BookingCategoriesController < ApplicationController
     end
 
     def show
-
+      @category_bookings = @booking_category.bookings
     end
 
     def edit
@@ -58,8 +58,8 @@ class BookingCategoriesController < ApplicationController
     private
   
  
-    def set_booking_category_category
-      @booking_category_category = BookingCategory.find(params[:id])
+    def set_booking_category
+      @booking_category = BookingCategory.find(params[:id])
     end
   
 end

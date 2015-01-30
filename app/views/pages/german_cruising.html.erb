@@ -115,11 +115,16 @@
 	<p>During these two 7 night voyages you will experience both, the Eastern and Western Caribbean with their beautiful Islands. We're sailing round trip from Ft. Lauderdale, Florida, and you can choose between the 14 night cruise or one of the 7 night cruises.</p>
   <p>Our outstanding entertainers from Germany will be along for the entire 14 days. We're sure you will have a lot of fun at our exclusive parties and shows with these artists, because everyone always enjoys the dancing and Gemuetlichkeit.</p>
   <p><strong>To register, click the link below. Download the form and send it to this <%= link_to "address.", page_path("directions") %></strong></p>
-  <h1 class="center">
+<h1>To Register:</h1>  
+  
+  <h2 class="center">
+    
     <!-- <a href="assets/Hierl_CarribCruise2015_Full.pdf" class="center">Register Online</a> -->
-    <%= link_to "Registration Form", image_url("Hierl_CarribCruise2015_Full.pdf"), class: "center", target: "_blank" %>
-    <%= link_to "Save file", downloads_url(filename: "Hierl_CarribCruise2015_Full.pdf"), class: "center" %>
-  </h1>
+    <%= link_to "Register Online", image_url("Hierl_CarribCruise2015_Full.pdf"), class: "center" %>
+    <%= link_to "Download PDF Form", image_url("Hierl_CarribCruise2015_Full.pdf"), class: "center", target: "_blank" %>
+
+   
+  </h2>
 </div>
 <div class="contentFull">
   <h1 class="center contact-us" id="contact-us"><%= link_to "Contact us to learn more!", user_url(User.where(first_name: "Ulrike", last_name: "Ocasio").first.id, inquiry: "Ted Hierl's German American Radio Cruise"), class: "center" %></h1>

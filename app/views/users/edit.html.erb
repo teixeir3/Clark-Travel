@@ -24,22 +24,22 @@
     
     <div class="input">
       <label for="work">Work Phone</label>
-      <input id="work" type="text" name="user[work_phone]" value="<%= @user.work_phone %>">
+      <input id="work" type="text" name="user[work_phone]" value="<%= @user.phone_format(:work_phone) %>">
     </div>
     
     <div class="input">
       <label for="mobile">Mobile Phone</label>
-      <input id="mobile" type="text" name="user[mobile_phone]" value="<%= @user.mobile_phone %>">
+      <input id="mobile" type="text" name="user[mobile_phone]" value="<%= @user.phone_format(:mobile_phone) %>">
     </div>
     
     <div class="input">
       <label for="home">Home Phone</label>
-      <input id="home" type="phone" name="user[home_phone]" value="<%= @user.home_phone %>">
+      <input id="home" type="phone" name="user[home_phone]" value="<%= @user.phone_format(:home_phone) %>">
     </div>
     
     <div class="input">
       <label for="fax">Fax</label>
-      <input id="fax" type="text" name="user[fax]" value="<%= @user.fax %>">
+      <input id="fax" type="text" name="user[fax]" value="<%= @user.phone_format(:fax) %>">
     </div>
     
     <div class="input">

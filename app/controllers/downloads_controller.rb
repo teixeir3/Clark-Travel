@@ -10,7 +10,7 @@ class DownloadsController < ApplicationController
                 filename: params[:filename],
                 type: params[:filename][/\.[^.]*$/],
                 disposition: 'attachment',
-                x_sendfile: true
+                x_sendfile: true 
     else
       render nothing: true, status: 400
     end
