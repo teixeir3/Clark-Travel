@@ -25,6 +25,16 @@ class PermittedParams < Struct.new(:params, :current_user)
     @user_attributes
   end
   
+  # Not backed up by a model.
+  # TODO: Make a form model for contact_me form
+  def contact_me
+    @contact_me_attributes || params.require(:contact_me).permit(contact_me_attributes)
+  end
+  
+  def contact_me_attributes
+    @contact_me_attributes ||= [:name, :phone, :email, :inquiry]
+  end
+  
   def promotion
     @promotion_params ||= params.require(:promotion).permit(promotion_attributes)
   end

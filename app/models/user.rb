@@ -86,6 +86,13 @@ class User < ActiveRecord::Base
   
   has_many :bookings, through: :booking_categories, source: :bookings
   
+  ### Mailer Methods ###
+  
+  def send_contact_me_email(params)
+    UserMailer.contact_me_email(self, params).deliver   
+  end
+  ######################
+  
   def name
     "#{first_name} #{last_name}"
   end

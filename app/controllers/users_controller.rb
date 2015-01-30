@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy ]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :send_contact_me_email]
   
   def index
     @users = User.where(display: true).all(order: "position")
@@ -81,6 +81,12 @@ class UsersController < ApplicationController
     end
   end
   
+  
+  def send_contact_me_email
+    @user.send_contact_me_email(permitted_params.contact_me)
+    flash[:notices] = ["Message Sent!"]
+    redirect_to user_url(@user)
+  end
   
   private
   

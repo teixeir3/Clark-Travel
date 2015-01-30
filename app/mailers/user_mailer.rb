@@ -14,4 +14,11 @@ class UserMailer < ActionMailer::Base
     
     mail(to: "#{user.full_name} <#{user.email}>", subject: 'Clark-Travel Password Reset')
   end
+  
+  def contact_me_email(user, params)
+    @user = user
+    @params = params
+    
+    mail(to: "#{user.full_name} <#{user.email}>", subject: 'Clark-Travel.com Inquiry')
+  end
 end

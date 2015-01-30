@@ -3,30 +3,29 @@
 </div>
 
 <div class="content">
-  <form action="<%= user_url(@user) %>" enctype="multipart/form-data" method="post">
+  <form action="<%= user_contact_me_url(@user) %>" enctype="multipart/form-data" method="post">
 	
-  	<input type="hidden" name="_method" value="put"/>
   	<%= auth_token %>
     
 		<h1>Contact <%= @user.name %></h1>
     
 		<div class="input">
       <label for="name">Your Name</label>
-			<input id="name" type="text" name="email[name]" value="">
+			<input id="name" type="text" name="contact_me[name]" value="">
     </div> 
       
 		<div class="input"><label for="phone">Your Phone Number</label>
-			<input id="phone" type="text" name="email[phone]" value="">
+			<input id="phone" type="text" name="contact_me[phone]" value="">
     </div> 
   
 		<div class="input">
       <label for="email">Your Email</label>
-			<input id="email" type="text" name="email[email]" value="">
+			<input id="email" type="text" name="contact_me[email]" value="">
     </div>
       
 		<div class="input">
       <label for="inquiry">Your Inquiry</label> 
-			<textarea id="inquiry" name="inquiry" rows="10" cols="33"><%= "I would like to learn more about the \"#{@promotion.title}\" promotion." if @promotion.present? %></textarea>
+			<textarea id="inquiry" name="contact_me[inquiry]" rows="10" cols="33"><%= "I would like to learn more about the \"#{@promotion.title}\" promotion." if @promotion.present? %></textarea>
     </div>
       
 		<div class="submit long-submit">

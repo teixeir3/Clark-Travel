@@ -16,7 +16,7 @@ ClarkTravel::Application.routes.draw do
   
   root to: "promotions#index"
   
-  
+  post "users/:id/contact_me", to: "users#send_contact_me_email", as: "user_contact_me"
   post "users/sort", to: "users#sort", as: "sort_users"
   post "promotions/sort", to: "promotions#sort", as: "sort_promotions"
   post "testimonials/sort", to: "testimonials#sort", as: "sort_testimonials"
