@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -21,8 +23,6 @@
 //= require jquery/jquery.easing-1.3
 //= require jquery/jquery.elastislide
 //= require jquery/jquery.tmpl.min
-//= require bootstrap-sprockets
-//= require bootstrap
 //= require_tree .
 //= require jquery-ui
 //= require owl.carousel
