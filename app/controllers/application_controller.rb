@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_testimonials
-  after_action :set_facebook_feed
+  before_action :set_testimonials, :set_facebook_feed
   
   helper_method :current_user, :current_user_is_admin? ,:permitted_params, :signed_in?
   
