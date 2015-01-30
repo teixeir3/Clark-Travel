@@ -134,7 +134,7 @@ class User < ActiveRecord::Base
   end
   
   def valid_facebook?
-    uid && provider == "facebook" && oath_token && !oath_expires_at.past?
+    uid && provider == "facebook" && oauth_token && !oath_expires_at.past?
   end
   
   def fb_picture_url
