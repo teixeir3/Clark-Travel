@@ -24,7 +24,7 @@ class BookingCategoriesController < ApplicationController
     end
 
     def show
-      @category_bookings = @booking_category.bookings
+      @category_bookings = @booking_category.bookings.order(:position)
     end
 
     def edit

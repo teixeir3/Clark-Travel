@@ -1,6 +1,6 @@
 <% @active_booking_categories.each do |category| %>
   <div class="no-image">
-  	<h1><%= link_to category.title, booking_category_url(category), class: "h1-a" %> <%= link_to edit_booking_category_url(category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user.is_admin? %></h1>
+  	<h1><%= link_to category.title, booking_category_url(category), class: "h1-a" %> <%= link_to edit_booking_category_url(category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user_is_admin? %></h1>
   	<ul>
       <% category.bookings.order(:position).each do |booking| %>
     		<li>

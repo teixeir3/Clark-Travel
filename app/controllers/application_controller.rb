@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_is_admin?
-    current_user && current_user.is_admin?
+    signed_in? && current_user.is_admin?
   end
 
   def signed_in?
@@ -45,11 +45,24 @@ class ApplicationController < ActionController::Base
   end
 
   def require_signed_in!
-    redirect_to new_session_url unless signed_in?
+    unless signed_in?
+      flash[:errors] = ["You must be signed in to access this page!"]
+      redirect_to new_session_url
+    end
+  end
+  
+  def require_admin_signed_in!
+    unless current_user_is_admin?
+      flash[:errors] = ["Only administrators can access this page!"]
+      redirect_to session[:return_url]
+    end
   end
 
   def require_signed_out!
-    redirect_to users_url if signed_in?
+    if signed_in?
+      flash[:errors] = ["You must be signed out to access this page!"]
+      redirect_to users_url
+    end
   end
 
   def password_confirmed?
