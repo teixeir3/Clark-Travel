@@ -372,11 +372,12 @@ h2.signature {
   float: right;
   margin-right: 12px;
   display: block;
+  height: 55px;
+  width: 243px;
 }
 
 .logins li {
   float: right;
-/*  width: 100%;*/
 }
 
 .hidden {
@@ -406,10 +407,6 @@ h2.signature {
   visibility: hidden;
 }
 
-.logins {
-  height: 55px;
-  width: 220px;
-}
 .logins:hover > .logout {
   visibility: visible;
 }
