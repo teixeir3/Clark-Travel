@@ -1,7 +1,7 @@
 <div class="contentFull">
   <% if current_user_is_admin? %>  
     <%= link_to "&#10006".html_safe, promotion_url(@promotion), method: :delete, confirm: "Really delete Promotion \"#{@promotion.title}\"?", class: "right delete-button" %>
-    <%= link_to "Edit", edit_promotion_url(@promotion), class: "right" %>
+    <%= link_to edit_promotion_url(@promotion), class: "right" do image_tag("edit-icon-32.png") end %>
   <% end %>
 	<h1><%= @promotion.title %></h1>
   
@@ -10,7 +10,7 @@
 <div class="contentFull">  
 	<h1><%= @promotion.highlight if @promotion.present? %></h1>
   
-	<p id="body"><%= @promotion.body if @promotion.present? %></p>
+	<p id="body"><%= simple_format @promotion.body if @promotion.present? %></p>
 </div>
 <div class="contentFull">
 	<h1>Promotion Timeline</h1>

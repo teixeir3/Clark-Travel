@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218140400) do
+ActiveRecord::Schema.define(version: 20150211222400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,22 @@ ActiveRecord::Schema.define(version: 20141218140400) do
   add_index "bookings", ["carousel_display"], name: "index_bookings_on_carousel_display", using: :btree
   add_index "bookings", ["category_id"], name: "index_bookings_on_category_id", using: :btree
   add_index "bookings", ["display"], name: "index_bookings_on_display", using: :btree
+
+  create_table "customers", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "home_phone"
+    t.string   "alt_phone"
+    t.string   "mobile_phone"
+    t.string   "email"
+    t.date     "birth_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "promotions", force: true do |t|
     t.string   "title",                                null: false

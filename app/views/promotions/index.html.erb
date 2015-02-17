@@ -7,11 +7,8 @@
     </div>
   <% end %>
 </div>
+
 <div class="content">
-	<!-- <p style="float: right">
-  <object class="photo" type="text/html" width="180" height="150" data="http://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel">
-    <param name="src" value="https://worldvacationsgroup.info/slideshow/index.php?sites=alaska-caribbean-europe-europevacations-exotic-luxury&amp;size=Rectangle&amp;agency=clarktravel"></object></p> -->
-    
   <div class="bookings-carousel" id="bookings-carousel">
     <% @carousel_bookings.each do |booking| %>
       <div class="item">
@@ -21,7 +18,6 @@
       </div>
     <% end %>
   </div>
-  
   
 	<h1>Just In!</h1>
 	<p>Be sure to check out these new offers.</p>
@@ -42,7 +38,7 @@
         <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
       	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
         <div class="paragraph">
-        	<p><%= promotion.highlight %></p>
+        	<p><%= simple_format promotion.highlight %></p>
         	<p><a href="<%= promotion_url(promotion) %>">Learn More</a></p>
         </div>
         <%= link_to promotion_url(promotion) do %>

@@ -1,4 +1,6 @@
 ClarkTravel::Application.routes.draw do
+  # resources :customers
+
   resource :session, only: [:create, :destroy, :new]
   resources :users do
     get :activate, on: :collection
