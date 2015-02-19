@@ -2,6 +2,7 @@ class PasswordResetsController < ApplicationController
   def new
   end
   
+  # Same behavior displays regardoessnif the user isn found for security reasons.
   def create
     user = User.find_by_email(params[:email])
     user.send_password_reset if user

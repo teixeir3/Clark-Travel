@@ -86,6 +86,7 @@ class User < ActiveRecord::Base
   
   has_many :bookings, through: :booking_categories, source: :bookings
   
+  
   ### Mailer Methods ###
   
   def send_contact_me_email(params)

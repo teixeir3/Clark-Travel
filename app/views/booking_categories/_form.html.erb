@@ -1,0 +1,34 @@
+<%= form_for @booking_category, html: {class: "nifty_form"} do |f| %>
+  <div class="content">
+
+ 		<h1><%= @booking_category.form_header_text %></h1>
+ 		<p><%= image_tag @booking_category.picture.url(:small), class: "photo" %></p>
+      
+    <div class="input">
+      <label for="avatar">JPEG Photo (Minimum 360x450):</label>
+      <input id="avatar" type="file" name="@booking_catogery[picture]" value="">
+    </div>
+    
+   	<div class="submit">
+      <input class="long-submit" type="submit">
+    </div>
+  </div>
+  
+  <div class="content">
+    
+      <div class="input">
+        <%= f.text_field :title %>
+      </div>
+      
+      <div class="input">
+        <%= f.text_area :description, size: "60x12" %>
+      </div>
+      
+      <div class="spacer submit long-submit">
+        <%= f.submit @booking_category.button_text %>
+      </div>
+
+  </div>
+
+  
+<% end %>

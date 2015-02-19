@@ -1,0 +1,2 @@
+module GermanCruisingRegistrationHelper
+end
