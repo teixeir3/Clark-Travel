@@ -2,23 +2,25 @@
 #
 # Table name: promotions
 #
-#  id                   :integer          not null, primary key
-#  title                :string(255)      not null
-#  user_id              :integer          not null
-#  highlight            :text
-#  body                 :text
-#  start_date           :date
-#  expiration_date      :date
-#  created_at           :datetime
-#  updated_at           :datetime
-#  picture_file_name    :string(255)
-#  picture_content_type :string(255)
-#  picture_file_size    :integer
-#  picture_updated_at   :datetime
-#  position             :integer
-#  display              :boolean          default(TRUE), not null
-#  facebook_publish     :boolean          default(FALSE), not null
-#  carousel_display     :boolean          default(FALSE), not null
+#  id                    :integer          not null, primary key
+#  title                 :string(255)      not null
+#  user_id               :integer          not null
+#  highlight             :text
+#  body                  :text
+#  start_date            :date
+#  expiration_date       :date
+#  created_at            :datetime
+#  updated_at            :datetime
+#  picture_file_name     :string(255)
+#  picture_content_type  :string(255)
+#  picture_file_size     :integer
+#  picture_updated_at    :datetime
+#  position              :integer
+#  display               :boolean          default(TRUE), not null
+#  facebook_publish      :boolean          default(FALSE), not null
+#  carousel_display      :boolean          default(FALSE), not null
+#  facebook_published_at :datetime
+#  facebook_id           :integer
 #
 
 class Promotion < ActiveRecord::Base
@@ -39,6 +41,47 @@ class Promotion < ActiveRecord::Base
     primary_key: :id,
     inverse_of: :promotions
   )
+  
+  # def mirror_facebook
+ #
+ #  end
+  
+  # can refactor this to work with all models
+  def model_path
+    Rails.application.routes.url_helpers.promotion_path(self)
+  end
+  
+  def model_url(host = "http://clark-travel.com")
+    Rails.application.routes.url_helpers.promotion_url(self, host: host)
+  end
+  
+  def facebook_options(host = "http://clark-travel.com")
+    @options ||= (start_date.past?) ? {
+      message: body,
+      description: highlight,
+      link: model_url,
+      picture: picture.url
+    } : {
+      message: body,
+      description: highlight,
+      link: model_url,
+      picture: picture.url,
+      scheduled_publish_time: start_date.to_time.to_i,
+      published: false
+    }
+  end
+  
+  def publish_to_facebook
+    if publish_to_facebook?
+      facebook_id = user.facebook.put_object("clarktravelagency", "feed", facebook_options)
+      facebook_published_at = DateTime.now
+      save!
+    end
+  end  
+  
+  def publish_to_facebook?
+    facebook_publish && facebook_published_at.nil?# REMOVE (only publish once)|| (facebook_published_at < updated_at)
+  end
   
   def self.all_active
     self.where("current_date between start_date and expiration_date").all(order: "position")
