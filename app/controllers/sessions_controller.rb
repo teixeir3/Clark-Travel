@@ -32,19 +32,6 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-  
-  # Should be moved to UserController, really deals with updating user attributes
-  def update_facebook_auth
-    current_user.update_omniauth!(env["omniauth.auth"])
-    
-    if current_user.valid?
-      flash[:notices] = ["Facebook Credentials Added!"]
-    else
-      flash[:errors] = ["An Error Has Occurred!"] + current_user.errors.full_messages
-    end
-    
-    redirect_to edit_user_url(current_user)
-  end
 
   def destroy
     sign_out!

@@ -1,4 +1,4 @@
-class GermanCruissingForm
+class GermanCruisingForm
   include ActiveModel::Model
 
 end

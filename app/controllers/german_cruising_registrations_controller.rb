@@ -1,4 +1,4 @@
-class GermanCruisingRegistrationController < ApplicationController
+class GermanCruisingRegistrationsController < ApplicationController
   before_action :set_german_cruising_form
   
   def new
@@ -8,7 +8,7 @@ class GermanCruisingRegistrationController < ApplicationController
   def create
     if @german_cruising_form.valid?
       UserMailer.german_cruising_registration_email(@german_cruising_form).deliver
-      flash[:notices] = ["Registration Sent!"]
+      flash[:notices] = ["Sending Registration Form!"]
       redirect_to page_path("german_cruising")
     else
       flash.now[:errors] = @german_cruising_form.error.full_messages

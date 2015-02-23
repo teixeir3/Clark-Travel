@@ -88,6 +88,19 @@ class UsersController < ApplicationController
     redirect_to user_url(@user)
   end
   
+  def update_facebook_auth
+    @user = current_user
+    @user.update_omniauth!(env["omniauth.auth"])
+    
+    if @user.valid?
+      flash[:notices] = ["Facebook Credentials Added!"]
+    else
+      flash[:errors] = ["An Error Has Occurred!"] + @user.errors.full_messages
+    end
+    
+    render :edit
+  end
+  
   private
   
   def set_user
