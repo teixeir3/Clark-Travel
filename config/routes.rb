@@ -15,7 +15,7 @@ ClarkTravel::Application.routes.draw do
   resources :bookings
   
   resources :password_resets, only: [:new, :edit, :update, :create]
-  resources :german_cruising_registrations, only: [:new, :edit]
+  resources :german_cruising_forms, only: [:new, :edit]
   
   resources :downloads, only: [:index]
   

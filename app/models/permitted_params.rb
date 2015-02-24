@@ -41,8 +41,9 @@ class PermittedParams < Struct.new(:params, :current_user)
      @german_cruising_params ||= params.require(:contact_me).permit(german_cruising_form_attributes)
   end
   
+  # TODO WIP fill in german_cruising_formsn#new.html.erb german_cruising_form_.rb
   def german_cruising_form_attributes
-    @contact_me_attributes ||= [:name, :phone, :email, :inquiry]
+    @german_cruising_attributes ||= []
   end
   
   def promotion

@@ -5,6 +5,7 @@ class GermanCruisingFormsController < ApplicationController
 
   end
   
+  # TODO is it more RESTful to change this action name because it's not creating any db records?
   def create
     if @german_cruising_form.valid?
       @german_cruising_form.send_email

@@ -1,0 +1,2 @@
+module GermanCruisingFormsHelper
+end
