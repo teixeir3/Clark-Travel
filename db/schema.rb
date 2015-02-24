@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224221220) do
+ActiveRecord::Schema.define(version: 20150224223048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20150224221220) do
   end
 
   create_table "promotions", force: true do |t|
-    t.string   "title",                                           null: false
-    t.integer  "user_id",                                         null: false
+    t.string   "title",                                 null: false
+    t.integer  "user_id",                               null: false
     t.text     "highlight"
     t.text     "body"
     t.date     "start_date"
@@ -82,11 +82,11 @@ ActiveRecord::Schema.define(version: 20150224221220) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "position"
-    t.boolean  "display",                         default: true,  null: false
-    t.boolean  "facebook_publish",                default: false, null: false
-    t.boolean  "carousel_display",                default: false, null: false
+    t.boolean  "display",               default: true,  null: false
+    t.boolean  "facebook_publish",      default: false, null: false
+    t.boolean  "carousel_display",      default: false, null: false
     t.datetime "facebook_published_at"
-    t.integer  "facebook_id",           limit: 8
+    t.integer  "facebook_id"
   end
 
   add_index "promotions", ["carousel_display"], name: "index_promotions_on_carousel_display", using: :btree
