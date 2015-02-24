@@ -73,10 +73,12 @@ class Promotion < ActiveRecord::Base
     # scheduled_publish_time must be in UNIX timestamp (aka # seconds since 1970 GMT)
   end
   
-  def publish_to_facebook!
-    if publish_to_facebook?
+  def publish_to_facebook!(check = true)
+    if (check && publish_to_facebook?)
 
-      self.facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)
+      # grab the page access token, make a Koala FB API instance and create a wall post with it.
+      # the restult is a {"id" => "12131231"} hash. Saves the id for future updates.
+      self.facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)["id"]
       self.facebook_published_at = DateTime.now
       self.save!
     end
