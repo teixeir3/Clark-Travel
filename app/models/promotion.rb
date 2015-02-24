@@ -66,7 +66,7 @@ class Promotion < ActiveRecord::Base
       description: highlight,
       link: model_url,
       picture: picture.url,
-      scheduled_publish_time: start_date.to_time.to_i,
+      scheduled_publish_time: start_date.to_time.advance(hours: 5).to_i,
       published: false
     }
     
