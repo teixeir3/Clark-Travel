@@ -69,14 +69,16 @@ class Promotion < ActiveRecord::Base
       scheduled_publish_time: start_date.to_time.to_i,
       published: false
     }
+    
+    # scheduled_publish_time must be in UNIX timestamp (aka # seconds since 1970 GMT)
   end
   
-  def publish_to_facebook
+  def publish_to_facebook!
     if publish_to_facebook?
-      @page_graph = 
-      facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)
-      facebook_published_at = DateTime.now
-      save!
+
+      self.facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)
+      self.facebook_published_at = DateTime.now
+      self.save!
     end
   end  
   

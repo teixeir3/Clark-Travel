@@ -61,7 +61,7 @@ class PromotionsController < ApplicationController
   private
   
   def push_to_facebook
-    @promotion.publish_to_facebook if @promotion.publish_to_facebook?
+    @promotion.publish_to_facebook!
   end
  
   def set_promotion

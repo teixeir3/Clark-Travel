@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
     mail(to: "#{user.full_name} <#{user.email}>", subject: 'Clark-Travel.com Inquiry')
   end
   
-  def german_cruising_registration_email(user, params)
+  def german_cruising_form_email(user, params)
     @user, @params = user, params
     
     mail(to: "#{user.full_name} <#{user.email}>", subject: 'Ted Hierl Registration:')

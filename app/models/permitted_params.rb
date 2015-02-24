@@ -1,5 +1,7 @@
 class PermittedParams < Struct.new(:params, :current_user)
   def user
+    
+    # Format Phone numbers:
     @user_params || params.require(:user).each do |key, value|
       if key =~ /(.+)_phone$/ || key == "fax"
         params[:user][key] = value.gsub(/\D/, '')
@@ -28,10 +30,18 @@ class PermittedParams < Struct.new(:params, :current_user)
   # Not backed up by a model.
   # TODO: Make a form model for contact_me form
   def contact_me
-    @contact_me_attributes || params.require(:contact_me).permit(contact_me_attributes)
+    @contact_me_params ||= params.require(:contact_me).permit(contact_me_attributes)
   end
   
   def contact_me_attributes
+    @contact_me_attributes ||= [:name, :phone, :email, :inquiry]
+  end
+  
+  def german_cruising_form
+     @german_cruising_params ||= params.require(:contact_me).permit(german_cruising_form_attributes)
+  end
+  
+  def german_cruising_form_attributes
     @contact_me_attributes ||= [:name, :phone, :email, :inquiry]
   end
   
