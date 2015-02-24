@@ -73,7 +73,8 @@ class Promotion < ActiveRecord::Base
   
   def publish_to_facebook
     if publish_to_facebook?
-      facebook_id = user.facebook.put_object("clarktravelagency", "feed", facebook_options)
+      @page_graph = 
+      facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)
       facebook_published_at = DateTime.now
       save!
     end
