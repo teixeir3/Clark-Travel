@@ -5,7 +5,7 @@ class GermanCruisingForm
   
 
 
-  validates_presence_of :home_phone, :email, 
+  validates_presence_of :home_phone, :email
 
   
   def initialize(attributes = {})
