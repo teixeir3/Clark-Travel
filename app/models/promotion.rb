@@ -57,7 +57,7 @@ class Promotion < ActiveRecord::Base
     Rails.application.routes.url_helpers.promotion_url(self, host: host)
   end
   
-  def facebook_options(host = "http://clark-travel.com")
+  def facebook_options(host = "http://www.clark-travel.com")
     @options ||= (start_date.past?) ? {
       name: title,
       message: body,

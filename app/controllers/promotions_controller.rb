@@ -1,7 +1,7 @@
 class PromotionsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
-  after_action :push_to_facebook, only: [:create, :update]
+  # after_action :push_to_facebook, only: [:create, :update]
   
   # Root URL
   def index
@@ -24,6 +24,8 @@ class PromotionsController < ApplicationController
       flash.now[:errors] = @promotion.errors.full_messages
       render :new
     end
+    
+    @promotion.push_to_facebook
   end
 
   def show
@@ -40,6 +42,8 @@ class PromotionsController < ApplicationController
     else
       flash.now[:errors] = @promotion.errors.full_messages
     end
+    
+    @promotion.push_to_facebook
     
     render :edit
   end
