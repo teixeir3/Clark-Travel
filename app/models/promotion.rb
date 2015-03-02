@@ -42,7 +42,7 @@ class Promotion < ActiveRecord::Base
     inverse_of: :promotions
   )
   
-  delegate :facebook to: :user
+  delegate :facebook, to: :user
   
   # def mirror_facebook
  #
