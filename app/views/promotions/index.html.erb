@@ -25,7 +25,7 @@
 </div>
 <% if current_user_is_admin? %>
   <div class="content">
-  	<h1>New Promotion</h1>
+  	<h1><%= link_to "New Promotion", new_promotion_url %></h1>
   	<p>To create a new promotion, follow the link below. To manage expired
   		and current promotions, visit the table below.</p>
   	<p><%= link_to "New Promotion", new_promotion_url %></p>

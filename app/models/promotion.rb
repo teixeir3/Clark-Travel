@@ -42,6 +42,8 @@ class Promotion < ActiveRecord::Base
     inverse_of: :promotions
   )
   
+  delegate :facebook to: :user
+  
   # def mirror_facebook
  #
  #  end
@@ -51,22 +53,26 @@ class Promotion < ActiveRecord::Base
     Rails.application.routes.url_helpers.promotion_path(self)
   end
   
-  def model_url(host = "http://clark-travel.com")
+  def model_url(host = "http://www.clark-travel.com")
     Rails.application.routes.url_helpers.promotion_url(self, host: host)
   end
   
   def facebook_options(host = "http://clark-travel.com")
     @options ||= (start_date.past?) ? {
+      name: title,
       message: body,
+      caption: highlight,
       description: highlight,
       link: model_url,
       picture: picture.url
     } : {
+      name: title,
+      caption: highlight,
       message: body,
       description: highlight,
       link: model_url,
       picture: picture.url,
-      scheduled_publish_time: start_date.to_time.advance(hours: 5).to_i,
+      scheduled_publish_time: start_date.to_time.to_i,
       published: false
     }
     
