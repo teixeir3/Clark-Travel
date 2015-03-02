@@ -25,7 +25,7 @@ class PromotionsController < ApplicationController
       render :new
     end
     
-    @promotion.push_to_facebook
+    push_to_facebook
   end
 
   def show
@@ -43,7 +43,7 @@ class PromotionsController < ApplicationController
       flash.now[:errors] = @promotion.errors.full_messages
     end
     
-    @promotion.push_to_facebook
+    push_to_facebook
     
     render :edit
   end
