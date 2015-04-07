@@ -1,7 +1,7 @@
 <%= render "form", testimonial: @testimonial if current_user_is_admin? %>
 <ul id="testimonials" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_testimonials_url %>">
   <% @testimonials.each do |testimonial| %>
-    <%= content_tag_for :li, testimonial, class: "" do %>
+    <%= content_tag_for :li, testimonial, class: "testimonial" do %>
       <%= render "show", testimonial: testimonial %>
     <% end %>
   <% end %>
