@@ -801,6 +801,9 @@ h2.signature {
   }
 }
 
+.new-promotion-blurb {
+  min-height: 182px;
+}
 .promotion {
   
   //min-height: 250px;
@@ -816,14 +819,16 @@ h2.signature {
 //  }
   
   padding: 0;
-
+  min-height: 500px;
 
   figure {
+    min-height: 500px;
     position: relative;
     width: 100%;
     max-width: 900px;
     margin: auto;
     figcaption {
+      min-height: 500px;
       position: absolute;
       top: 0;
       font-weight: bold;
@@ -849,11 +854,11 @@ h2.signature {
     backface-visibility: hidden;
     transition: all 0.5s;
     width: 100%;
-    opacity: .5;
+    opacity: .6;
     min-height: 300px;
   }
   &:hover img {
-    opacity: .2;
+    opacity: .3;
   }
 }
 

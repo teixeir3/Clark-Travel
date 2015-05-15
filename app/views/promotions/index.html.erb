@@ -34,7 +34,7 @@
 </div>
 
 <% if current_user_is_admin? %>  
-  <div class="col-xs-12 col-md-6">
+  <div class="col-xs-12 col-md-6 new-promotion-blurb">
     <h1><%= link_to "New Promotion", new_promotion_url %></h1>
    	<p>To create a new promotion, follow the link below. To manage expired
  		and current promotions, visit the table below.</p>
@@ -55,7 +55,7 @@
             <figcaption class="">
               <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button promotion-delete", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
             	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
-            	<p><%= simple_format promotion.highlight %></p>
+            	<p><%= simple_format promotion.highlight[0..500] %></p>
             	<p><%= link_to "Learn More", promotion_url(promotion) %></p>
             </figcaption>
           </figure>
