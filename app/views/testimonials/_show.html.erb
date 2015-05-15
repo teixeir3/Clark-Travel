@@ -1,8 +1,10 @@
-<div class="contentFull">
+<div class="col-xs-12 testimonial">
 	<%= link_to "&#10006".html_safe, testimonial_url(testimonial), data: {confirm: "Really delete Testimonial \"#{testimonial.highlight}\"?" }, method: :delete, class: "delete-button" if current_user_is_admin? %>
 <% current_test_url = (current_user_is_admin? ? edit_testimonial_url(testimonial) : testimonial_url(testimonial)) %>
 	<h1><%= link_to("\"#{testimonial.highlight}\"", current_test_url) %></h1>
-	<p><%= simple_format "\"#{testimonial.body}\"" %></p>
+  
+  <% @body = (@to_truncate) ? "\"#{testimonial.body_truncated}\"" : "\"#{testimonial.body}\"" %>
+	<p><%= simple_format @body %></p>
+  
 	<h2 class="signature"><%= "-#{testimonial.signature}" unless testimonial.signature.blank? %></h2>
-  <hr>
 </div>

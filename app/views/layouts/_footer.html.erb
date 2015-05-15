@@ -1,43 +1,53 @@
 <footer class="footer">
-	<!-- <img src="/assets/let_us_plan_it.jpg" alt="Let us plan your next vacation!"> -->
-  <% if @feed %>
-    <div class="feed-carousel left">
-      <% @feed.each do |post| %>
-        <% next unless post["message"] %>
-        <%= render "layouts/post", post: post %>    
+  <nav class="footer navbar">
+    <div id="footer-container" class="container">  
+  
+      <% if @feed %>
+        <div class="feed-carousel left">
+          <% @feed.each do |post| %>
+            <% next unless post["message"] %>
+            <%= render "layouts/post", post: post %>    
+          <% end %>
+        </div>
+      <% end %>
+      
+      
+      <div class="no-imageFull testimonials-carousel">
+        <% @testimonials.each do |testimonial| %>
+          <div class="item">
+            <%= render "testimonials/show", testimonial: testimonial, to_truncate: true %>    
+          </div>
+        <% end %>
+      </div>
+      
+      <div class="col-xs-12 col-sm-6 center">
+        <a class="address" href="<%= page_path("directions") %>">
+        	<ul>
+            <li>3461 Route 22 East</li>
+            <li>(Corner of County Line Rd.)</li>
+            <li>Branchburg NJ 08876</li>
+        	  <li>(908) 595-0400</li>
+          	<li>Fax (908) 595-0410</li>
+          </ul>
+        </a>
+      </div>
+      
+      <div class="col-xs-sm col-sm-6 copyright center">
+      	<%= link_to "http://www.AyosInformatics.com/", class: "ayos-logo" do %>
+          <%= image_tag("ayos_final_300x200.gif", width: 150, height: 100) %>
+          <p><small>© Ayos Informatics, LLC 2014</small></p>
+        <% end %>
+      </div>
+    
+
+
+      <%  if Rails.env.development? %>
+        <div class="col-xs-12 params group">
+            <%= debug(params) %>
+            <pre>This page was loaded on <strong><%=l Time.now, format: "%k:%M:%S:%L" %></strong></pre>
+            <pre>return_url: <strong><%= session[:return_url] %></strong></pre>
+        </div>
       <% end %>
     </div>
-  <% end %>
-  
-  <div class="copyright left">
-  	<a href="http://www.AyosInformatics.com/">
-  		<img src="/assets/ayos_final_100x50.gif" alt="Ayos Informatics">
-    </a>
-    <small>© Ayos Informatics, LLC 2014</small>
-  </div>
-  <div class="right">
-    <a class="address" href="<%= page_path("directions") %>">
-    	<ul>
-        <li>3461 Route 22 East</li>
-        <li>(Corner of County Line Rd.)</li>
-        <li>Branchburg NJ 08876</li>
-    	  <li>(908) 595-0400</li>
-      	<li>Fax (908) 595-0410</li>
-      </ul>
-    </a>
-  </div>
-  <div class="no-imageFull testimonials-carousel">
-    <% @testimonials.each do |testimonial| %>
-      <div class="item">
-        <%= render "testimonials/show", testimonial: testimonial %>    
-      </div>
-    <% end %>
-  </div>
-  <div class="params group">
-    <%  if Rails.env.development? %>
-      <%= debug(params) %>
-      <pre>This page was loaded on <strong><%=l Time.now, format: "%k:%M:%S:%L" %></strong></pre>
-      <pre>return_url: <strong><%= session[:return_url] %></strong></pre>
-    <% end %>
-  </div>
+  </nav>
 </footer>

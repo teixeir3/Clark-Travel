@@ -1,27 +1,27 @@
-<div class="content">
-  <form action="<%= users_url %>" method="post">
+<div class="form text-center">
+  <form action="<%= users_url %>" method="post" class="form">
   	<%= auth_token %>
   	<h1>New Agent</h1>
   	<p>To create a new profile, enter the email address for the new agent to
   		login with, such as "example@gmail.com.</p>
       
-  	<div class="input">
+  	<div class="input form-group">
       <label for="email">Email</label>
-  		<input id="email" type="text" name="user[email]" value="<%= user.email if user.present? %>">
+  		<input id="email" class="form-control" type="text" name="user[email]" value="<%= user.email if user.present? %>">
     </div>
     
-    <div class="input half-size left">
+    <div class="input form-group half-size left">
       <label for="first-name">First Name</label>
-  		<input id="first-name" type="text" name="user[first_name]" value="<%= user.first_name if user.present? %>">
+  		<input id="first-name" class="form-control" type="text" name="user[first_name]" value="<%= user.first_name if user.present? %>">
     </div>
     
-    <div class="input half-size left">
+    <div class="input form-group half-size left">
       <label for="last-name">Last Name</label>
-  		<input id="last-name" type="text" name="user[last_name]" value="<%= user.last_name if user.present? %>">
+  		<input id="last-name" class="form-control" type="text" name="user[last_name]" value="<%= user.last_name if user.present? %>">
     </div>
     
-  	<div class="submit">
-      <input class="long-submit" type="submit">
+  	<div class="form-group submit">
+      <input class="btn" type="submit" value="Submit">
     </div>
   </form>
 </div>

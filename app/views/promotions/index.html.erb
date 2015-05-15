@@ -1,51 +1,70 @@
-<div class="no-imageFull promotions-carousel">
-  <% @active_promotions.each do |promotion| %>
-    <div class="item">
-      <a class="hovertext" target="_blank" title="<%= promotion.highlight %>" href="<%= promotion_url(promotion) %>">
-        <%= image_tag promotion.picture.url(:large), class: "photo" %>
-      </a>
-    </div>
-  <% end %>
-</div>
-
-<div class="content">
-  <div class="bookings-carousel" id="bookings-carousel">
-    <% @carousel_bookings.each do |booking| %>
+<div class="col-xs-12 row-padding">
+  <div class="promotions-carousel">
+    <% @active_promotions.each do |promotion| %>
       <div class="item">
-        <a class="hovertext-small" target="_blank" title="<%= booking.title %>" href="<%= booking.url %>">
-          <%= image_tag booking.picture.url(:small), class: "photo" %>
+        <a class="promotion-link" target="_blank" title="<%= promotion.highlight %>" href="<%= promotion_url(promotion) %>">
+          <%= image_tag promotion.picture.url(:large), class: "photo" %>
+          <span class="promotion-hovertext">
+            <%= promotion.highlight %>
+          </span>
         </a>
       </div>
     <% end %>
   </div>
-  
-	<h1>Just In!</h1>
-	<p>Be sure to check out these new offers.</p>
-	<p><a href="<%= user_url(User.where(last_name: "Ocasio", first_name: "Ulrike").first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
 </div>
-<% if current_user_is_admin? %>
-  <div class="content">
-  	<h1><%= link_to "New Promotion", new_promotion_url %></h1>
-  	<p>To create a new promotion, follow the link below. To manage expired
-  		and current promotions, visit the table below.</p>
-  	<p><%= link_to "New Promotion", new_promotion_url %></p>
-  </div>
+
+<div class="col-xs-12 col-md-6 yourtrip">
+  <figure class="figure">
+    <div class="bookings-carousel" id="bookings-carousel">
+      <% @carousel_bookings.each do |booking| %>
+        <div class="item">
+          <a class="hovertext-small" target="_blank" title="<%= booking.title %>" href="<%= booking.url %>">
+            <%= image_tag booking.picture.url(:small), class: "photo" %>
+          </a>
+        </div>
+      <% end %>
+    </div>
+
+    <figcaption>
+    	<h1>Just In!</h1>
+    	<p>Be sure to check out these new offers.</p>
+    	<p><a href="<%= user_url(User.where(last_name: "Ocasio", first_name: "Ulrike").first.id, inquiry: "yourtrip.co") %>">Learn More</a></p>
+    </figcaption>
+  </figure>
+</div>
+
+<% if current_user_is_admin? %>  
+  <div class="col-xs-12 col-md-6">
+    <h1><%= link_to "New Promotion", new_promotion_url %></h1>
+   	<p>To create a new promotion, follow the link below. To manage expired
+ 		and current promotions, visit the table below.</p>
+    <p><%= link_to "New Promotion", new_promotion_url %></p>
+    </div>
 <% end %>
+
+
 
 <ul id="promotions" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_promotions_url %>">
   <% @active_promotions.each do |promotion| %>
-    <%= content_tag_for :li, promotion, class: "content" do %>
-        <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
-      	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
-        <div class="paragraph">
-        	<p><%= simple_format promotion.highlight %></p>
-        	<p><a href="<%= promotion_url(promotion) %>">Learn More</a></p>
-        </div>
-        <%= link_to promotion_url(promotion) do %>
-          <%= image_tag promotion.picture.url(:small), class: "photo right" %>
-        <% end %>
+    <%= content_tag_for :li, promotion, class: "" do %>
+      <div class="col-xs-12 col-md-6 promotion row-padding">
+
+          <figure class="figure">
+            <%= image_tag promotion.picture.url(:large), class: "" %>
+    
+            <figcaption class="">
+              <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button promotion-delete", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
+            	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
+            	<p><%= simple_format promotion.highlight %></p>
+            	<p><%= link_to "Learn More", promotion_url(promotion) %></p>
+            </figcaption>
+          </figure>
+
+      </div>
     <% end %>
   <% end %>
 </ul>
+<div class="col-xs-12">
+  <%= render "index", promotions: @promotions if current_user_is_admin? %>
+</div>
 
-<%= render "index", promotions: @promotions if current_user_is_admin? %>

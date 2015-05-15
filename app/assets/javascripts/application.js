@@ -74,6 +74,8 @@ $(document).on('page:change', function() {
     console.log(status);
     console.log(xhr);
   })
+  
+  $(".dropdown-toggle").dropdown();
  
   fadeOutElement($('.errors'), 6000);
   fadeOutElement($('.notices'), 6000);
@@ -95,7 +97,7 @@ $(document).on('page:change', function() {
      autoplaySpeed: true,
      autoplayHoverPause: true
   });
-  owlPromotions.trigger('owl.play',6000);
+  owlPromotions.trigger('owl.play',10000);
   
   owlTestimonials.owlCarousel({
     items : 1, 
@@ -112,10 +114,10 @@ $(document).on('page:change', function() {
     pagination: false
   });
   
-  owlTestimonials.trigger('owl.play', 7000);
+  owlTestimonials.trigger('owl.play', 10000);
   
   owlFeed.owlCarousel({
-    items : 3, 
+    items : 1, 
     itemsDesktop : false,
     itemsDesktopSmall : false,
     itemsTablet: false,
@@ -128,7 +130,7 @@ $(document).on('page:change', function() {
     dots: false,
     pagination: false
   });
-  owlFeed.trigger('owl.play', 7000);
+  owlFeed.trigger('owl.play', 10000);
   
   owlBookings.owlCarousel({
      items : 1, 
@@ -144,22 +146,9 @@ $(document).on('page:change', function() {
      dots: false,
      pagination: false
   });
-  owlBookings.trigger('owl.play',5000);
+  owlBookings.trigger('owl.play',7000);
   
   $('.sortable').sortable({
     update: updateSortable
-  });
- 
- 
-  $('.logins').on('mouseenter', function() {
-    console.log(".logins: mouseenter triggered");
-    $('.dropdown-menu-1').removeClass("hidden");
-    $('.dropdown-menu-1').addClass("block");
-  });
-  
-  $('.logins').on('mouseleave', function() {
-    console.log(".logins: mouseleave triggered");
-    $('.dropdown-menu-1').removeClass("block");
-    $('.dropdown-menu-1').addClass("hidden");
   });
 });

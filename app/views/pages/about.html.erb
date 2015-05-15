@@ -1,26 +1,32 @@
-<h1>About Clark Travel</h1>
-<div class="content">
-  <%= image_tag("clark_travel_agency.jpg", class: "photo left") %>
+<div class="col-xs-12 about background-image">
+  <figure class="figure">
+    <%= image_tag("clark_travel_agency.jpg", class: "") %>
+    <figcaption>
+      <div class="page-header text-center">
+        <h1>About Clark Travel</h1>        
+      </div>
+
+      <div class="about left">
+        <p class="indent">Travel in style with Clark Travel Agency, Inc.  We are your full-service
+        travel specialist and have been in business for 35+ years.  When you're
+        looking to make your travel dreams come true, there's no better choice
+        than Clark Travel.</p>
+        <p class="indent">We'll work with you one-on-one to build the trip
+        you're always wanted to take, or we'll suggest fabulous ideas if 
+        you're not sure what you'd like your next vacation to be.  Looking to
+        relax and do nothing but enjoy gorgeous scenery?  We can help you do 
+        that.  Looking for exciting, big city stimulation and want to be busy 
+        all day?  We can arrange that, too.  It's all about you at Clark Travel
+        Agency, Inc.</p>
+        <p class="indent">Our aim is to create a vacation experience that is fully
+        customized for you.  We want you to feel like your planned your trip
+        yourself but with none of the hassle or effort.What sets us apart
+        is our experience and the relationships we've established across the
+        industry.</p>
+        <p>We'd love to help book your dream vacation, so <strong><%= link_to "call us today!", user_url(2) %></strong></p>
+      </div>
+      <h1 class="inline-header-link"><%= link_to "Meet Our Team", users_url, class: "spacer" %></h1>
+    </figcaption>
+  </figure>
 </div>
-<div class="content">
-	<div class="about left">
-		<p class="indent">Travel in style with Clark Travel Agency, Inc.  We are your full-service
-		travel specialist and have been in business for 35+ years.  When you're
-		looking to make your travel dreams come true, there's no better choice
-		than Clark Travel.</p>
-    <p class="indent">We'll work with you one-on-one to build the trip
-		you're always wanted to take, or we'll suggest fabulous ideas if 
-		you're not sure what you'd like your next vacation to be.  Looking to
-		relax and do nothing but enjoy gorgeous scenery?  We can help you do 
-		that.  Looking for exciting, big city stimulation and want to be busy 
-		all day?  We can arrange that, too.  It's all about you at Clark Travel
-		Agency, Inc.</p>
-    <p class="indent">Our aim is to create a vacation experience that is fully
-		customized for you.  We want you to feel like your planned your trip
-		yourself but with none of the hassle or effort.What sets us apart
-		is our experience and the relationships we've established across the
-		industry.</p>
-    <p>We'd love to help book your dream vacation, so <strong><%= link_to "call us today!", user_url(2) %></strong></p>
-		</div>
-	  <h1 class="inline-header-link"><%= link_to "Meet Our Team", users_url, class: "spacer" %></h1>
-</div>
+  

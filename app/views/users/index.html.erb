@@ -1,36 +1,50 @@
-<%= render("form", user: @user) if signed_in? %>
-<ul id="users" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_users_url %>">
+<% if signed_in?  %>
+  <div class="col-xs-12 col-sm-6">
+    <%= render("form", user: @user) %>
+  </div>
+<% end %>
+
+<ul id="users" class="users" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_users_url %>">
   <% @users.each do |user| %>
-    <%= content_tag_for :li, user, class: "content min-height" do %>
-      <% if current_user_is_admin? %>
+    <div class="col-xs-12 col-sm-6 min-height">
+      <%= content_tag_for :li, user, class: "" do %>
+        <% if current_user_is_admin? %>
         
-        <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
+          <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
+        <% end %>
+  	  
+        <h1><%= user.name %></h1>
+  	    <div class="small-avatar">
+          <a href="<%= user_url(user) %>">
+            <%= image_tag user.avatar.url(:small), class: "photo" %>
+          </a>
+        </div>
+    	
+        <ul class="contact-info">
+          <!-- <% if current_user_is_admin? %>
+            <li>
+              <label for="position_2">Position:</label>
+              <select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
+              <% @users.length.times do |i| %>
+                <option <%= "selected" if user.position == i%>><%=i%></option>
+              <% end %>
+              </select>
+            </li>
+          <% end %> -->
+      		<li><strong><%= user.title %></strong></li>
+      		<li class="work-icon"><%= user.phone_format(:work_phone) %></li>
+      		<li class="mobile-icon"><%= user.phone_format(:mobile_phone) %></li>
+      		<li class="fax-icon"><%= user.phone_format(:fax) %></li>
+          <li class="envelope-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= user.email %></li>
+          <li><%= link_to "Contact Me", user_url(user), class: "button_to long-submit" %></li>
+      	</ul>
       <% end %>
-  	  <h1><%= user.name %></h1>
-  	  <div class="small-avatar">
-        <a href="<%= user_url(user) %>">
-          <%= image_tag user.avatar.url(:small), class: "photo" %>
-        </a>
-      </div>
-    	<ul class="contact-info">
-        <!-- <% if current_user_is_admin? %>
-          <li>
-            <label for="position_2">Position:</label>
-            <select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
-            <% @users.length.times do |i| %>
-              <option <%= "selected" if user.position == i%>><%=i%></option>
-            <% end %>
-            </select>
-          </li>
-        <% end %> -->
-    		<li><strong><%= user.title %></strong></li>
-    		<li class="work-icon"><%= user.phone_format(:work_phone) %></li>
-    		<li class="mobile-icon"><%= user.phone_format(:mobile_phone) %></li>
-    		<li class="fax-icon"><%= user.phone_format(:fax) %></li>
-        <li class="envelope-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= user.email %></li>
-        <li><%= link_to "Contact Me", user_url(user), class: "button_to long-submit" %></li>
-    	</ul>
-    <% end %>
+    </div>
   <% end %>
-  <div class="contentFull"><h1><%= link_to "Get Directions", page_path("directions"), class: "center" %></h1></div>
+    
+ 
+  
+  <div class="col-xs-12">
+    <h1><%= link_to "Get Directions", page_path("directions"), class: "center" %></h1>
+  </div>
 </ul>

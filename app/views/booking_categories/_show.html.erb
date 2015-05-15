@@ -1,16 +1,26 @@
-<h1><%= link_to booking_category.title, booking_category_url(booking_category), class: "h1-a" %> <%= link_to edit_booking_category_url(booking_category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user_is_admin? %></h1>
-
-<%= image_tag(booking_category.picture.url(:small), class: "left", alt: booking_category.title) %>
-
-<ul>
-  <% category_bookings.order(:position).each do |booking| %>
-		<li>
-      <a href="<%= booking.url %>"><%= booking.title %></a>
-      <% if false #current_user && current_user_is_admin? %>
-        <a href="<%= edit_booking_url(booking) %>">
-          <%= image_tag("edit-icon-32.png", class: " left") %>
-        </a>
+<figure class="figure">
+  <%= image_tag(booking_category.picture.url(:small), class: "", alt: booking_category.title) %>
+  <figcaption class="">
+    <h1>
+      <%= link_to booking_category.title, booking_category_url(booking_category), class: "h1-a category-link" %>
+    </h1>
+    <%= link_to edit_booking_category_url(booking_category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user_is_admin? %>
+    
+    <ul class="list-group">
+      <% category_bookings.order(:position).each do |booking| %>
+    		<li class="list-group-item blurb">
+        	<%= link_to booking.title, booking.url %>
+          <% if false #current_user && current_user_is_admin? %>
+            <a href="<%= edit_booking_url(booking) %>">
+              <%= image_tag("edit-icon-32.png", class: " left") %>
+            </a>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </ul>
+  </figcaption>
+</figure>
+ 
+
+
+

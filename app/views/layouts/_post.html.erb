@@ -1,5 +1,15 @@
 <%= link_to (post["actions"] ? post["actions"].first["link"] : "https://facebook.com/clarktravelagency" ), class: "item post" do %>
-  <p class="left"><%= post["message"] %></p>
-  <%= image_tag post["picture"], class: "photo left" if post["picture"]%>
-  <small class="left">Posted on Facebook: <%= Time.parse(post["updated_time"]).strftime("%b %d @ %I:%M")  %></small>
+  <div class="col-xs-8">
+    <p class="left"><%= (post["message"].length > 400) ? post["message"][0..400] + "..." : post["message"]%></p>
+  </div>
+  
+  <div class="col-xs-4">
+    <%= image_tag post["picture"], class: "photo left" if post["picture"]%>
+  </div>
+  
+  <div class="col-xs-12">
+    <i class="fa fa-facebook-square fa-lg"></i>
+    <small class="left">Posted on Facebook: <%= Time.parse(post["updated_time"]).strftime("%b %d @ %I:%M")  %> </small>
+   </div>
+  
 <% end %>

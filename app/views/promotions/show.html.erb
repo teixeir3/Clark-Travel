@@ -13,14 +13,14 @@
 	<p id="body"><%= simple_format @promotion.body if @promotion.present? %></p>
 </div>
 <div class="contentFull">
-	<h1>Promotion Timeline</h1>
+	<h3>Promotion Timeline</h3>
   
-  <div class="input left">
+  <div class="left">
     <label for="start-date">Start:</label>
     <p id="start-date"><%= @promotion.start_date %></p>
   </div>
   
-  <div class="input left">
+  <div class="left">
     <label for="expiration-date">Expiration:</label>
     <p id="expiration-date"><%= @promotion.expiration_date %></p>
   </div>

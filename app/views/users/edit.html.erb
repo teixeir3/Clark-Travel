@@ -1,99 +1,102 @@
 <%= render "facebook_auth" %>
 
-<form action="<%= user_url(@user) %>" enctype="multipart/form-data" method="post">
-	
-	<input type="hidden" name="_method" value="put"/>
-	<%= auth_token %>
-  
-	<div class="content">
-		<h1><%= @user.name %></h1>
-		<p><%= image_tag @user.avatar.url(:small), class: "photo" %></p>
-      
-    <div class="input">
-      <label for="avatar">JPEG Photo (Minimum 360x450):</label>
-      <input id="avatar" type="file" name="user[avatar]" value="">
-    </div>
-    
-  	<div class="submit long-submit">
-      <input class="long-submit" type="submit">
-    </div>
-	</div>
-  
-	<div class="content">
-		<h1>Contact Info</h1>
-    
-    <div class="input">
-      <label for="work">Work Phone</label>
-      <input id="work" type="text" name="user[work_phone]" value="<%= @user.phone_format(:work_phone) %>">
-    </div>
-    
-    <div class="input">
-      <label for="mobile">Mobile Phone</label>
-      <input id="mobile" type="text" name="user[mobile_phone]" value="<%= @user.phone_format(:mobile_phone) %>">
-    </div>
-    
-    <div class="input">
-      <label for="home">Home Phone</label>
-      <input id="home" type="phone" name="user[home_phone]" value="<%= @user.phone_format(:home_phone) %>">
-    </div>
-    
-    <div class="input">
-      <label for="fax">Fax</label>
-      <input id="fax" type="text" name="user[fax]" value="<%= @user.phone_format(:fax) %>">
-    </div>
-    
-    <div class="input">
-      <label for="email">Email</label>
-      <input id="email" type="email" name="user[email]" value="<%= @user.email %>">
-    </div>
-    
-    <div class="input">
-      <label for="email">Confirm Email</label>
-      <input id="email" type="text" name="email_confirmation" value="<%= %>">
-    </div>
-	</div>
-  
-	<div class="content">
-		<h1>Biography</h1>
-    
-		<div class="input">
-      <label for="biography">Biography</label> 
-			<textarea id="biography" name="biography" rows="10" cols="33"><%= @user.bio %></textarea>
-    </div>
-      
-  	<div class="submit long-submit">
-      <input class="long-submit" type="submit">
-    </div>
-    
-	</div>
-  
-	<div class="content">
-		<h1>Profile</h1>
-    
-    <div class="input">
-      <label for="first-name">First Name</label>
-      <input id="first-name" type="text" name="user[first_name]" value="<%= @user.first_name %>">
-    </div>
+<div class="form">
 
-    <div class="input">
-      <label for="last-name">Last Name</label>
-      <input id="last-name" type="text" name="user[last_name]" value="<%= @user.last_name %>">
-    </div>
-    
-    <div class="input">
-      <label for="last-name">Title</label>
-      <input id="last-name" type="text" name="user[title]" value="<%= @user.title %>">
-    </div>
-    
-		<div class="input">
-  		<label for="newPass">Password</label>
-  		<input id="newPass" type="password" name="user[password]">
-    </div>
-    
-		<div class="input">
-  		<label for="password-confirmation">Confirm Password</label>
-  		<input id="password-confirmation" type="password" name="user[password_confirmation]">
-    </div>
+  <form class="form" action="<%= user_url(@user) %>" enctype="multipart/form-data" method="post">
+	
+  	<input type="hidden" name="_method" value="put"/>
+  	<%= auth_token %>
+  
+  	<div class="col-xs-12 col-sm-6 row-padding">
+  		<h1><%= @user.name %></h1>
+  		<p><%= image_tag @user.avatar.url(:small), class: "photo photo-sm" %></p>
       
-	</div>
-</form>
+      <div class="input form-group">
+        <label for="avatar">JPEG Photo (Minimum 360x450):</label>
+        <input id="avatar" class="form-control" type="file" name="user[avatar]" value="">
+      </div>
+    
+    	<div class="submit form-group">
+        <input class="btn" type="submit">
+      </div>
+  	</div>
+  
+  	<div class="col-xs-12 col-sm-6 row-padding">
+  		<h1>Contact Info</h1>
+    
+      <div class="input form-group">
+        <label for="work">Work Phone</label>
+        <input id="work" class="form-control" type="text" name="user[work_phone]" value="<%= @user.phone_format(:work_phone) %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="mobile">Mobile Phone</label>
+        <input class="form-control" id="mobile" type="text" name="user[mobile_phone]" value="<%= @user.phone_format(:mobile_phone) %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="home">Home Phone</label>
+        <input class="form-control" id="home" type="text" name="user[home_phone]" value="<%= @user.phone_format(:home_phone) %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="fax">Fax</label>
+        <input class="form-control" id="fax" type="text" name="user[fax]" value="<%= @user.phone_format(:fax) %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email" type="email" name="user[email]" value="<%= @user.email %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="email">Confirm Email</label>
+        <input class="form-control" id="email" type="text" name="email_confirmation" value="<%= %>">
+      </div>
+  	</div>
+  
+  	<div class="col-xs-12 col-sm-6 row-padding">
+  		<h1>Biography</h1>
+    
+  		<div class="input form-group">
+        <label for="biography">Biography</label> 
+  			<textarea class="form-control" id="biography" name="biography" rows="10" cols="33"><%= @user.bio %></textarea>
+      </div>
+      
+    	<div class="submit long-submit">
+        <input class="long-submit" type="submit">
+      </div>
+    
+  	</div>
+  
+  	<div class="col-xs-12 col-sm-6 row-padding">
+  		<h1>Profile</h1>
+    
+      <div class="input form-group">
+        <label for="first-name">First Name</label>
+        <input class="form-control" id="first-name" type="text" name="user[first_name]" value="<%= @user.first_name %>">
+      </div>
+
+      <div class="input form-group">
+        <label for="last-name">Last Name</label>
+        <input class="form-control" id="last-name" type="text" name="user[last_name]" value="<%= @user.last_name %>">
+      </div>
+    
+      <div class="input form-group">
+        <label for="last-name">Title</label>
+        <input class="form-control" id="last-name" type="text" name="user[title]" value="<%= @user.title %>">
+      </div>
+    
+  		<div class="input form-group">
+    		<label for="newPass">Password</label>
+    		<input class="form-control" id="newPass" type="password" name="user[password]">
+      </div>
+    
+  		<div class="input form-group">
+    		<label for="password-confirmation">Confirm Password</label>
+    		<input class="form-control" id="password-confirmation" type="password" name="user[password_confirmation]">
+      </div>
+      
+  	</div>
+  </form>
+</div>

@@ -32,4 +32,11 @@ class Testimonial < ActiveRecord::Base
   def display?
     display
   end
+  
+  def body_truncated(options = {truncated: true})
+    return body unless options[:truncated]
+    
+    truncated_body = body[0..300]
+    (body.length > 300) ? truncated_body  + "..." : truncated_body
+  end
 end
