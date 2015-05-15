@@ -41,7 +41,7 @@
         	<li class=""><a href="<%= booking_categories_path %>">Book Online</a></li>
         	<li class=""><a href="<%= users_url %>">Contact</a></li>
         	<li class=""><a href="<%= page_path("about") %>">About</a></li>
-        	<li class=""><a href="<%= users_url %>">Directions</a></li>
+        	<li class=""><a href="<%= page_path("directions") %>">Directions</a></li>
           <% if signed_in? %>
           	<li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle", id: "dropdownAgent", role: "button", data: { toggle: "dropdown"} do %>
