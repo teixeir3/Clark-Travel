@@ -18,21 +18,22 @@
        
         <ul class="navigation nav navbar-nav">
           <!-- <li class=""><a href="/">HOME</a></li> -->
-        	<li class="dropdown">
+        	<li class="">
             <%= link_to "eBrochures", "http://brochurerack.book-my-offer.com/AgentBrochureRack.aspx?arid=ae326916787c60d02f095d8233c27696", role: "menuitem", tabindex: "-1"  %>
           </li>
         	<li class=""><%= link_to "Disney", page_path("disney") %></li>
-        	<li class=""><a href="<%= testimonials_url %>">TESTIMONIALS</a></li>
-        	<li class=""><a href="<%= page_path("resources") %>">RESOURCES</a></li>
+          <li class=""><a href="<%= page_path("german_cruising") %>">German-American Cruise</a></li>
+        	<li class=""><a href="<%= booking_categories_path %>">Book Online</a></li>
+        	<li class=""><a href="<%= page_path("resources") %>">Resources</a></li>
 
         	
-        	<li class=""><a href="<%= page_path("german_cruising") %>">GERMAN CRUISE</a></li>
+
         </ul>
         
         <ul class="navigation nav navbar-nav nav-right sticky-nav">
-        	<li class=""><a href="<%= booking_categories_path %>">Book Online</a></li>
-        	<li class=""><a href="<%= users_url %>">Contact</a></li>
         	<li class=""><a href="<%= page_path("about") %>">About</a></li>
+        	<li class=""><a href="<%= users_url %>">Contact</a></li>
+        	<li class=""><a href="<%= testimonials_url %>">Testimonials</a></li>
         	<li class=""><a href="<%= page_path("directions") %>">Directions</a></li>
           <% if signed_in? %>
           	<li class="dropdown">
