@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
-  before_filter :require_signed_out!, :set_return_url, :only => [:new, :create]
-  before_filter :require_signed_in!, :only => [:update_facebook_auth, :destroy]
+  before_filter :require_signed_out!, only: [:new, :create]
+  before_filter :require_signed_in!, only: [:update_facebook_auth, :destroy]
+  # before_filter :set_return_url, only: [:new]
   
   def new
+    session[:go_back] = request.referrer
     respond_to do |format|
       format.html{ render :new }
       # format.js { render :new }
@@ -25,8 +27,8 @@ class SessionsController < ApplicationController
     if @user
       sign_in(@user)
       flash[:notices] = ["Welcome #{@user.name}"]
-      session[:return_url] = request.referrer unless session[:return_url]
-      redirect_to users_url
+      # session[:return_url] = request.referrer unless session[:return_url]
+      redirect_to session[:go_back]
     else
       flash.now[:errors] = ["Incorrect credentials"]
       render :new

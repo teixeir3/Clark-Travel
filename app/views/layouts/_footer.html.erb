@@ -46,6 +46,7 @@
             <%= debug(params) %>
             <pre>This page was loaded on <strong><%=l Time.now, format: "%k:%M:%S:%L" %></strong></pre>
             <pre>return_url: <strong><%= session[:return_url] %></strong></pre>
+            <pre>go_back: <strong><%= session[:go_back] %></strong></pre>
         </div>
       <% end %>
     </div>
