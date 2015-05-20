@@ -1,92 +1,88 @@
-<form action="<%= promotion.persisted? ? promotion_url(promotion) : promotions_url %>" enctype="multipart/form-data" method="post">
-  <div class="contentFull">
-  	<%= auth_token %>
+<%= simple_form_for @promotion, html: {class: "form"} do |f| %>
+  <div class="form">
+    <div class="col-xs-12">
+    	<%= auth_token %>
     
-    <% if promotion.persisted? %>
-      <input type="hidden" name="_method" value="put"/>
+      <% if promotion.persisted? %>
+        <input type="hidden" name="_method" value="put"/>
       
-      <%= link_to "&#10006".html_safe, promotion_url(promotion), method: :delete, confirm: "Really delete Promotion \"#{promotion.title}\"?", class: "right delete-button" if current_user_is_admin? %>
-    <% end %>
-    <%= link_to "back", request.referrer, class: "right" %>
+        <%= link_to "&#10006".html_safe, promotion_url(promotion), method: :delete, confirm: "Really delete Promotion \"#{promotion.title}\"?", class: "right delete-button" if current_user_is_admin? %>
+      <% end %>
+      <%= link_to "back", request.referrer, class: "right" %>
     
-  	<h1>Promotion Photo</h1>
-  	<p><%= image_tag promotion.picture.url(:medium), class: "photo" %></p>
+    	<h1>Promotion Photo</h1>
+    	<p><%= image_tag promotion.picture.url(:medium), class: "photo" %></p>
     
-    <div class="input">
-      <label for="photo">JPEG Photo (Maximum 760x360):</label>
-      <input id="photo" type="file" name="promotion[picture]" value="<%= promotion.picture.url(:large) if promotion.persisted? %>">
+      <div class="input">
+        <label for="photo">JPEG Photo (Maximum 760x360):</label>
+        <input id="photo" type="file" name="promotion[picture]" value="<%= promotion.picture.url(:large) if promotion.persisted? %>">
+      </div>
     </div>
-  </div>
   
-  <div class="content">  
-  	<h1>Promotion Content</h1>
+    <div class="col-xs-12 text-center">  
+    	<h1>Promotion Content</h1>
       
-  	<div class="input">
-      <label for="title">Title</label>
-  		<input id="title" type="text" name="promotion[title]" value="<%= promotion.title if promotion.present? %>">
-    </div>
+    	<%= f.input :title, html: { class: "form-group" }, input_html: { class: "form-control" } %>
     
-    <div class="input">
-      <label for="highlight">Highlight</label>
-  		<textarea id="highlight" type="text" name="promotion[highlight]"><%= promotion.highlight if promotion.present? %></textarea>
-    </div>
+      <div class="input">
+        <label for="highlight">Highlight</label>
+    		<textarea id="highlight" type="text" name="promotion[highlight]"><%= promotion.highlight if promotion.present? %></textarea>
+      </div>
     
-    <div class="input">
-      <label for="body">Body</label>
-  		<textarea id="body" type="text" name="promotion[body]"><%= promotion.body if promotion.present? %></textarea>
-    </div>
-  </div>
-  <div class="content">
-  	<h1>Promotion Timeline</h1>
+      <div class="input">
+        <label for="body">Body</label>
+    		<textarea id="body" type="text" name="promotion[body]"><%= promotion.body if promotion.present? %></textarea>
+      </div>
+
+    	<h1>Promotion Timeline</h1>
     
-    <div class="input">
-      <label for="start-date">Start:</label>
-      <input id="start-date" type="date" name="promotion[start_date]" value="<%= promotion.start_date || Date.today %>">
-    </div>
+      <div class="input">
+        <label for="start-date">Start:</label>
+        <input id="start-date" type="date" name="promotion[start_date]" value="<%= promotion.start_date || Date.today %>">
+      </div>
     
-    <div class="input">
-      <label for="expiration-date">Expiration:</label>
-      <input id="expiration-date" type="date" name="promotion[expiration_date]" value="<%= promotion.expiration_date || Date.today.advance(years: 1) %>">
-    </div>
+      <div class="input">
+        <label for="expiration-date">Expiration:</label>
+        <input id="expiration-date" type="date" name="promotion[expiration_date]" value="<%= promotion.expiration_date || Date.today.advance(years: 1) %>">
+      </div>
  
- 	<h1>Display:</h1>
+   	<h1>Display:</h1>
 
-   <div class="checkbox-group">
+     <div class="checkbox-group">
      
-     <div class="checkbox-input" id="display">
-       <h4 for="display">Display in '<%= link_to "Home Page", root_url %>' Promotions Listing:</h4>
+       <div class="checkbox-input" id="display">
+         <h4 for="display">Display in '<%= link_to "Home Page", root_url %>' Promotions Listing:</h4>
        
-       <label for="display_on" class="left">Display on:</label>
-       <input class="left" type="radio" name="promotion[display]" id="display_on" <%= "checked" if promotion.display %> value="<%= true %>">
+         <label for="display_on" class="left">Display on:</label>
+         <input class="left" type="radio" name="promotion[display]" id="display_on" <%= "checked" if promotion.display %> value="<%= true %>">
        
-       <label for="display_off" class="left">Display off:</label>
-       <input class="left" type="radio" name="promotion[display]" id="display_off" <%= "checked" unless promotion.display %> value="<%= false %>">
-     </div>
+         <label for="display_off" class="left">Display off:</label>
+         <input class="left" type="radio" name="promotion[display]" id="display_off" <%= "checked" unless promotion.display %> value="<%= false %>">
+       </div>
      
-     <div class="checkbox-input" id="carousel_display">
-       <h4 for="carousel_display">Display in '<%= link_to "Home Page", root_url %>' carousel:</h4>
+       <div class="checkbox-input" id="carousel_display">
+         <h4 for="carousel_display">Display in '<%= link_to "Home Page", root_url %>' carousel:</h4>
        
-       <label for="carousel_display_on" class="left">Display on:</label>
-       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_on" <%= "checked" if promotion.persisted? && promotion.carousel_display %> value="<%= true %>">
+         <label for="carousel_display_on" class="left">Display on:</label>
+         <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_on" <%= "checked" if promotion.persisted? && promotion.carousel_display %> value="<%= true %>">
        
-       <label for="carousel_display_off" class="left">Display off:</label>
-       <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_off" <%= "checked" unless !promotion.persisted? && promotion.carousel_display %> value="<%= false %>">
-     </div>
+         <label for="carousel_display_off" class="left">Display off:</label>
+         <input class="left" type="radio" name="promotion[carousel_display]" id="carousel_display_off" <%= "checked" unless !promotion.persisted? && promotion.carousel_display %> value="<%= false %>">
+       </div>
+      </div>
+     
+      <div class="checkbox-group">
+        <h4>Publish to Social Media:</h4>
+        <div class="checkbox-input">
+          <label for="facebook-publish">Facebook:</label>
+          <input type="checkbox" name="promotion[facebook_publish]" id="facebook-publish" <%= "checked" if promotion.facebook_publish %> value="<%= true %>">
+        </div>
+        <div class="checkbox-input">
+        </div>
     </div>
-     
-    <div class="checkbox-group">
-      <h4>Publish to Social Media:</h4>
-      <div class="checkbox-input">
-        <label for="facebook-publish">Facebook:</label>
-        <input type="checkbox" name="promotion[facebook_publish]" id="facebook-publish" <%= "checked" if promotion.facebook_publish %> value="<%= true %>">
-      </div>
-      <div class="checkbox-input">
-      </div>
-
-      
-  
-  	<div class="spacer submit long-submit">
-      <input class="long-submit" type="submit" value="<%= promotion.persisted? ? "Update" : "Create" %>">
+    <div class=" form-group submit">
+      <%= f.submit @promotion.button_text %>
     </div>
   </div>
-</form>
+<% end %>
+  
