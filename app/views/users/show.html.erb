@@ -1,29 +1,77 @@
-<div class="col-xs-12">
-  <%= image_tag @user.avatar.url(:medium), class: "photo" %>
-</div>
+<div class="user-show">
+  <div class="col-xs-12">
+    <div class="page-header text-center">
+      <h1><%= @user.name %></h1>
+    </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 row-padding user-photo">
+    <%= image_tag @user.avatar.url(:medium), class: "photo" %>
+  </div>
 
-<div class="col-xs-12">
-  <h1><%= @user.name %></h1>
-	<h1>Contact Info</h1>
+  <div class="col-xs-12 col-sm-6 row-padding min-height text-center contact-info">
+  	<h2>Contact Info</h2>
+    
   
-  <div class="input">
-    <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
+    <ul class="list-group">
+      <li class="blurb list-group-item work-icon">
+        <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
+      </li>
+  
+      <li class="blurb list-group-item mobile-icon">
+        <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
+      </li>
+  
+      <li class="blurb list-group-item fax-icon">
+        <strong>Fax: <%= @user.phone_format(:fax) %></strong>
+      </li>
+    </ul>
+    
   </div>
-  
-  <div class="input">
-    <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
-  </div>
-  
-  <div class="input">
-    <strong>Fax: <%= @user.phone_format(:fax) %></strong>
-  </div>
-</div>
-  
-<div class="col-xs-12">
-	<h1>About Me</h1>
-  
-	<div class="input">
-		<p id="biography" rows="10" cols="33"><%= @user.bio %></p>
-  </div>
-</div>
 
+  <div class="col-xs-12 col-sm-6 row-padding min-height">
+    <div class="form">
+        <form class="form" action="<%= user_contact_me_url(@user) %>" enctype="multipart/form-data" method="post">
+ 	
+           <%= auth_token %>
+     
+       		<h2>Contact <%= @user.first_name %></h2>
+     
+       		<div class="input form-group">
+             <label for="name">Your Name</label>
+
+             <input class="form-control" id="name" type="text" name="contact_me[name]" value="">
+           </div> 
+       
+       		<div class="input form-group">
+            <label for="phone">Your Phone Number</label>
+
+      			<input class="form-control" id="phone" type="text" name="contact_me[phone]" value="">
+           </div> 
+   
+           <div class="input form-group">
+             <label for="email">Your Email</label>
+
+             <input class="form-control" id="email" type="text" name="contact_me[email]" value="">
+           </div>
+       
+       		<div class="input form-group">
+             <label for="inquiry">Your Inquiry</label> 
+             <textarea class="form-control" id="inquiry" name="contact_me[inquiry]" rows="10" cols="33"><%= "I would like to learn more about the \"#{@promotion.title}\" promotion." if @promotion.present? %></textarea>
+           </div>
+       
+       		<div class="submit form-group">
+            <input class="btn" type="submit" value="Send">
+          </div>
+        </form>
+    </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 row-padding min-height">
+  	<h2>About Me</h2>
+  
+  	<div class="input">
+  		<p id="biography" rows="10" cols="33"><%= @user.bio %></p>
+    </div>
+  </div>
+</div>

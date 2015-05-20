@@ -403,14 +403,17 @@ h2.signature {
 
 .work-icon {
   list-style-image: url('work.gif');
+  display: list-item;
 }
 
 .mobile-icon {
   list-style-image: url('mobile.gif');
+   display: list-item;
 }
 
 .fax-icon {
   list-style-image: url('fax.gif');
+  display: list-item;
 }
 
 
@@ -434,6 +437,7 @@ h2.signature {
   margin: 12px 0 0 12px;
   width: 174px;
   float: left;
+  
 }
 
 .small-avatar {
@@ -975,6 +979,23 @@ h2.signature {
   width: 360px;
   margin: auto;
   display: block;
+}
+
+.user-show {
+  .min-height {
+    min-height: 645px;
+  }
+  .contact ul li {
+    font-size: 18px;
+  }
+}
+
+.user-photo {
+
+  img {
+      padding: 20px;
+      max-width: 360px;
+  }
 }
 
 .users {
