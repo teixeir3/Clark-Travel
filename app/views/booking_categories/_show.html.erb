@@ -1,10 +1,11 @@
 <figure class="figure">
-  <%= image_tag(booking_category.picture.url(:small), class: "", alt: booking_category.title) %>
+  <%= image_tag(booking_category.picture.url(:small), class: "image", alt: booking_category.title) %>
   <figcaption class="">
     <h1>
       <%= link_to booking_category.title, booking_category_url(booking_category), class: "h1-a category-link" %>
+      <%= link_to edit_booking_category_url(booking_category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user_is_admin? %>
     </h1>
-    <%= link_to edit_booking_category_url(booking_category) do  image_tag("edit-icon-32.png", class: "edit-icon") end if current_user_is_admin? %>
+   
     
     <ul class="list-group">
       <% category_bookings.order(:position).each do |booking| %>
