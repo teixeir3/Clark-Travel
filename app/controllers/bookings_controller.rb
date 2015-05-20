@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.build(permitted_params.booking)
 
     if @booking.save
-      flash.now[:notices] = ["Promotion created!"]
+      flash.now[:notices] = ["Booking Link created!"]
       @booking.publish_to_facebook if @booking.facebook_publish
       render :edit
     else
@@ -43,13 +43,13 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    flash[:notice] = ["Promotion \"#{@booking.title}\" deleted!"]
+    flash[:notice] = ["Booking \"#{@booking.title}\" deleted!"]
     redirect_to :root
   end
   
   def sort
     params[:booking].each_with_index do |id, index|
-      Promotion.update_all({position: index+1}, {id: id})
+      Booking.update_all({position: index+1}, {id: id})
     end
     
     render nothing: true

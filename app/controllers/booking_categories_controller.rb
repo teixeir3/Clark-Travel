@@ -7,15 +7,14 @@ class BookingCategoriesController < ApplicationController
     end
 
     def new
-      @booking_category = current_user.booking_categorys.new
+      @booking_category = current_user.booking_categories.new
     end
 
     def create
-      @booking_category = current_user.booking_categorys.build(permitted_params.booking_category)
+      @booking_category = current_user.booking_categories.build(permitted_params.booking_category)
 
       if @booking_category.save
-        flash.now[:notices] = ["Promotion created!"]
-        @booking_category.publish_to_facebook if @booking_category.facebook_publish
+        flash.now[:notices] = ["Booking Category: #{@booking_category.title} created!"]
         render :edit
       else
         flash.now[:errors] = @booking_category.errors.full_messages

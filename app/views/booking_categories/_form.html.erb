@@ -2,7 +2,7 @@
   <div class="form">
     <div class="col-xs-12">
 
-    	<h1><%= @booking_category.form_header_text %></h1>
+    	<h1><%= @booking_category.form_header_text + " #{@booking_category.title}" %></h1>
     	<p><%= image_tag @booking_category.picture.url(:small), class: "photo" %></p>
     
       <div class="input">
