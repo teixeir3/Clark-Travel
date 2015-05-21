@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "no-reply@clark-travel.com <Clark-Travel>"
+  default from: "no-reply@clark-travel.com <Clark Travel Agency Inc.>"
   
   def activation_email(user)
     @user = user

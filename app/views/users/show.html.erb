@@ -6,27 +6,8 @@
   </div>
   
   <div class="col-xs-12 col-sm-6 row-padding user-photo">
+ 		<h2 class="text-center">Contact <%= @user.first_name %></h2>
     <%= image_tag @user.avatar.url(:medium), class: "photo" %>
-  </div>
-
-  <div class="col-xs-12 col-sm-6 row-padding min-height text-center contact-info">
-  	<h2>Contact Info</h2>
-    
-  
-    <ul class="list-group">
-      <li class="blurb list-group-item work-icon">
-        <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
-      </li>
-  
-      <li class="blurb list-group-item mobile-icon">
-        <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
-      </li>
-  
-      <li class="blurb list-group-item fax-icon">
-        <strong>Fax: <%= @user.phone_format(:fax) %></strong>
-      </li>
-    </ul>
-    
   </div>
 
   <div class="col-xs-12 col-sm-6 row-padding min-height">
@@ -34,8 +15,6 @@
         <form class="form" action="<%= user_contact_me_url(@user) %>" enctype="multipart/form-data" method="post">
  	
            <%= auth_token %>
-     
-       		<h2>Contact <%= @user.first_name %></h2>
      
        		<div class="input form-group">
              <label for="name">Your Name</label>
@@ -67,6 +46,28 @@
     </div>
   </div>
   
+
+  <div class="col-xs-12 col-sm-6 row-padding min-height text-center contact-info">
+  	<h2 class="text-center">Contact Info</h2>
+    
+  
+    <ul class="list-group">
+      <li class="blurb list-group-item work-icon">
+        <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
+      </li>
+  
+      <li class="blurb list-group-item mobile-icon">
+        <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
+      </li>
+  
+      <li class="blurb list-group-item fax-icon">
+        <strong>Fax: <%= @user.phone_format(:fax) %></strong>
+      </li>
+    </ul>
+    
+  </div>
+
+ 
   <div class="col-xs-12 col-sm-6 row-padding min-height">
   	<h2>About Me</h2>
   

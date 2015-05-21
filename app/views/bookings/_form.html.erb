@@ -1,66 +1,62 @@
-<form action="<%= booking.persisted? ? booking_url(booking) : bookings_url %>" enctype="multipart/form-data" method="post">
-  <div class="contentFull">
-  	<%= auth_token %>
+<%= simple_form_for @booking, html: {class: "form", multipart: true} do |f| %>
+  <div class="form">
+    <div class="col-xs-12 text-center">
+    	<%= auth_token %>
     
-    <% if booking.persisted? %>
-      <input type="hidden" name="_method" value="put"/>
+      <% if booking.persisted? %>
+        <input type="hidden" name="_method" value="put"/>
       
-      <%= link_to "&#10006".html_safe, booking_url(booking), method: :delete, confirm: "Really delete booking link \"#{booking.title}\"?", class: "right delete-button" if current_user_is_admin? %>
-    <% end %>
-    <%= link_to "back", request.referrer, class: "right" %>
+        <%= link_to "&#10006".html_safe, booking_url(booking), method: :delete, confirm: "Really delete booking link \"#{booking.title}\"?", class: "right delete-button" if current_user_is_admin? %>
+      <% end %>
+      <%= link_to "back", request.referrer, class: "right" %>
     
-  	<h1>Booking '<%= booking.title %>' Photo</h1>
-  	<p><%= image_tag booking.picture.url(:small), class: "photo" %></p>
+    	<h1>Booking <%= booking.title %> Photo</h1>
+    	<p><%= image_tag booking.picture.url(:small), class: "photo" %></p>
     
-    <div class="input">
-      <label for="photo">JPEG Photo (Maximum 760x360):</label>
-      <input id="photo" type="file" name="booking[picture]" value="<%= booking.picture.url(:small) if booking.persisted? %>">
+      <div class="input">
+        <label for="photo">JPEG Photo (Maximum 760x360):</label>
+        <input id="photo" type="file" name="booking[picture]" value="<%= booking.picture.url(:small) if booking.persisted? %>">
+      </div>
     </div>
-  </div>
   
-  <div class="content">  
-  	<h1>Booking Content</h1>
+    <div class="col-xs-12">  
+    	<h1>Booking Content</h1>
       
-  	<div class="input">
-      <label for="title">Title</label>
-  		<input id="title" type="text" name="booking[title]" value="<%= booking.title if booking.present? %>">
-    </div>
+    	<%= f.input :title, html: { class: "form-group" }, input_html: { class: "form-control" } %>
     
-    <div class="input">
-      <label for="url">URL</label>
-  		<input id="highlight" type="text" name="booking[url]" value="<%= booking.url if booking.present? %>">
-    </div>
+      <%= f.input :url, html: { class: "form-group" }, input_html: { class: "form-control" } %>
     
-  </div>
-  <div class="content">
-  	<h1>Display:</h1>
+    </div>
+    <div class="col-xs-12 text-center">
+    	<h1>Display:</h1>
  
-    <div class="checkbox-group">
+      <div class="checkbox-group">
       
-      <div class="checkbox-input" id="display">
-        <h4 for="display">Display in '<%= link_to "Book Page", booking_categories_url %>':</h4>
+        <div class="checkbox-input" id="display">
+          <h4 for="display">Display in '<%= link_to "Book Page", booking_categories_url %>':</h4>
         
-        <label for="display_on" class="left">Display on:</label>
-        <input class="left" type="radio" name="booking[display]" id="display_on" <%= "checked" if booking.display %> value="<%= true %>">
+          <label for="display_on" class="left">Display on:</label>
+          <input class="left" type="radio" name="booking[display]" id="display_on" <%= "checked" if booking.display %> value="<%= true %>">
         
-        <label for="display_off" class="left">Display off:</label>
-        <input class="left" type="radio" name="booking[display]" id="display_off" <%= "checked" unless booking.display %> value="<%= false %>">
-      </div>
+          <label for="display_off" class="left">Display off:</label>
+          <input class="left" type="radio" name="booking[display]" id="display_off" <%= "checked" unless booking.display %> value="<%= false %>">
+        </div>
       
-      <div class="checkbox-input" id="carousel_display">
-        <h4 for="carousel_display">Display in '<%= link_to "Home Page", root_url %>' carousel:</h4>
+        <div class="checkbox-input" id="carousel_display">
+          <h4 for="carousel_display">Display in '<%= link_to "Home Page", root_url %>' carousel:</h4>
         
-        <label for="carousel_display_on" class="left">Display on:</label>
-        <input class="left" type="radio" name="booking[carousel_display]" id="carousel_display_on" <%= "checked" if booking.carousel_display %> value="<%= true %>">
+          <label for="carousel_display_on" class="left">Display on:</label>
+          <input class="left" type="radio" name="booking[carousel_display]" id="carousel_display_on" <%= "checked" if booking.carousel_display %> value="<%= true %>">
         
-        <label for="carousel_display_off" class="left">Display off:</label>
-        <input class="left" type="radio" name="booking[carousel_display]" id="carousel_display_off" <%= "checked" unless booking.carousel_display %> value="<%= false %>">
-      </div>
+          <label for="carousel_display_off" class="left">Display off:</label>
+          <input class="left" type="radio" name="booking[carousel_display]" id="carousel_display_off" <%= "checked" unless booking.carousel_display %> value="<%= false %>">
+        </div>
 
       
   
-  	<div class="spacer submit long-submit">
-      <input class="long-submit" type="submit" value="<%= booking.persisted? ? "Update" : "Create" %>">
+      <div class="form-actions form-group submit">
+        <%= f.submit @booking.button_text %>
+      </div>
     </div>
   </div>
-</form>
+<% end %>

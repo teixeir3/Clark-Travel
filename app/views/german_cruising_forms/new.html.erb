@@ -189,7 +189,7 @@
 
 <div class="col-xs-6 col-xs-offset-3 row-padding">
   <div class="form text-center">
-    <%= simple_form_for @german_cruising_form, html: {class: "form"} do |f| %>
+    <%= simple_form_for @german_cruising_form, html: {class: "form", multipart: true} do |f| %>
       <% 1.upto(4) do |i| %>
         <%= f.input ("first_name_" + i.to_s).to_sym, html: { class: "form-group" }, input_html: { class: "form-control" } %>
         
