@@ -4,6 +4,8 @@ class BookingCategoriesController < ApplicationController
   
     def index
       @active_booking_categories = BookingCategory.all_active
+      
+      
     end
 
     def new

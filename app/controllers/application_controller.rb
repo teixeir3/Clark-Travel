@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_return_url
+    puts "SETTING SESSION[:RETURN_URL] AS #{session[:return_url]}"
     session[:return_url] = request.referrer
   end
 

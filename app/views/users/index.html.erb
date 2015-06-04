@@ -4,39 +4,30 @@
   </div>
 <% end %>
 
-<ul id="users" class="users" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_users_url %>">
+<ul id="users" class="users <%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_users_url %>">
   <% @users.each do |user| %>
-    <div class="col-xs-12 col-sm-6 min-height">
+    <div class="col-xs-12 col-sm-6 <%= "min-height" if (current_user_is_admin? && user.position && user.position < 2) %>">
       <%= content_tag_for :li, user, class: "" do %>
         <% if current_user_is_admin? %>
         
           <%= link_to "&#10006".html_safe, user, method: :delete, class: "delete-button", data: {remote: true, confirm: "Really delete User #{user.name}?"} %>
         <% end %>
   	  
-        <h1><%= user.name %></h1>
+        <h1><%=  ((signed_in?) ? (link_to user.name, edit_user_path(user)) : user.name) %></h1>
   	    <div class="small-avatar">
           <a href="<%= user_url(user) %>">
             <%= image_tag user.avatar.url(:small), class: "photo" %>
           </a>
         </div>
     	
-        <ul class="contact-info">
-          <!-- <% if current_user_is_admin? %>
-            <li>
-              <label for="position_2">Position:</label>
-              <select id="position_2" name="position_2" onchange="window.location='?action=position&amp;id=2&amp;position='+this.value">
-              <% @users.length.times do |i| %>
-                <option <%= "selected" if user.position == i%>><%=i%></option>
-              <% end %>
-              </select>
-            </li>
-          <% end %> -->
-      		<li><strong><%= user.title %></strong></li>
-      		<li class="work-icon"><%= user.phone_format(:work_phone) %></li>
-      		<li class="mobile-icon"><%= user.phone_format(:mobile_phone) %></li>
-      		<li class="fax-icon"><%= user.phone_format(:fax) %></li>
-          <li class="envelope-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= user.email %></li>
-          <li><%= link_to "Contact Me", user_url(user), class: "button_to long-submit" %></li>
+        <ul class="list-group contact-info">
+        
+      		<li class="list-group-item blurb"><strong><%= user.title %></strong></li>
+      		<li class="work-icon list-group-item blurb"><%= user.phone_format(:work_phone) %></li>
+      		<li class="mobile-icon list-group-item blurb"><%= user.phone_format(:mobile_phone) %></li>
+      		<li class="fax-icon list-group-item blurb"><%= user.phone_format(:fax) %></li>
+          <li class="envelope-icon list-group-item blurb"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><%= user.email %></li>
+          <li class="list-group-item blurb"><%= link_to "Contact Me", user_url(user), class: "button_to long-submit" %></li>
       	</ul>
       <% end %>
     </div>

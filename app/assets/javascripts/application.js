@@ -57,49 +57,83 @@ var updateSortable = function(event, ui) {
 };
 
 $(document).on('page:change', function() {
-  console.log("page:change trigger.");
- 
-  $('body').prepend('<div id="fb-root"></div>');
 
-  $.ajax({
-    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js",
-    dataType: 'script',
-    cache: true
-  });
- 
-  $('.delete-button').bind('ajax:success', function(evt, data, status, xhr){
-    console.log("Great SUCCESS!!");
-    console.log(evt);
-    console.log(data);
-    console.log(status);
-    console.log(xhr);
-  })
-  
-  $(".dropdown-toggle").dropdown();
- 
-  fadeOutElement($('.errors'), 6000);
-  fadeOutElement($('.notices'), 6000);
-  
-  var owlPromotions = $('.promotions-carousel');
-  var owlTestimonials = $('.testimonials-carousel');
-  var owlFeed = $('.feed-carousel');
-  var owlBookings = $('.bookings-carousel');
-  
-  owlPromotions.owlCarousel({
-     items : 1, 
-     itemsDesktop : false,
-     itemsDesktopSmall : false,
-     itemsTablet: false,
-     itemsMobile : false,
-     loop: true,
-     margin: 0,
-     autoplay: true,
-     autoplaySpeed: true,
-     autoplayHoverPause: true
-  });
-  owlPromotions.trigger('owl.play',10000);
-  
-  owlTestimonials.owlCarousel({
+  // $('body').prepend('<div id="fb-root"></div>');
+  // $.ajax({
+ //    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js",
+ //    dataType: 'script',
+ //    cache: true
+ //  });
+ //
+
+
+
+ $('.delete-button').bind('ajax:success', function(evt, data, status, xhr){
+   console.log("Great SUCCESS!!");
+   console.log(evt);
+   console.log(data);
+   console.log(status);
+   console.log(xhr);
+ })
+
+ $(".dropdown-toggle").dropdown();
+
+ fadeOutElement($('.errors'), 6000);
+ fadeOutElement($('.notices'), 6000);
+
+ var owlPromotions = $('.promotions-carousel');
+ var owlTestimonials = $('.testimonials-carousel');
+ var owlFeed = $('.feed-carousel');
+ var owlBookings = $('.bookings-carousel');
+
+ owlPromotions.owlCarousel({
+    items : 1, 
+    itemsDesktop : false,
+    itemsDesktopSmall : false,
+    itemsTablet: false,
+    itemsMobile : false,
+    loop: true,
+    margin: 0,
+    autoplay: true,
+    autoplaySpeed: true,
+    autoplayHoverPause: true
+ });
+ owlPromotions.trigger('owl.play',10000);
+
+ owlTestimonials.owlCarousel({
+   items : 1, 
+   itemsDesktop : false,
+   itemsDesktopSmall : false,
+   itemsTablet: false,
+   itemsMobile : false,
+   loop: true,
+   margin: 0,
+   autoplay: true,
+   autoplaySpeed: true,
+   autoplayHoverPause: true,
+   dots: false,
+   pagination: false
+ });
+
+ owlTestimonials.trigger('owl.play', 10000);
+
+ owlFeed.owlCarousel({
+   items : 1, 
+   itemsDesktop : false,
+   itemsDesktopSmall : false,
+   itemsTablet: false,
+   itemsMobile : false,
+   loop: true,
+   margin: 0,
+   autoplay: false,
+   autoplaySpeed: true,
+   autoplayHoverPause: true,
+   dots: false,
+   pagination: false
+ });
+ owlFeed.trigger('owl.play', 10000);
+
+ owlBookings.owlCarousel({
     items : 1, 
     itemsDesktop : false,
     itemsDesktopSmall : false,
@@ -112,43 +146,10 @@ $(document).on('page:change', function() {
     autoplayHoverPause: true,
     dots: false,
     pagination: false
-  });
-  
-  owlTestimonials.trigger('owl.play', 10000);
-  
-  owlFeed.owlCarousel({
-    items : 1, 
-    itemsDesktop : false,
-    itemsDesktopSmall : false,
-    itemsTablet: false,
-    itemsMobile : false,
-    loop: true,
-    margin: 0,
-    autoplay: false,
-    autoplaySpeed: true,
-    autoplayHoverPause: true,
-    dots: false,
-    pagination: false
-  });
-  owlFeed.trigger('owl.play', 10000);
-  
-  owlBookings.owlCarousel({
-     items : 1, 
-     itemsDesktop : false,
-     itemsDesktopSmall : false,
-     itemsTablet: false,
-     itemsMobile : false,
-     loop: true,
-     margin: 0,
-     autoplay: true,
-     autoplaySpeed: true,
-     autoplayHoverPause: true,
-     dots: false,
-     pagination: false
-  });
-  owlBookings.trigger('owl.play',7000);
-  
-  $('.sortable').sortable({
-    update: updateSortable
-  });
+ });
+ owlBookings.trigger('owl.play',7000);
+
+ $('.sortable').sortable({
+   update: updateSortable
+ });
 });
