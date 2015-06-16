@@ -17,8 +17,8 @@
       <% end %>
   		<li class="list-group-item blurb">
       	<%= link_to new_booking_category_booking_path(booking_category), class: "edit-link" do %>
-          Add Link   <i class="fa fa-plus-circle"></i>
-        <% end %>
+          <i class="fa fa-plus-circle"></i>
+        <% end if current_user_is_admin? %>
       </li>
     </ul>
   </figcaption>
