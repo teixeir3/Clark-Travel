@@ -39,7 +39,7 @@ gem 'owlcarousel-rails'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'newrelic_rpm'
-# gem 'g_form'
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

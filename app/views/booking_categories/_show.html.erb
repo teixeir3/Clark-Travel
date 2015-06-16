@@ -10,14 +10,16 @@
     <ul class="list-group">
       <% category_bookings.order(:position).each do |booking| %>
     		<li class="list-group-item blurb">
-        	<%= link_to booking.title, booking.url %>
-          <% if false #current_user && current_user_is_admin? %>
-            <a href="<%= edit_booking_url(booking) %>">
-              <%= image_tag("edit-icon-32.png", class: " left") %>
-            </a>
-          <% end %>
+        	<%= link_to booking.title, booking.url %> <%= link_to edit_booking_url(booking), class: "edit-link" do %>
+          <i class="fa fa-pencil-square-o"></i>
+          <% end if current_user_is_admin? %>
         </li>
       <% end %>
+  		<li class="list-group-item blurb">
+      	<%= link_to new_booking_category_booking_path(booking_category), class: "edit-link" do %>
+          Add Link   <i class="fa fa-plus-circle"></i>
+        <% end %>
+      </li>
     </ul>
   </figcaption>
 </figure>

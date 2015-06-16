@@ -997,6 +997,7 @@ h2.signature {
       a {
         font-weight: bold;
         font-size: 25px;
+        display: block;
       }
     }
   }
@@ -1055,6 +1056,21 @@ h2.signature {
     }
     img {
       opacity: .2;
+    }
+  }
+}
+
+.edit-link {
+  display: inline;
+}
+
+.booking-categories {
+  .list-group-item {
+    padding: 0px 0;
+    a {
+      font-weight: bold;
+//      font-size: 25px;
+      display: block;
     }
   }
 }
