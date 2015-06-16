@@ -30,8 +30,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'high_voltage'
 
-gem 'paperclip', "~> 4.1"
-gem 'aws-sdk'
+gem 'paperclip', "~> 4.2"
+gem 'aws-sdk', '< 2.0'
 gem 'rails-gallery'
 gem 'figaro'
 gem 'acts_as_list'
