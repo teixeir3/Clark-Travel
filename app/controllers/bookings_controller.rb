@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  # before_action :set_booking_category
   
   def index
     @active_bookings = BookingCategory.all_active
@@ -44,7 +45,12 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     flash[:notice] = ["Booking \"#{@booking.title}\" deleted!"]
-    redirect_to :root
+    
+    
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.js { render :nothing, status: :deleted }
+    end
   end
   
   def sort
@@ -62,4 +68,5 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+ 
 end

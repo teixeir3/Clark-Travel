@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_testimonials, :set_facebook_feed
+  before_action :set_booking_category
   
   helper_method :current_user, :current_user_is_admin? ,:permitted_params, :signed_in?
   
@@ -11,6 +12,14 @@ class ApplicationController < ActionController::Base
   def set_facebook_feed
     user = User.find_by_last_name("Teixeira")
     @feed ||= user.facebook.get_connection("clarktravelagency", "feed", {limit: 15}) if user && user.valid_facebook?
+  end
+  
+  def nested_booking?
+    (params[:booking_category_id]) ? true : false
+  end
+  
+  def set_booking_category
+    @booking_category = BookingCategory.find(params[:booking_category_id]) if nested_booking?
   end
   
   def set_testimonials

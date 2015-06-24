@@ -53,7 +53,7 @@
             <%= image_tag promotion.picture.url(:large), class: "" %>
     
             <figcaption class="">
-              <%= link_to "&#10006".html_safe, promotion, method: :delete, class: "delete-button promotion-delete", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
+              <%= link_to "&#10006".html_safe, promotion_path(promotion), method: :delete, class: "delete-button promotion-delete", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>
             	<h1><%= link_to promotion.title, promotion_url(promotion) %></h1>
             	<p><%= simple_format promotion.highlight[0..500] %></p>
             	<p><%= link_to "Learn More", promotion_url(promotion) %></p>

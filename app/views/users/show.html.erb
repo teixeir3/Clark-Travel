@@ -52,27 +52,34 @@
     
   
     <ul class="list-group">
-      <li class="blurb list-group-item work-icon">
-        <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
-      </li>
+      <% unless @user.work_phone.blank? %>
+        <li class="blurb list-group-item work-icon">
+          <strong>Work: <%= @user.phone_format(:work_phone) %></strong>
+        </li>
+      <% end %>
   
-      <li class="blurb list-group-item mobile-icon">
-        <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
-      </li>
+      <% unless @user.mobile_phone.blank? %>
+        <li class="blurb list-group-item mobile-icon">
+          <strong>Cell: <%= @user.phone_format(:mobile_phone) %></strong>
+        </li>
+      <% end %>
   
-      <li class="blurb list-group-item fax-icon">
-        <strong>Fax: <%= @user.phone_format(:fax) %></strong>
-      </li>
+      <% unless @user.fax.blank? %>
+        <li class="blurb list-group-item fax-icon">
+          <strong>Fax: <%= @user.phone_format(:fax) %></strong>
+        </li>
+      <% end %>
     </ul>
     
   </div>
 
- 
-  <div class="col-xs-12 col-sm-6 row-padding">
-  	<h2>About Me</h2>
+  <% unless @user.bio.blank? %>
+    <div class="col-xs-12 col-sm-6 row-padding">
+    	<h2 class="text-center">About Me</h2>
   
-  	<div class="input">
-  		<p id="biography" rows="10" cols="33"><%= @user.bio %></p>
+    	<div class="input">
+    		<p id="biography" rows="10" cols="33"><%= @user.bio %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

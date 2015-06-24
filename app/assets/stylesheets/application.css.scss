@@ -255,12 +255,20 @@ a.delete-button:hover {
     width: 94%;
 }
 
-.facebook-auth > h1 {
-  padding: 30px;
-}
-
-.facebook-auth > p {
-  width: 320px;
+.facebook-auth {
+  text-align: center;
+  h1 {
+    padding: 30px;
+  }
+  p {
+    width: 320px;
+  }
+  img {
+    display: inline-block;
+    background-color: #728FCE;
+    padding: 6px;
+    border-radius: 4px;
+  }
 }
 
 //.fb-auth-container {

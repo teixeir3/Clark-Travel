@@ -109,32 +109,50 @@ class User < ActiveRecord::Base
   ### Oauth Methods ###
   
   def self.from_omniauth!(auth)
+    return nil unless auth
+    
+    # immediately get 60 day auth token
+    oauth = Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"])
+    new_access_info = oauth.exchange_access_token_info auth.credentials.token
+
+    new_access_token = new_access_info["access_token"]
+    new_access_expires_at = DateTime.now + new_access_info["expires"].to_i.seconds
+    full_name = auth.info.name.split(" ")
+      
+  
     where(auth.slice(:provider, :uid)).first.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      full_name = auth.info.name.split(" ")
       user.first_name = full_name[0]
       user.last_name = full_name[-1]
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.oauth_token = new_access_token #originally auth.credentials.token
+      user.oauth_expires_at = new_access_expires_at #originally Time.at(auth.credentials.expires_at)
       user.fb_image_url = auth.info.image
       user.save!
     end
   end
   
+  
+  
   def update_omniauth!(auth)
     return nil unless auth
+    
+    oauth = Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"])
+    new_access_info = oauth.exchange_access_token_info auth.credentials.token
+
+    new_access_token = new_access_info["access_token"]
+    new_access_expires_at = DateTime.now + new_access_info["expires"].to_i.seconds
     full_name = auth.info.name.split(" ")
-    # self.oauth_token = auth.credentials.token
+    
     self.update_attributes({
       provider: auth.provider,
       uid: auth.uid,
       first_name: full_name[0],
       last_name: full_name[-1],
-      oauth_token: auth.credentials.token,
-      oauth_expires_at: ((auth.credentials.expires_at) ? Time.at(auth.credentials.expires_at) : Time.now.advance(years: 9999)),
-      fb_image_url: fb_picture_url
-      })
+      oauth_token: new_access_token,
+      oauth_expires_at: new_access_expires_at,
+      fb_image_url: auth.info.image
+    })
   end
   
   def facebook
@@ -154,7 +172,7 @@ class User < ActiveRecord::Base
   end
   
   def fb_picture_url
-    facebook.get_picture("me")
+    @fb_picture_url ||= facebook.get_picture("me")
   end
   
   def fb_permissions

@@ -18,6 +18,7 @@ class PromotionsController < ApplicationController
     @promotion = current_user.promotions.build(permitted_params.promotion)
 
     if @promotion.save
+      push_to_facebook
       flash.now[:notices] = ["Promotion created!"]
       render :edit
     else
@@ -25,7 +26,6 @@ class PromotionsController < ApplicationController
       render :new
     end
     
-    push_to_facebook
   end
 
   def show
@@ -39,11 +39,10 @@ class PromotionsController < ApplicationController
   def update
     if @promotion.update_attributes(permitted_params.promotion)
       flash.now[:notices] = ["Promotion Updated."]
+      push_to_facebook
     else
       flash.now[:errors] = @promotion.errors.full_messages
     end
-    
-    push_to_facebook
     
     render :edit
   end
@@ -51,7 +50,11 @@ class PromotionsController < ApplicationController
   def destroy
     @promotion.destroy
     flash[:notice] = ["Promotion \"#{@promotion.title}\" deleted!"]
-    redirect_to :root
+
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.js { render :nothing, status: :deleted }
+    end
   end
   
   def sort

@@ -82,8 +82,6 @@ class Promotion < ActiveRecord::Base
   def publish_to_facebook!(skip_check = false)
     if (skip_check || publish_to_facebook?)
 
-      # grab the page access token, make a Koala FB API instance and create a wall post with it.
-      # the restult is a {"id" => "12131231"} hash. Saves the id for future updates.
       self.facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)["id"]
       self.facebook_published_at = DateTime.now
       self.save!
