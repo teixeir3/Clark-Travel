@@ -141,7 +141,7 @@ class User < ActiveRecord::Base
     new_access_info = oauth.exchange_access_token_info auth.credentials.token
 
     new_access_token = new_access_info["access_token"]
-    new_access_expires_at = DateTime.now + new_access_info["expires"].to_i.seconds
+    new_access_expires_at = DateTime.now + 30.days
     full_name = auth.info.name.split(" ")
     
     self.update_attributes({

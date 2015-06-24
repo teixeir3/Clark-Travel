@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy ]
+  before_action :require_signed_in!, only: [:new, :creat, :edit, :update, :sort, :destroy, :update_facebook_auth, :activate]
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_contact_me_email]
   
   def index
@@ -93,9 +93,9 @@ class UsersController < ApplicationController
     @user.update_omniauth!(env["omniauth.auth"])
     
     if @user.valid?
-      flash[:notices] = ["Facebook Credentials Added!"]
+      flash.now[:notices] = ["Facebook Credentials Added!"]
     else
-      flash[:errors] = ["An Error Has Occurred!"] + @user.errors.full_messages
+      flash.now[:errors] = ["An Error Has Occurred!"] + @user.errors.full_messages
     end
     
     render :edit

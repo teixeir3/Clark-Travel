@@ -3,7 +3,7 @@
       <h1 class="">
         <% if current_user.valid_facebook? %>
            <%= link_to "Facebook Authorized", "/auth/facebook?scope=publish_actions,manage_pages,email", id: "sign_in" %>
-           <%= image_tag(current_user.fb_image_url, class: "") if current_user.valid_facebook? %>
+           <%= image_tag(current_user.fb_picture_url, class: "") %>
         <% elsif current_user_is_admin? %>
            <%= link_to "Authorize Facebook", "/auth/facebook?scope=publish_actions,manage_pages,email", id: "sign_in" %>
         <% else %>
