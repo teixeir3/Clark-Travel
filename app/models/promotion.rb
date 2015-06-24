@@ -58,7 +58,7 @@ class Promotion < ActiveRecord::Base
   end
   
   def facebook_options(host = "http://www.clark-travel.com")
-    @options ||= (start_date.past?) ? {
+    @options ||= (start_date.past? || start_date.today?) ? {
       name: title,
       message: body,
       caption: highlight,
@@ -91,7 +91,7 @@ class Promotion < ActiveRecord::Base
   end  
   
   def publish_to_facebook?
-    facebook_publish && facebook_published_at.nil?# REMOVE (only publish once)|| (facebook_published_at < updated_at)
+    facebook_publish && facebook_published_at.nil?# REMOVE / add: (only publish once)|| (facebook_published_at < updated_at)
   end
   
   def self.all_active
