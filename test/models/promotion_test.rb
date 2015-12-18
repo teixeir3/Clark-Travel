@@ -20,7 +20,7 @@
 #  facebook_publish      :boolean          default(FALSE), not null
 #  carousel_display      :boolean          default(FALSE), not null
 #  facebook_published_at :datetime
-#  facebook_id           :integer
+#  facebook_id           :string(255)
 #
 
 require 'test_helper'

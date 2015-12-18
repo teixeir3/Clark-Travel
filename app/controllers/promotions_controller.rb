@@ -6,7 +6,7 @@ class PromotionsController < ApplicationController
   # Root URL
   def index
     @active_promotions = Promotion.all_active
-    @promotions = Promotion.all(order: "expiration_date")
+    @promotions = Promotion.order(:expiration_Date).all
     @carousel_bookings = Booking.carousel_bookings
   end
 

@@ -47,10 +47,10 @@
 <ul id="promotions" class="<%= "sortable" if current_user_is_admin? %>" data-update-url="<%= sort_promotions_url %>">
   <% @active_promotions.each do |promotion| %>
     <%= content_tag_for :li, promotion, class: "" do %>
-      <div class="col-xs-12 col-md-6 promotion row-padding">
+      <div class="col-xs-12 promotion promotion-row background-image">
 
           <figure class="figure">
-            <%= image_tag promotion.picture.url(:large), class: "" %>
+            <%= image_tag promotion.picture.url(:large), class: "promotion-image" %>
     
             <figcaption class="">
               <%= link_to "&#10006".html_safe, promotion_path(promotion), method: :delete, class: "delete-button promotion-delete", data: {remote: true, confirm: "Really delete Promotion #{promotion.title}?"} if current_user_is_admin? %>

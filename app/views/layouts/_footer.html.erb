@@ -1,6 +1,6 @@
 <footer class="footer">
   <nav class="footer navbar">
-    <div id="footer-container" class="container">  
+    
   
       <% if @feed %>
         <div class="feed-carousel left">
@@ -20,22 +20,28 @@
         <% end %>
       </div>
       
-      <div class="col-xs-12 col-sm-6 center">
+      <div class="col-xs-12 col-sm-4">
         <a class="address" href="<%= page_path("directions") %>">
         	<ul>
-            <li>3461 Route 22 East</li>
-            <li>(Corner of County Line Rd.)</li>
-            <li>Branchburg NJ 08876</li>
         	  <li>(908) 595-0400</li>
           	<li>Fax (908) 595-0410</li>
           </ul>
         </a>
       </div>
       
-      <div class="col-xs-sm col-sm-6 copyright center">
+      <div class="col-xs-12 col-sm-4">
+        <a class="address" href="<%= page_path("directions") %>">
+        	<ul>
+            <li>3461 Route 22 East</li>
+            <li>Branchburg NJ 08876</li>
+          </ul>
+        </a>
+      </div>
+      
+      <div class="col-xs-12 col-sm-4 copyright">
       	<%= link_to "http://www.AyosInformatics.com/", class: "ayos-logo" do %>
           <%= image_tag("ayos_final_300x200.gif", width: 150, height: 100) %>
-          <p><small>© Ayos Informatics, LLC 2014</small></p>
+          <p><small>© Clark Travel Agency Inc. 2015</small></p>
         <% end %>
       </div>
     
@@ -49,6 +55,6 @@
             <pre>go_back: <strong><%= session[:go_back] %></strong></pre>
         </div>
       <% end %>
-    </div>
+
   </nav>
 </footer>

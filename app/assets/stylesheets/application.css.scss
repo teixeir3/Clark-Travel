@@ -1,4 +1,4 @@
-$navbar-inverse-bg: #728fce;
+$navbar-inverse-bg: rgba(114, 143, 206, 0.8);
 $brand-primary: #383884;
 $screen-sm: 931px;
 $navbar-inverse-toggle-hover-bg: darken($brand-primary, 10%);
@@ -566,13 +566,14 @@ h2.signature {
 //        }
 //    }
 //}
+@media (min-width: 992px) {
+  .sticky-nav {
+    padding-left: 45px;
+  }
+}
 
 .sticky-nav {
-  padding-left: 45px;
-  li {
-//    width: 20%;
-//    text-align: center;
-  }
+//  padding-left: 0px;
 }
 
 .navbar {
@@ -584,13 +585,18 @@ h2.signature {
 }
 
 .navbar-inverse {
+  & > .container-fluid > .navbar-inverse {
+    background-color: transparent;
+  }
   background-image: none;
   background-color: $navbar-inverse-bg;
   transition:all ease-in 3s;
   -moz-transition:all 3s ease-in;
   -o-transition:all 3s ease-in;
   -webkit-transition:all 3s ease-in;
-  
+  &.in {
+    padding-bottom: 100px;
+  }
   .navbar-nav > li > a {
     color: $brand-primary;
     font-weight: bold;
@@ -608,6 +614,79 @@ h2.signature {
   }
 }
 
+.navbar-toggle {
+  background-color: $brand-primary !important;
+  margin: 9.5px;
+  height: 55px;
+  width: 55px;
+//  transition: all 0.5s linear;
+  
+  .sr-only {
+    display: none;
+  }
+  &:hover .icon-bar, &:hover .icon-bar:before, &:hover .icon-bar:after {
+    background-color: lighten($navbar-inverse-toggle-icon-bar-bg, 10%);
+  }
+  
+  .icon-bar, .icon-bar:before, .icon-bar:after {
+    width: 30px;
+    height: 3px;
+    background-color: $navbar-inverse-toggle-icon-bar-bg;
+    display: block;
+  }
+  #middle-bar{
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  }
+  .icon-bar {
+    -webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  	margin: 0 auto;
+  	position: relative;
+//    background-color: rgba(0,0,0,0.0) !important;
+
+    &:before, &:after {
+    	position: absolute;
+    	content: '';
+      margin-top: 0;
+      -webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+      -webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+      -webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+      -webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+      -webkit-transition-delay: 0.0s, 0.2s; transition-delay: 0.0s, 0.2s;
+    }
+    &:before {
+      -webkit-transform: rotate(45deg); transform: rotate(45deg);
+    }
+    &:after {
+      -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+    }
+  }
+  &.collapsed {
+    padding: 0px 10px 10px 10px;
+    .icon-bar {
+    	top: 6px;
+      -webkit-transition-duration: 0s; transition-duration: 0s;
+      -webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+    }
+    #middle-bar{
+      background-color: $navbar-inverse-toggle-icon-bar-bg;
+    }
+    .icon-bar, .icon-bar:before, .icon-bar:after {
+      -webkit-transform: rotate(0deg); transform: rotate(0deg);
+    }
+    .icon-bar:before {
+      margin-top: -12px;
+    }
+    .icon-bar:after {
+      margin-top: 12px;
+    } 
+    .icon-bar:after, .icon-bar:before {
+      -webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+      -webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+      -webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+    }
+  }
+}
 
 
 .logo {
@@ -660,10 +739,6 @@ h2.signature {
   background-size: cover;
   font-weight: bold;
   background-attachment: fixed;
-  h1, h2, h3 {
-    //text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-//    color: white;
-  }
 }
 
 .cruising-links {
@@ -688,13 +763,41 @@ h2.signature {
     };
   }
 }
+//.tint{
+//  position: relative;
+//  &:before {
+//    content: "";
+//    display: block;
+//    position: absolute;
+//    top: 0;
+//    bottom: 0;
+//    left: 0;
+//    right: 0;
+////    background: rgba(41, 41, 41, 0.5);
+//    -moz-transition: background .3s linear;
+//    -webkit-transition: background .3s linear;
+//    -o-transition: background .3s linear;
+//    transition: background .3s linear;
+//    &:hover {
+//      background: none;
+//    }
+//  }
+//}
 
 .cruising {
-  
+  &:before {
+    background: rgba(0,0,255, 0.5);
+    content: " ";
+  }
+  position: relative;
 //  background-color: $downloadsBackground;// url() top center no-repeat;
-//  background-image: url("Emerald princess.jpg");
-//  background-opacity: .9;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url("Emerald princess.jpg");
+  background-opacity: .6;
+  background-position-y: -100px;
   padding: 0;
+  &:hover {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%), url("Emerald princess.jpg");
+  }
   h1 a {
     color: white;
   }
@@ -805,34 +908,27 @@ h2.signature {
 }
 
 .promotion-body {
-  min-height: 500px;
+//  min-height: 500px;
   padding-top: 40px;
 }
+
+.promotion-row {
+  max-height: 500px;
+  min-height: 350px;
+  overflow: hidden;
+}
 .promotion {
-  
-  //min-height: 250px;
-//  .promotion-link {
-//    position: relative;
-//    display: block;
-//    .promotion-delete {
-//      position: absolute;
-//      top: 0;
-//      right: 0;
-//      z-index: 999;
-//    }
-//  }
-  
   padding: 0;
-  min-height: 500px;
+//  min-height: 500px;
 
   figure {
-    min-height: 500px;
+//    min-height: 500px;
     position: relative;
     width: 100%;
-    max-width: 900px;
-    margin: auto;
+//    max-width: 900px;
+//    margin: auto;
     figcaption {
-      min-height: 500px;
+//      min-height: 500px;
       position: absolute;
       top: 0;
       font-weight: bold;
@@ -859,41 +955,12 @@ h2.signature {
     transition: all 0.5s;
     width: 100%;
     opacity: .6;
-    min-height: 300px;
+//    min-height: 300px;
   }
   &:hover img {
     opacity: .3;
   }
 }
-
-
- //div.promotion {
-//    width: 786px;
-//    background-image: url('content_bg_full.png');
-//    background-repeat: no-repeat;
-//    padding-top: 12px;
-//    margin: auto;
-//}
-//div.promotion img.promotion {
-//    width: 760px;
-//    height: 360px;
-//    background-color: white;
-//    padding: 12px;
-//    border: 1px solid #eeeeee;
-//    float: left;
-//}
-//div.promotion img.previous {
-//    margin: -230px 0 0 -12px;
-//    float: left;
-//}
-//div.promotion img.next {
-//    margin: -230px -12px 0 0;
-//    float: right;
-//}
-//div.promotion img.promotion, div.promotion img.previous, div.promotion img.next {
-//    cursor: pointer;
-//}
-
 
 
 /***************************************************************************
@@ -1171,7 +1238,11 @@ div.no-imageFull {
 /***************************************************************************
 		Forms.
 	***************************************************************************/
-
+#new-german-cruising-form {
+  h3.passenger-header {
+    text-align: left !important;
+  }
+}
 .text-center {
   text-align: center;
 }

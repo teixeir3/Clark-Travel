@@ -20,7 +20,7 @@
 #  facebook_publish      :boolean          default(FALSE), not null
 #  carousel_display      :boolean          default(FALSE), not null
 #  facebook_published_at :datetime
-#  facebook_id           :integer
+#  facebook_id           :string(255)
 #
 
 class Promotion < ActiveRecord::Base
@@ -95,11 +95,11 @@ class Promotion < ActiveRecord::Base
   end
   
   def self.all_active
-    self.where("current_date between start_date and expiration_date").all(order: "position")
+    self.where("current_date between start_date and expiration_date").order(:position).all
   end
   
   def self.all_active_carousel
-    self.where(carousel_display: true).where("current_date between start_date and expiration_date").all(order: "position")
+    self.where(carousel_display: true).where("current_date between start_date and expiration_date").order(:position).all
   end
   
   def overdue_by_str

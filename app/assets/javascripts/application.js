@@ -56,15 +56,16 @@ var updateSortable = function(event, ui) {
       $.post($(this).data('update-url'), $(this).sortable('serialize'));
 };
 
-$(document).on('page:change', function() {
 
-  // $('body').prepend('<div id="fb-root"></div>');
-  // $.ajax({
- //    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js",
- //    dataType: 'script',
- //    cache: true
- //  });
- //
+var refreshImage = function(cssClass){
+  $.each($(cssClass), function(i, el) {
+    var $el = $(el);
+    $el.css("background-image", "url(" + $el.find("img").attr("src") + ")");
+  });
+};
+
+
+$(document).on('page:change', function() {
 
 
 
