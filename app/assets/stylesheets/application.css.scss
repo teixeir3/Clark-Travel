@@ -570,6 +570,11 @@ h2.signature {
   .sticky-nav {
     padding-left: 45px;
   }
+  .navbar-inverse {
+    & > .container-fluid > .navbar-inverse {
+      background-color: transparent;
+    }
+  }
 }
 
 .sticky-nav {
@@ -581,12 +586,11 @@ h2.signature {
 }
 
 #main-navigation {
-  height: 91px;
 }
 
 .navbar-inverse {
   & > .container-fluid > .navbar-inverse {
-    background-color: transparent;
+    background-color: $navbar-inverse-bg;
   }
   background-image: none;
   background-color: $navbar-inverse-bg;
@@ -603,10 +607,11 @@ h2.signature {
     font-size: 14px;
     line-height: 10px;
     text-align: center;
+    padding: 10px 15px;
   }
   
   .navbar-brand {
-    padding: none;
+    padding: 0px 15px;
     height: inherit;
     &:hover {
       opacity: .8;
