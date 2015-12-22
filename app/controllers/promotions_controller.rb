@@ -6,7 +6,7 @@ class PromotionsController < ApplicationController
   # Root URL
   def index
     @active_promotions = Promotion.all_active
-    @all_promotions = Promotion.order(:expiration_date).all if current_user_is_admin?
+    (@all_promotions = Promotion.order(:expiration_date).all) if current_user_is_admin?
     @carousel_bookings = Booking.carousel_bookings
   end
 

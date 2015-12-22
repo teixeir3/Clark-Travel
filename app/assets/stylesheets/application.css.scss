@@ -611,7 +611,7 @@ h2.signature {
   }
   
   .navbar-brand {
-    padding: 0px 15px;
+    padding: 6px 15px;
     height: inherit;
     &:hover {
       opacity: .8;
@@ -899,6 +899,7 @@ h2.signature {
 	***************************************************************************/
 
 .yourtrip {
+  padding-bottom: 20px;
   .figure {
     max-width: 600px;
     margin: auto;
@@ -910,6 +911,7 @@ h2.signature {
 
 .new-promotion-blurb {
   min-height: 182px;
+  padding-bottom: 20px;
 }
 
 .promotion-body {
