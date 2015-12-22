@@ -99,6 +99,7 @@ class Promotion < ActiveRecord::Base
   end
   
   def overdue_by_str
+    return "never expires" if self.expiration_date.nil?
     "#{self.overdue_by} #{@overdue_str} #{@overdue_or_left}"
   end
 
@@ -107,6 +108,7 @@ class Promotion < ActiveRecord::Base
     @overdue_str = "minutes"
     @overdue_or_left = "expired"
     
+    return "never expires" if self.expiration_date.nil?
     overdue = (Time.zone.now - self.expiration_date.to_datetime)
     
     if (overdue < 0)
