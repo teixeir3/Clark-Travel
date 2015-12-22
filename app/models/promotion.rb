@@ -44,10 +44,6 @@ class Promotion < ActiveRecord::Base
   
   delegate :facebook, to: :user
   
-  # def mirror_facebook
- #
- #  end
-  
   # can refactor this to work with all models
   def model_path
     Rails.application.routes.url_helpers.promotion_path(self)
@@ -109,13 +105,13 @@ class Promotion < ActiveRecord::Base
   # returns the lowest denomination of how much it's overdue
   def overdue_by
     @overdue_str = "minutes"
-    @overdue_or_left = "overdue"
+    @overdue_or_left = "expired"
     
     overdue = (Time.zone.now - self.expiration_date.to_datetime)
     
     if (overdue < 0)
       overdue *= -1
-      @overdue_or_left = "left"
+      @overdue_or_left = "expires in"
     end
     
     overdue /= 60
