@@ -18,7 +18,7 @@
             <a href="<%= edit_promotion_url(promotion) %>" onclick="this.target='_blank'"><%= image_tag promotion.picture.url(:small), class: "photo" %></a>
     			</td>
           <td><%= promotion.start_date.strftime("%d/%m/%Y") %></td>
-    			<td><%= promotion.expiration_date.strftime("%d/%m/%Y") %></td>
+    			<td><%= (promotion.expiration_date.nil?) ? promotion.overdue_by_str : promotion.expiration_date.strftime("%d/%m/%Y") %></td>
     			<td><span style="color: #6599FF"><%= promotion.overdue_by_str %></span></td>
           <td><%= link_to edit_promotion_url(promotion) do  image_tag("edit-icon-32.png") end %></td>
     			<td><%= link_to "&#10006".html_safe, promotion_url(promotion), method: :delete, data: { confirm: "Really delete Promotion \"#{promotion.title}\"?" }, class: "right" if current_user_is_admin? %>
