@@ -65,4 +65,8 @@
   <% end %>
 </ul>
 
-
+<% if current_user_is_admin? %>
+  <div class="col-xs-12">
+    <%= render "index", promotions: @all_promotions %>
+  </div>
+<% end %>
