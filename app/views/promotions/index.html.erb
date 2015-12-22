@@ -65,6 +65,6 @@
   <% end %>
 </ul>
 <div class="col-xs-12">
-  <%= render "index", promotions: @all_promotions if current_user_is_admin? %>
+  <%= (render "index", promotions: @all_promotions) if current_user_is_admin? %>
 </div>
 

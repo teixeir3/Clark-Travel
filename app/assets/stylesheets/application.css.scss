@@ -566,7 +566,7 @@ h2.signature {
 //        }
 //    }
 //}
-@media (min-width: 992px) {
+@media (min-width: 700px) {
   .sticky-nav {
     padding-left: 45px;
   }
@@ -590,7 +590,7 @@ h2.signature {
 
 .navbar-inverse {
   & > .container-fluid > .navbar-inverse {
-    background-color: $navbar-inverse-bg;
+//    background-color: $navbar-inverse-bg;
   }
   background-image: none;
   background-color: $navbar-inverse-bg;
