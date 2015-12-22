@@ -113,7 +113,7 @@ class Promotion < ActiveRecord::Base
     
     if (overdue < 0)
       overdue *= -1
-      @overdue_or_left = "expires in"
+      @overdue_or_left = "left"
     end
     
     overdue /= 60
