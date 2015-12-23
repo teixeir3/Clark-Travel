@@ -15,7 +15,7 @@
 #  picture_content_type  :string(255)
 #  picture_file_size     :integer
 #  picture_updated_at    :datetime
-#  position              :integer
+#  position              :integer          default(0), not null
 #  display               :boolean          default(TRUE), not null
 #  facebook_publish      :boolean          default(FALSE), not null
 #  carousel_display      :boolean          default(FALSE), not null
