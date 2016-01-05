@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :send_contact_me_email]
   
   def index
-    @users = User.where(display: true).all(order: "position")
+    @users = User.where(display: true).order(:position).all
   end
   
   def new
