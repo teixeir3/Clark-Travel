@@ -79,7 +79,7 @@ class PromotionsController < ApplicationController
   # Refactor to a helper
   def record_not_found
     flash[:errors] = ["Record not found."]
-    redirect_to :root
+    redirect_to promotions_path
   end
 
 end
