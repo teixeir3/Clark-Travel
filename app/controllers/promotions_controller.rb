@@ -1,6 +1,7 @@
 class PromotionsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found 
   # after_action :push_to_facebook, only: [:create, :update]
   
   # Root URL
@@ -29,7 +30,6 @@ class PromotionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -71,8 +71,15 @@ class PromotionsController < ApplicationController
     @promotion.publish_to_facebook!
   end
  
+  #TODO: refactor to a helper method that all controllers can use for their models
   def set_promotion
     @promotion = Promotion.find(params[:id])
+  end
+  
+  # Refactor to a helper
+  def record_not_found
+    flash[:errors] = ["Record not found."]
+    redirect_to :root
   end
 
 end
