@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @promotion = (@user.promotions.find(params[:inquiry_id])) || @user.promotions.build(title: params[:inquiry]) if params[:inquiry_id]
+    @promotion = (Promotion.where(id: params[:inquiry_id])) || @user.promotions.build(title: params[:inquiry]) if params[:inquiry_id]
   end
   
   def create

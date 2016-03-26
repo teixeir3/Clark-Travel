@@ -54,6 +54,10 @@ group :development do
   gem "letter_opener"
 end
 
+group :development, :test do
+  gem 'parallel_rspec'
+end
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2', require: 'bcrypt'
 
