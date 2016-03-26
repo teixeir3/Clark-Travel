@@ -55,7 +55,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'parallel_rspec'
+  # gem 'parallel_rspec'
 end
 
 # Use ActiveModel has_secure_password

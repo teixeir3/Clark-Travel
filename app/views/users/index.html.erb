@@ -23,24 +23,24 @@
         <ul class="list-group contact-info">
         
       		<% unless user.title.blank? %>
-            <li class="list-group-item blurb"><strong><%= user.title %></strong></li>
+            <li class="list-group-item blurb" title="Title"><strong><%= user.title %></strong></li>
           <% end %>
           
       		<% unless user.work_phone.blank? %>
-            <li class="work-icon list-group-item blurb"><%= user.phone_format(:work_phone) %></li>
+            <li class="work-icon list-group-item blurb" title="Work Phone"><%= user.phone_format(:work_phone) %></li>
           <% end %>
           
       		<% unless user.mobile_phone.blank? %>
-            <li class="mobile-icon list-group-item blurb"><%= user.phone_format(:mobile_phone) %></li>
+            <li class="mobile-icon list-group-item blurb" title="Mobile Phone"><%= user.phone_format(:mobile_phone) %></li>
           <% end %>
           
       		<% unless user.fax.blank? %>
-            <li class="fax-icon list-group-item blurb"><%= user.phone_format(:fax) %></li>
+            <li class="fax-icon list-group-item blurb " title="Fax"><%= user.phone_format(:fax) %></li>
           <% end %>
           
       		<% unless user.email.blank? %>
-            <li class="envelope-icon list-group-item blurb">
-              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+            <li class="envelope-icon list-group-item blurb" title="Email">
+              <span class="glyphicon glyphicon-envelope fa fa-envelope" aria-hidden="true"></span>
               <%= user.email %>
             </li>
           <% end %>
