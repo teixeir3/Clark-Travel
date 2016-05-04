@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: booking_categories
+#
+#  id                   :integer          not null, primary key
+#  title                :string(255)      not null
+#  position             :integer
+#  description          :text
+#  created_at           :datetime
+#  updated_at           :datetime
+#  user_id              :integer          not null
+#  picture_file_name    :string(255)
+#  picture_content_type :string(255)
+#  picture_file_size    :integer
+#  picture_updated_at   :datetime
+#  display              :boolean          default(TRUE), not null
+#
+
 class BookingCategoriesController < ApplicationController
     before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy, :sort]
     before_action :set_booking_category, only: [:show, :edit, :update, :destroy]
