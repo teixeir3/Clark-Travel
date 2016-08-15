@@ -1,7 +1,7 @@
 {
   "command": "ruby -rubygems -r./custom_plan -eZeus.go",
 
-  "plan": {
+  "plan": {	
     "boot": {
       "default_bundle": {
         "development_environment": {

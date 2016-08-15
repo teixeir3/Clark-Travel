@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.3"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
@@ -52,10 +54,14 @@ group :development do
   gem "annotate"
   gem "pry-rails"
   gem "letter_opener"
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
 end
 
 group :development, :test do
   # gem 'parallel_rspec'
+  gem 'spring'
+  gem 'rspec-rails'
 end
 
 # Use ActiveModel has_secure_password
