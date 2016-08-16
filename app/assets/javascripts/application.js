@@ -146,7 +146,7 @@ ready = function() {
      dots: false,
      pagination: false
   });
-  console.log("DID IT!");
+	
   owlBookings.trigger('owl.play',7000);
 
   $('.sortable').sortable({

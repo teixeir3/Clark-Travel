@@ -1,7 +1,7 @@
 <div class="col-xs-12 facebook-auth">
   <figcaption class="fb-auth-container">
       <h1 class="">
-        <% if current_user.valid_facebook? %>
+        <% if false && current_user.valid_facebook? %>
            <%= link_to "Facebook Authorized", "/auth/facebook?scope=publish_actions,manage_pages,email", id: "sign_in" %>
            <%= image_tag(current_user.fb_picture_url, class: "") %>
         <% elsif current_user_is_admin? %>
