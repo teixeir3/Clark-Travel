@@ -17,7 +17,7 @@
           <div class="item">
             <%= render "testimonials/show", testimonial: testimonial, to_truncate: true %>    
           </div>
-        <% end %>
+        <% end if @testimonials.present? %>
       </div>
       
       <div class="col-xs-12 col-sm-4">
