@@ -22,7 +22,7 @@
             <%= image_tag booking.picture.url(:small), class: "photo" %>
           </a>
         </div>
-      <% end %>
+      <% end if @carousel_bookings%>
     </div>
 
     <figcaption>
