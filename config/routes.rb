@@ -19,7 +19,8 @@ ClarkTravel::Application.routes.draw do
   
   resources :downloads, only: [:index]
   
-  root to: "promotions#index"
+  # root to: "promotions#index"
+	  root to: "pages#disney"
   
   
   
