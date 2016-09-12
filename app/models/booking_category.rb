@@ -43,7 +43,7 @@ class BookingCategory < ActiveRecord::Base
   )
   
   def self.all_active
-    self.all(order: "position")
+    self.order(:position).all
   end
   
 end

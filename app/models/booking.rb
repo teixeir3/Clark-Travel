@@ -42,7 +42,7 @@ class Booking < ActiveRecord::Base
   )
   
   def self.all_active
-    self.where(display: true).all(order: "position")
+    self.where(display: true).order(:position).all
   end
   
   def self.carousel_bookings
