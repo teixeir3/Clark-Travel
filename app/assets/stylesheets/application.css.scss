@@ -306,8 +306,8 @@ a.delete-button:hover {
 
 .disney {
   margin: auto;
-  width: 175px;
-  padding-top: 15px;
+  width: 250px;
+  padding-top: 25px;
   img:hover {
     opacity: .8;
   }
@@ -1359,10 +1359,23 @@ form .submit > input {
   width: 600px;
 }
 
+.aulani {
+  width: 300;
+  padding: 100px 0px !important;
+
+  img {
+    width: 100%;
+  }
+}
+
 .center {
   margin: auto;
 //  width: 324px;
   text-align: center;
+
+  & img {
+    margin: auto;
+  }
 }
 .half-size {
   width: 40%;
