@@ -20,3 +20,5 @@
 
 # Ignore DNS backup info
 dns.rb
+
+.DS_Store

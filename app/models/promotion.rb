@@ -77,7 +77,7 @@ class Promotion < ActiveRecord::Base
   
   def publish_to_facebook!(skip_check = false)
     if (skip_check || publish_to_facebook?)
-
+      # TODO (08-08-2017): Potential error if Oauth token expires.
       self.facebook_id = Koala::Facebook::API.new(user.facebook.get_page_access_token("clarktravelagency")).put_object("clarktravelagency", "feed", facebook_options)["id"]
       self.facebook_published_at = DateTime.now
       self.save!
@@ -87,7 +87,8 @@ class Promotion < ActiveRecord::Base
   end  
   
   def publish_to_facebook?
-    facebook_publish && facebook_published_at.nil?# REMOVE / add: (only publish once)|| (facebook_published_at < updated_at)
+    # TODO (08-08-2017): REMOVE / add: (only publish once)|| (facebook_published_at < updated_at)
+    facebook_publish && facebook_published_at.nil?
   end
   
   def self.all_active

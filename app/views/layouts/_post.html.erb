@@ -9,7 +9,7 @@
   
   <div class="col-xs-12">
     <i class="fa fa-facebook-square fa-lg"></i>
-    <small class="left">Posted on Facebook: <%= Time.parse(post["updated_time"]).strftime("%b %d @ %I:%M")  %> </small>
+    <small class="left">Posted on Facebook: <%= Time.parse(post["created_time"]).strftime("%b %d @ %I:%M")  %> </small>
    </div>
   
 <% end %>
