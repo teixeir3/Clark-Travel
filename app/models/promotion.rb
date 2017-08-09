@@ -55,19 +55,19 @@ class Promotion < ActiveRecord::Base
   
   def facebook_options(host = "http://www.clark-travel.com")
     @options ||= (start_date.past? || start_date.today?) ? {
-      name: title,
-      message: body,
-      caption: highlight,
-      description: body,
+      # name: title,
+      # message: body,
+      # caption: highlight,
+      # description: body,
       link: model_url,
-      picture: picture.url(:thumb)
+      # picture: picture.url(:thumb)
     } : {
-      name: title,
-      caption: highlight,
-      message: body,
-      description: body,
+      # name: title,
+      # caption: highlight,
+      # message: body,
+      # description: body,
       link: model_url,
-      picture: picture.url(:thumb),
+      # picture: picture.url(:thumb),
       scheduled_publish_time: start_date.to_time.to_i,
       published: false
     }
