@@ -58,16 +58,16 @@ class Promotion < ActiveRecord::Base
       name: title,
       message: body,
       caption: highlight,
-      description: highlight,
+      description: body,
       link: model_url,
-      picture: picture.url
+      picture: picture.url(:thumb)
     } : {
       name: title,
       caption: highlight,
       message: body,
-      description: highlight,
+      description: body,
       link: model_url,
-      picture: picture.url,
+      picture: picture.url(:thumb),
       scheduled_publish_time: start_date.to_time.to_i,
       published: false
     }
