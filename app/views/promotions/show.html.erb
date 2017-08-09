@@ -1,10 +1,11 @@
 
 <% content_for :head do %>
-  <meta property="fb:app_id"  content="<%= ENV["FACEBOOK_APP_ID"] %>" />
-  <meta property="og:url"    content="<%= promotion_url(@promotion) %>" />
-  <meta property="og:title"  content="<%= @promotion.title %>" />
-  <meta property="og:description"  content="<%= @promotion.body %>" />
-  <meta property="og:image"  content="<%= @promotion.picture.url(:large) %>" />
+  <meta property="fb:app_id" content="<%= ENV["FACEBOOK_APP_ID"] %>" />
+  <meta property="og:url" content="<%= promotion_url(@promotion) %>" />
+  <meta property="og:title" content="<%= @promotion.title %>" />
+  <meta property="og:description" content="<%= @promotion.body %>" />
+  <meta property="og:image" content="<%= @promotion.picture.url(:thumb) %>" />
+  <meta property="og:type" content="article" />
 
 <% end %>
 
