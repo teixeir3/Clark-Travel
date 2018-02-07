@@ -1,7 +1,7 @@
 <div class="col-xs-12 cruising tint background-image row-padding">
   <figure class="figure">  
     <div class="text-center">
-     	<h1>Ted Hierl's German  American Radio Cruise</h1>
+     	<h1>Ted Hierl's German American Radio Cruise</h1>
 
      	<h2>Roundtrip From</h2>
 		<h2>New York</h2>
@@ -108,5 +108,5 @@
   </h2>
 </div>
 <div class="col-xs-12">
-  <h1 class="center contact-us" id="contact-us"><%= link_to "Contact an agent to learn more!", user_url(User.where(first_n ame: "Ulrike", last_n ame: "Ocasio").first.id, inquiry: "Ted Hierl's German  American Radio Cruise"), class: "center" %></h1>
+  <h1 class="center contact-us" id="contact-us"><%= link_to "Contact an agent to learn more!", user_url(User.where(first_name: "Ulrike", last_name: "Ocasio").first.id, inquiry: "Ted Hierl's German American Radio Cruise"), class: "center" %></h1>
 </div>
