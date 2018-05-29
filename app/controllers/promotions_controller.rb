@@ -93,7 +93,6 @@ class PromotionsController < ApplicationController
   private
   
   def push_to_facebook
-    sleep 30
     @promotion.publish_to_facebook!
   end
  
