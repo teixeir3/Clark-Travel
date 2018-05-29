@@ -54,9 +54,7 @@ class Promotion < ActiveRecord::Base
   end
 
   def description_tag_str
-    if ((self.highlight && !self.highlight.blank?) && (self.body && !self.body.blank?))
-      self.highlight + " |\n" + self.body
-    elsif (self.body && !self.body.blank?)
+    if (self.body && !self.body.blank?)
       self.body
     elsif (self.highlight && !self.highlight.blank?)
       self.highlight
