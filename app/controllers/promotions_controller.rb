@@ -44,7 +44,6 @@ class PromotionsController < ApplicationController
     @promotion = current_user.promotions.build(permitted_params.promotion)
 
     if @promotion.save
-      sleep 2
       push_to_facebook
       flash.now[:notices] = ["Promotion created!"]
       render :edit
@@ -94,6 +93,7 @@ class PromotionsController < ApplicationController
   private
   
   def push_to_facebook
+    sleep 10
     @promotion.publish_to_facebook!
   end
  
