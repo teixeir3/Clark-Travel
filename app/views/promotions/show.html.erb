@@ -4,7 +4,7 @@
   <meta property="og:url" content="<%= promotion_url(@promotion) %>" />
   <meta property="og:title" content="<%= @promotion.title || @promotion.highlight %>" />
   <meta property="og:description" content="<%= @promotion.description_tag_str %>" />
-  <meta property="og:image" content="<%= @promotion.picture.url(:thumb) %>" />
+  <meta property="og:image" content="<%= @promotion.picture.url(:medium) || @promotion.picture.url(:thumb) %>" />
   <meta property="og:type" content="article" />
 
 <% end %>
