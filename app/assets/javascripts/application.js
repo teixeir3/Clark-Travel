@@ -66,13 +66,14 @@ var refreshImage = function(cssClass){
 
 var ready;
 ready = function() {
+  // console.log("ready!");
 
   $('.delete-button').bind('ajax:success', function(evt, data, status, xhr){
-    console.log("Great SUCCESS!!");
-    console.log(evt);
-    console.log(data);
-    console.log(status);
-    console.log(xhr);
+    // console.log("Great SUCCESS!!");
+    // console.log(evt);
+    // console.log(data);
+    // console.log(status);
+    // console.log(xhr);
   })
 
   $(".dropdown-toggle").dropdown();
@@ -81,10 +82,6 @@ ready = function() {
   fadeOutElement($('.notices'), 6000);
 
   var owlPromotions = $('.promotions-carousel');
-  var owlTestimonials = $('.testimonials-carousel');
-  var owlFeed = $('.feed-carousel');
-  var owlBookings = $('.bookings-carousel');
-
   owlPromotions.owlCarousel({
      items : 1, 
      itemsDesktop : false,
@@ -99,6 +96,7 @@ ready = function() {
   });
   owlPromotions.trigger('owl.play',10000);
 
+  var owlTestimonials = $('.testimonials-carousel');
   owlTestimonials.owlCarousel({
     items : 1, 
     itemsDesktop : false,
@@ -113,9 +111,9 @@ ready = function() {
     dots: false,
     pagination: false
   });
-
   owlTestimonials.trigger('owl.play', 10000);
 
+  var owlFeed = $('.feed-carousel');
   owlFeed.owlCarousel({
     items : 1, 
     itemsDesktop : false,
@@ -132,6 +130,7 @@ ready = function() {
   });
   owlFeed.trigger('owl.play', 10000);
 
+  var owlBookings = $('.bookings-carousel');
   owlBookings.owlCarousel({
      items : 1, 
      itemsDesktop : false,

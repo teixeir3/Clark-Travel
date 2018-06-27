@@ -3,7 +3,7 @@
     
   
       <% if @feed %>
-        <div class="feed-carousel left">
+        <div class="owl-carousel feed-carousel left">
           <% @feed.each do |post| %>
             <% next unless post["message"] %>
             <%= render "layouts/post", post: post %>    
@@ -12,7 +12,7 @@
       <% end %>
       
       
-      <div class="no-imageFull testimonials-carousel">
+      <div class="owl-carousel no-imageFull testimonials-carousel">
         <% @testimonials.each do |testimonial| %>
           <div class="item">
             <%= render "testimonials/show", testimonial: testimonial, to_truncate: true %>    

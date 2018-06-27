@@ -12,7 +12,7 @@ $table-bg-hover: $brand-primary-transparent;
 
 @import "jquery-ui";
 @import "owl.carousel";
-@import "owl.theme";
+@import "owl.theme.default";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -67,7 +67,6 @@ textarea {
 }
 
 body {
-/*    background-image: url('body_bg.png');*/
     padding-top: 90px;
     background-position: center top;
     background-repeat: repeat-x;

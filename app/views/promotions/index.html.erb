@@ -1,5 +1,5 @@
 <div class="col-xs-12 row-padding">
-  <div class="promotions-carousel">
+  <div class="owl-carousel promotions-carousel">
     <% @active_promotions.select { |p| p.carousel_display }.each do |promotion| %>
       <div class="item">
         <a class="promotion-link" target="_blank" title="<%= promotion.highlight %>" href="<%= promotion_url(promotion) %>">
@@ -15,7 +15,7 @@
 
 <div class="col-xs-12 col-md-6 yourtrip">
   <figure class="figure">
-    <div class="bookings-carousel" id="bookings-carousel">
+    <div class="owl-carousel bookings-carousel" id="bookings-carousel">
       <% @carousel_bookings.each do |booking| %>
         <div class="item">
           <a class="hovertext-small" target="_blank" title="<%= booking.title %>" href="<%= booking.url %>">
