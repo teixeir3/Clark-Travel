@@ -5,6 +5,8 @@
   <meta property="og:title" content="<%= @promotion.title || @promotion.highlight %>" />
   <meta property="og:description" content="<%= @promotion.description_tag_str %>" />
   <meta property="og:image" content="<%= @promotion.picture.url(:medium) || @promotion.picture.url(:thumb) %>" />
+  <meta property="og:image:width" content="261" />
+  <meta property="og:image:height" content="348" />
   <meta property="og:type" content="article" />
 
 <% end %>
