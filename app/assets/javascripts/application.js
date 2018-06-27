@@ -155,6 +155,7 @@ ready = function() {
 
 };
 
-$(document).ready(ready);
+// $(document).ready(ready);
+$(window).on('load', ready);
 $(document).on('page:load', ready);
 $(document).on('page:change', ready);
