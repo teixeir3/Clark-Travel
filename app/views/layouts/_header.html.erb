@@ -13,10 +13,11 @@
       </div>
     
       <div class="collapse navbar-collapse navbar-inverse" id="navbar-collapse-1">
-        <ul class="navigation nav navbar-nav">
+        <ul class="navigation nav navbar-nav sticky-nav">
           <li class=""><a href="/">Home</a></li>
         	<li class=""><%= link_to "Disney", page_path("disney") %></li>
-          <li class=""><a href="<%= page_path("german_cruising") %>">German-American Cruise</a></li>
+          <li class=""><a href="https://www.lomasagentportal.com/16452">Lomas Tours</a></li>
+          <% "<li class=''><a href='#{page_path('german_cruising')}''>German-American Cruise</a></li>".html_safe %>
         	<li class=""><a href="<%= booking_categories_path %>">Book Online</a></li>
         	<li class=""><a href="<%= page_path("resources") %>">Resources</a></li>
 
